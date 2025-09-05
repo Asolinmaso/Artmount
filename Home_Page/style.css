@@ -1276,6 +1276,98 @@ body:has(#menu-toggle:checked) {
   }
 }
 
+
+/*============== logo ============= */
+.logo {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #fff;
+  margin-top: 60px;
+  padding: 0;
+}
+
+.logo-text {
+  margin-bottom: 30px;
+  height: 50px;
+  font-weight: 600;
+  font-size: 44px;
+}
+
+.carousel-container {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 25%; /* 4 logos per view */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.carousel-slide img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+
+/* ================== Responsive ================== */
+
+/* Large desktops (same as default, no change needed) */
+@media (max-width: 1200px) {
+  /* keep same styles as main */
+}
+
+/* Medium desktops (same as default, no change needed) */
+@media (max-width: 992px) {
+  /* keep same styles as main */
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 32px;
+    height: auto;
+  }
+
+  .carousel-slide {
+    min-width: 50%; /* show 3 logos per view */
+    padding: 15px;
+  }
+
+  .carousel-slide img {
+    width: 160px;
+  }
+}
+
+/* Small mobiles */
+@media (max-width: 430px) {
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .carousel-slide {
+    min-width: 50%; /* show 2 logos per view */
+    padding: 10px;
+  }
+
+  .carousel-slide img {
+    width: 120px;
+  }
+}
+
+
+
+
 /*  testimonials  */
 
 .testimonials-section{

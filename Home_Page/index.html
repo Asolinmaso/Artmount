@@ -306,6 +306,91 @@
         </div>
     </section>
 
+    <!--==================== logo ============================-->
+    <div class="logo">
+<h2 class="logo-text">Our Technolgy Partners for Placement</h2>
+  
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- 11 logos -->
+      <div class="carousel-slide"><img src="wraptron logo.png" alt="Logo 1"></div>
+      <div class="carousel-slide"><img src="codeup logo.png" alt="Logo 2"></div>
+      <div class="carousel-slide"><img src="ddc logo.jpg" alt="Logo 3"></div>
+      <div class="carousel-slide"><img src="Collobrator-03.png" alt="Logo 4"></div>
+      <div class="carousel-slide"><img src="Collobrator-04.png" alt="Logo 5"></div>
+      <div class="carousel-slide"><img src="BBt-3.png" alt="Logo 6"></div>
+      <div class="carousel-slide"><img src="Collobrator-06.png" alt="Logo 8"></div>
+      <div class="carousel-slide"><img src="Fronseye-Logo-BNI.jpg" alt="Logo 9"></div>
+      <div class="carousel-slide"><img src="Logo.webp" alt="Logo 10"></div>
+      <div class="carousel-slide"><img src="seaport-ai-logo.png" alt="Logo 11"></div>
+    </div>
+  </div>
+
+  <script>
+  const track = document.getElementById("carouselTrack");
+  const slides = document.querySelectorAll(".carousel-slide");
+  const totalSlides = slides.length;
+  let visibleSlides = 4;
+  let index = 0;
+  let intervalTime = 10000; // default 10s
+  let interval;
+
+  // Clone first 'visibleSlides' logos for smooth looping
+  function cloneSlides() {
+    for (let i = 0; i < visibleSlides; i++) {
+      let clone = slides[i].cloneNode(true);
+      track.appendChild(clone);
+    }
+  }
+
+  // Adjust speed & visibleSlides based on screen size
+  function updateSettings() {
+    if (window.innerWidth <= 430) {
+      visibleSlides = 2;
+      intervalTime = 5000; // 5 sec for mobiles
+    } else if (window.innerWidth <= 768) {
+      visibleSlides = 2; // 2 per view
+      intervalTime = 5000; // 5 sec for tablets
+    } else {
+      visibleSlides = 4;
+      intervalTime = 10000; // 10 sec for desktops
+    }
+  }
+
+  function moveCarousel() {
+    index++;
+    track.style.transition = "transform 1s ease-in-out";
+    track.style.transform = `translateX(-${index * (100 / visibleSlides)}%)`;
+
+    if (index === totalSlides) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        index = 0;
+        track.style.transform = `translateX(0%)`;
+      }, 1000);
+    }
+  }
+
+  function startCarousel() {
+    clearInterval(interval);
+    interval = setInterval(moveCarousel, intervalTime);
+  }
+
+  // Initial setup
+  updateSettings();
+  cloneSlides();
+  startCarousel();
+
+  // Recalculate on resize
+  window.addEventListener("resize", () => {
+    updateSettings();
+    startCarousel();
+  });
+</script>
+
+
+</div>
+
     <!-- ================= TESTIMONIALS SECTION ================= -->
     <section class="testimonials-section">
         <div class="container">

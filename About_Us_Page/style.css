@@ -433,12 +433,13 @@ body:has(#menu-toggle:checked) {
 
 /* cta section */
 .cta-section {
+  font-family: 'Inter';
   margin: 40px 80px;
   background: #2da9e0;
-  padding: 60px 50px 20px 30px;
+  padding: 40px 30px 0px 30px;
   color: #fff;
-  border-radius: 15px;
-  height: 463px; /* desktop height */
+  border-radius: 20px;
+  height: 410px; /* desktop height */
 }
 
 .cta-heading {
@@ -449,6 +450,7 @@ body:has(#menu-toggle:checked) {
 }
 
 .cta-text {
+  margin-top: 20px;
   font-size: 18px;
   font-weight: 400;
   opacity: 0.9;
@@ -463,10 +465,11 @@ body:has(#menu-toggle:checked) {
   height: 60px;
   border-radius: 10px;
   border: none;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   padding: 15px 20px;
   font-size: 16px;
   color: #333;
+  font-weight:500;
 }
 
 .form-control::placeholder {
@@ -477,17 +480,18 @@ body:has(#menu-toggle:checked) {
 /* Contact Button */
 .btn-contact {
   background: white;
-  width: 180px;
+  width: 200px;
   color: #2da9e0;
   border: none;
-  padding: 12px 20px;
+  padding: 12px 25px;
   border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 30px;
   transition: all 0.3s ease;
+  font-size:20px;
 }
 
 .btn-contact:hover {
@@ -500,24 +504,6 @@ body:has(#menu-toggle:checked) {
   display: none;
 }
 
-/* ================== CTA RESPONSIVENESS ================== */
-
-/* Large screens down (<=1200px) */
-@media (max-width: 1200px) {
-  .cta-section {
-    margin: 30px 50px;
-    padding: 50px 40px 20px 25px;
-    height: auto; /* let it grow naturally */
-  }
-
-  .cta-heading {
-    font-size: 40px;
-  }
-
-  .cta-text {
-    font-size: 17px;
-  }
-}
 
 /* Medium screens (<=992px) */
 @media (max-width: 992px) {

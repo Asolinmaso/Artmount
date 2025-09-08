@@ -133,32 +133,35 @@ body:has(#menu-toggle:checked) {
 .hero-content h1 {
     font-family:Poppins;
     height:260;
-    line-height:1.1;
+    line-height:1.2;
   font-size: 61.5px;
   font-weight: 500;
-  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .hero-content p {
-  font-size:22.5px;
-  margin-bottom:15px;
+  font-size:21px;
+  margin-bottom:0px;
+   margin-top:20px;
    line-height:1.1;
   color: #dafff1;
   width:560px;
+  font-weight: 400;
 }
 
 .btn-primary {
   background: #2da9e0;
   border: none;
-  padding: 10px 35px;
+  padding: 8px 25px;
   border-radius: 25px;
-  font-size:18px;
-  font-weight: 400;
+  font-size:20px;
+  font-weight: 500;
   color: #000000ff;
   cursor: pointer;
    word-spacing: 2px;
   transition: all 0.3s ease;
   margin-bottom:12px;
+  margin-top:20px;
 }
 
 .btn-primary:hover {
@@ -227,6 +230,7 @@ body:has(#menu-toggle:checked) {
 }
 .circle-text{
     margin-bottom:2px;
+     color: #dafff1;
 }
 .circle-text h6 {
      font-family: 'Plus Jakarta Sans', sans-serif;
@@ -251,9 +255,9 @@ body:has(#menu-toggle:checked) {
 .badge-number {
      font-family: 'Plus Jakarta Sans', sans-serif;
     padding-left:15px;
-    padding-top:30px;
+    padding-top:23px;
   font-size: 40px;
-  font-weight: 500;
+  font-weight: 600;
   color: #00a6e7;
 }
 
@@ -262,7 +266,7 @@ body:has(#menu-toggle:checked) {
     font-weight:300;
     font-size: 20px;
   line-height: 1.4;
-  color: #e6e6e6;
+  color: #dafff1;
   margin-top: 5px;
 }
 
@@ -1607,10 +1611,10 @@ body:has(#menu-toggle:checked) {
   font-family: 'Inter';
   margin: 40px 80px;
   background: #2da9e0;
-  padding: 60px 50px 20px 30px;
+  padding: 40px 30px 0px 30px;
   color: #fff;
-  border-radius: 15px;
-  height: 463px; /* desktop height */
+  border-radius: 20px;
+  height: 410px; /* desktop height */
 }
 
 .cta-heading {
@@ -1621,6 +1625,7 @@ body:has(#menu-toggle:checked) {
 }
 
 .cta-text {
+  margin-top: 20px;
   font-size: 18px;
   font-weight: 400;
   opacity: 0.9;
@@ -1635,7 +1640,7 @@ body:has(#menu-toggle:checked) {
   height: 60px;
   border-radius: 10px;
   border: none;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   padding: 15px 20px;
   font-size: 16px;
   color: #333;
@@ -1650,17 +1655,18 @@ body:has(#menu-toggle:checked) {
 /* Contact Button */
 .btn-contact {
   background: white;
-  width: 180px;
+  width: 200px;
   color: #2da9e0;
   border: none;
-  padding: 12px 20px;
+  padding: 12px 25px;
   border-radius: 10px;
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 30px;
   transition: all 0.3s ease;
+  font-size:20px;
 }
 
 .btn-contact:hover {

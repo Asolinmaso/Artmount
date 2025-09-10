@@ -745,7 +745,7 @@ body:has(#menu-toggle:checked) {
 }
 .custom-footer p{
     font-weight:500;
-  width:230px;
+  width:220px;
    color: #FFFFFFCC;
 }
 
@@ -757,10 +757,11 @@ body:has(#menu-toggle:checked) {
    color: #FFFFFFCC;
 }
 
-.office-address {
+p.office-address {
   margin-bottom: 40px;
     font-weight:400;
    color: #FFFFFFCC;
+   width:350px;
 }
 
 .newsletter {

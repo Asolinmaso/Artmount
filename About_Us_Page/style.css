@@ -633,6 +633,7 @@ body:has(#menu-toggle:checked) {
    font-weight:500;
   width:220px;
    color: #FFFFFFCC;
+    line-height:1.6;
 }
 
 .custom-footer ul li {
@@ -642,6 +643,11 @@ body:has(#menu-toggle:checked) {
   font-weight:400;
    color: #FFFFFFCC;
 }
+.custom-footer a{
+   text-decoration:none;
+   color: #FFFFFFCC;
+}
+
 
 p.office-address {
   margin-bottom: 40px;

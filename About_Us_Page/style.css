@@ -15,10 +15,8 @@ body:has(#menu-toggle:checked) {
 /* Hero Section */
 .header{
     height:900px;
-    font-family:Poppins;
 }
 .hero-section {
-   font-family:Poppins;
   background: url("image.png") no-repeat center center;
   background-size: 100% 100%; /* Stretches image to fill */
   min-height: 110vh;
@@ -151,7 +149,7 @@ body:has(#menu-toggle:checked) {
   font-weight: 600;
   color: #000000ff;
   margin-bottom: 40px;
-  font-size:80px;
+  font-size:72px;
   line-height: 1.1;
 }
 

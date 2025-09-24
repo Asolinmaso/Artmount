@@ -168,6 +168,7 @@ body:has(#menu-toggle:checked) {
 .team-section {
   padding: 30px 0;
   background: #ffffffff;
+  margin-bottom:90px;
 }
 
 .team-grid {
@@ -352,16 +353,25 @@ body:has(#menu-toggle:checked) {
   }
 }
 
-@media (max-width: 430px) {
-  .navbar-icon{
-      margin-right:-90px;
-    margin-top:-18px;
+@media (max-width: 500px) {
+  
+   .navbar-icon{
+    top:50px;
+    right:30px;
   }
   .navbar-menu{
     width:100%;
+    margin:0 auto;
+
+  }
+  .navbar-icon{
+    margin-right:0px;
+    margin-top:-18px;
   }
   .navbar-menu ul{
     text-align:center;
+     margin:0 auto;
+
   }
 
   .about-us-label{
@@ -374,13 +384,13 @@ body:has(#menu-toggle:checked) {
   .description {
   font-size: 19px;
   color: #6c6c6cff;
-  line-height: 1.4;
+  line-height: 1.6;
   margin-bottom: 0px;
   width:100%;
   height:350px;
 }
   .main-heading {
-    font-size:35px;
+    font-size:40px;
     line-height: 1.3;
   }
   .team-grid {
@@ -429,6 +439,7 @@ body:has(#menu-toggle:checked) {
   }
 }
 
+
 /* =========cta section========= */
 
 /* cta section */
@@ -437,10 +448,10 @@ body:has(#menu-toggle:checked) {
   font-family: 'Inter';
   margin: 40px 80px;
   background: #2da9e0;
-  padding: 40px 30px 0px 30px;
+  padding: 40px 30px 40px 30px;
   color: #fff;
   border-radius: 20px;
-  height: 410px; /* desktop height */
+  height: auto; /* desktop height */
 }
 
 .cta-heading {
@@ -504,6 +515,18 @@ body:has(#menu-toggle:checked) {
 .btn-mobile {
   display: none;
 }
+.error {
+    color: rgb(255, 255, 255);
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+        }
+.form-control.invalid {
+    border: 2px solid red;
+        }
+.form-control.valid {
+    border: 2px solid rgb(10, 233, 10);
+            }
 
 /* ================== CTA RESPONSIVENESS ================== */
 
@@ -588,10 +611,10 @@ body:has(#menu-toggle:checked) {
 }
 
 /* Small mobiles (<=430px) */
-@media (max-width: 430px) {
+@media (max-width: 500px) {
   .cta-section {
     width:95%;
-    margin: 20px 8px 10px 10px;
+    margin: 0 auto ;
     height: auto; /* Let content decide height */
     padding: 20px;
   }
@@ -623,6 +646,7 @@ body:has(#menu-toggle:checked) {
     text-align: center;
   }
 }
+
 
 /* ==============footer=============== */
 
@@ -870,7 +894,7 @@ body:has(#menu-toggle:checked) {
 }
 
 /* Small mobiles (<=430px) */
-@media (max-width: 430px) {
+@media (max-width: 500px) {
     .custom-footer {
     height:800px;  /* let height grow naturally */
     padding: 20px 20px;
@@ -929,7 +953,7 @@ body:has(#menu-toggle:checked) {
   color: #FFFFFFCC;
   font-size:15px;
   margin-top:10px;
-  width:100%;
+  width:303px;
  
 }
 .office-address2 h5{
@@ -941,8 +965,7 @@ body:has(#menu-toggle:checked) {
 
   .copyright p{
     font-size:13px;
-    margin-top:80px;
-    margin-left:0px;
+    margin:80px auto 0px auto;
     width:100%;
   }
 
@@ -981,7 +1004,7 @@ body:has(#menu-toggle:checked) {
 @media (max-width: 320px) {
   .copyright p{
     margin-top:70px;
-    font-size:11px;
+    font-size:10px;
   }
   .social-icon {
     margin-top:5px;

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Course Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ==================== HEADER SECTION ==================== -->
+<nav class="navbar navbar-light header-navbar">
+    <div class="container-fluid p-0 position-relative">
+        <!-- Header Image Container with Course Title and Play Button -->
+        <div class="header-image-container position-relative">
+            <img src="assets/images/Frame 1321314415.png" alt="Code Screen" class="header-image" />
+            <div class="play-btn-overlay">
+                <div class="play-button">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <div class="header-overlay">
+                <h1>Course Details</h1>
+            </div>
+        </div>
+        <!-- Navigation Toggle Button -->
+        <div class="header-overlay d-flex justify-content-end pe-4 position-absolute top-0 end-0 m-3">
+            <button class="navbar-toggler border-0" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row g-0">
+
+        <!-- ==================== MAIN CONTENT SECTION ==================== -->
+        <div class="col-lg-8 col-md-12">
+            <div class="main-content p-4">
+
+                <!-- Navigation Tabs -->
+                <ul class="nav nav-underline mb-4" id="courseTabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showTab('description')">Description</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showTab('courses')">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showTab('review')">Review</a>
+                    </li>
+                </ul>
+
+                <!-- Description Tab Content -->
+                <div id="description-content" class="tab-content">
+                    <div class="description-container">
+                        <div class="description-text-section mb-4">
+                            <p class="description-text">
+                                This course is a comprehensive journey into the world of Graphic Design, crafted for both beginners 
+                                and aspiring professionals. From visual storytelling and design principles to hands-on tools and 
+                                branding essentials, the course blends creativity with industry relevance. You'll explore real-world 
+                                design challenges, guided step-by-step to build a portfolio that stands out.
+                            </p>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header p-3 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#gain">
+                                <h6 class="mb-0 fw-medium">What You'll Gain</h6>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="gain" class="collapse show">
+                                <div class="accordion-content p-3">
+                                    <ul class="course-list">
+                                        <li>Master fundamental design principles and visual hierarchy</li>
+                                        <li>Proficiency in industry-standard design software</li>
+                                        <li>Brand identity creation and logo design expertise</li>
+                                        <li>Print and digital design portfolio development</li>
+                                        <li>Typography mastery and color theory application</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header p-3 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#coverage">
+                                <h6 class="mb-0 fw-medium">Course Coverage - GD & VP</h6>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="coverage" class="collapse">
+                                <div class="accordion-content p-3">
+                                    <ul class="course-list">
+                                        <li>Graphic Design Fundamentals</li>
+                                        <li>Visual Principles & Composition</li>
+                                        <li>Brand Identity Development</li>
+                                        <li>Print Design & Production</li>
+                                        <li>Digital Design & Web Graphics</li>
+                                        <li>Portfolio Creation & Presentation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header p-3 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#tools">
+                                <h6 class="mb-0 fw-medium">Tools Covered</h6>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="tools" class="collapse">
+                                <div class="accordion-content p-3">
+                                    <ul class="course-list">
+                                        <li>Adobe Photoshop - Advanced photo editing and manipulation</li>
+                                        <li>Adobe Illustrator - Vector graphics and logo design</li>
+                                        <li>Adobe InDesign - Layout design and publication</li>
+                                        <li>Figma - Digital design and prototyping</li>
+                                        <li>Canva - Quick design solutions and templates</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header p-3 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#jobs">
+                                <h6 class="mb-0 fw-medium">What Jobs Can You Get?</h6>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="jobs" class="collapse">
+                                <div class="accordion-content p-3">
+                                    <ul class="course-list">
+                                        <li>Graphic Designer</li>
+                                        <li>Visual Designer</li>
+                                        <li>Brand Designer</li>
+                                        <li>UI/UX Designer</li>
+                                        <li>Creative Director</li>
+                                        <li>Freelance Designer</li>
+                                        <li>Marketing Design Specialist</li>
+                                        <li>Art Director</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Courses Tab Content -->
+                <div id="courses-content" class="tab-content" style="display: none;">
+                    <div class="description-container">
+                        <div class="accordion-item">
+                            <div class="accordion-header p-3 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#chapter1">
+                                <h6 class="mb-0 fw-medium">Chapter 1: Course Overview</h6>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="chapter1" class="collapse">
+                                <div class="accordion-content p-3">
+                                    <p class="text-muted">Get introduced to the comprehensive world of graphic design and understand the course structure.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header p-3 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#chapter2">
+                                <h6 class="mb-0 fw-medium">Chapter 2: Curriculum</h6>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="chapter2" class="collapse show">
+                                <div class="accordion-content p-3">
+                                    <div class="curriculum-items">
+                                        <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Installing Vue JS</div>
+                                        <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Understand Vue Components</div>
+                                        <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Templating</div>
+                                        <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Forms</div>
+                                        <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Styling</div>
+                                        <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Routing</div>
+                                        <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Animation</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header p-3 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#chapter3">
+                                <h6 class="mb-0 fw-medium">Chapter 3: Components</h6>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="chapter3" class="collapse">
+                                <div class="accordion-content p-3">
+                                    <p class="text-muted">Learn about component-based architecture and how to create reusable components.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <div class="accordion-header p-3 d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#chapter4">
+                                <h6 class="mb-0 fw-medium">Chapter 4: Coding</h6>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div id="chapter4" class="collapse">
+                                <div class="accordion-content p-3">
+                                    <p class="text-muted">Put your knowledge into practice with hands-on coding exercises and projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review Tab Content -->
+                <div id="review-content" class="tab-content" style="display: none;">
+                    <div class="description-container">
+                        <div class="text-center py-5">
+                            <h5>Student Reviews</h5>
+                            <p class="text-muted">Reviews and feedback from our students will be displayed here.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+<!-- ==================== SIDEBAR SECTION ==================== -->
+<div class="col-lg-4 col-md-12 d-flex justify-content-lg-end sidebar-content-wrapper">
+  <div class="sidebar-content p-0">
+    <div class="instructor-card mb-4 text-white position-relative overflow-hidden">
+      <img src="assets/images/Group 7121.png" alt="Sidebar Background" class="sidebar-bg-image" />
+      <div class="content-overlay">
+        <span class="webinar-label mb-2">WEBINAR</span>
+        <h4 class="fw-bold instructor-title mb-2">Ana Kursova</h4>
+        <p class="instructor-desc mb-3">
+          Masterclass in Design Thinking,<br>Innovation & Creativity
+        </p>
+        <button class="btn btn-learn-more mb-2">Learn More</button>
+      </div>
+    </div>
+    <!-- Enroll Now Button -->
+    <div class="text-center mb-4">
+      <button class="btn btn-primary px-5 py-2 rounded-3 fw-medium">Enroll Now</button>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FULL WIDTH CONTACT FORM SECTION ==================== -->
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="contact-form-wrapper rounded-4 overflow-hidden">
+            <div class="row g-0">
+
+                <!-- Left Content -->
+                <div class="col-md-6">
+                    <div class="contact-form-left p-5">
+                        <h3 class="contact-title fw-bold mb-3">Ready to Grow with Artmount?</h3>
+                        <p class="contact-description mb-4">Let's kickstart your UI/UX or Graphic Design journey at Artmount. Contact us now for a free demo or batch info!</p>
+                        <button class="btn btn-contact-light fw-medium px-4 py-2 rounded-3">Contact us</button>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="col-md-6">
+                    <div class="contact-form-right p-5">
+                        <form class="contact-form">
+                            <div class="mb-3">
+                                <input type="text" class="form-control contact-input rounded-3 border-0" placeholder="Name" />
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control contact-input rounded-3 border-0" placeholder="Email" />
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control contact-input rounded-3 border-0" placeholder="Mobile No." />
+                            </div>
+                            <div class="mb-0">
+                                <textarea class="form-control contact-input rounded-3 border-0" rows="4" placeholder="Description"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FOOTER SECTION ==================== -->
+<footer class="footer py-5 text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 offset-md-1 mb-4">
+                <p class="footer-text">
+                    From innovative marketing<br />
+                    strategies to operational<br />
+                    excellence, we provide<br />
+                    expert
+                </p>
+            </div>
+            <div class="col-md-2 offset-md-2 mb-4">
+                <h3 class="footer-heading">Menu</h3>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="#" class="footer-link">About us</a></li>
+                    <li><a href="#" class="footer-link">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 offset-md-2 mb-4">
+                <h5 class="footer-heading">OFFICE LOCATION</h5>
+                <p class="footer-text">
+                    Address Line Lorem Ipsum<br />
+                    Dolore Sit Amet
+                </p>
+                <br />
+                <br />
+                <h5 class="footer-heading mt-4">News letter</h5>
+                <div class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" />
+                    <button class="btn-newsletter">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <hr class="footer-divider my-4" />
+
+        <div class="row align-items-center">
+            <div class="col-md-6 offset-md-1">
+                <div class="social-icons">
+                    <a href="#" class="social-link" ><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" ><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link" ><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Simple tab show/hide functions
+  function showTab(tab) {
+    const tabs = ['description', 'courses', 'review'];
+    tabs.forEach(t => {
+      document.getElementById(t + '-content').style.display = t === tab ? 'block' : 'none';
+      const link = document.querySelector(`.nav-underline .nav-link[href='#'][onclick*="${t}"]`);
+      if (link) {
+        link.classList.toggle('active', t === tab);
+      }
+    });
+  }
+</script>
+</body>
+</html>

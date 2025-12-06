@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome (icons) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <!-- plus jakarta sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <lin
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+    rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="Home.css">
+</head>
+
+<body>
+  <!-- ================= Header SECTION ================= -->
+  <section class="header">
+    <section class="hero-section">
+      <!-- Navbar Icon -->
+      <!-- Hamburger Menu (checkbox + label) -->
+      <div class="menu-wrapper">
+        <input type="checkbox" id="menu-toggle" title="Toggle navigation menu" />
+        <label for="menu-toggle" class="navbar-icon" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <!-- Side Navigation Menu -->
+        <nav class="navbar-menu">
+          <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Our_Courses.html">Our Courses</a></li>
+            <li><a href="About_Us.html">About Us</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contactpage.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- Left Side Content -->
+          <div class="col-md-8 col-lg-8">
+            <img src="artmount-logo.png" alt="Artmount Logo" class="hero-logo reveal reveal-zoom">
+            <div class="hero-content reveal reveal-left">
+              <h1 class="ml-animate">Learn from Top Industry Experts in UI/UX & Graphic Design</h1>
+
+              <p>
+                Master UI/UX Design, Graphic Design, and Video Editing courses in Chennai with hands-on
+                projects, live mentoring, and real-world applications.
+              </p>
+              <a href="Our_Courses.html" class="btn btn-primary">
+                Our Courses <i class="fa-solid fa-arrow-right"></i>
+              </a>
+
+
+              <!-- Stats Section -->
+              <div class="stats-container">
+                <div class="stat-item reveal reveal-up">
+                  <span class="stat-number">
+                    <span class="num">200</span><span class="symbol">+</span>
+                  </span>
+                  <div class="stat-label"><b> Successful Projects </b></div>
+
+                </div>
+
+                <div class="stat-item">
+                  <span class="stat-number">
+                    <span class="num">45</span><span class="symbol">K+</span>
+                  </span>
+                  <div class="stat-label"><b>Hours of Training Delivered</b></div>
+
+                </div>
+
+                <div class="stat-item">
+                  <span class="stat-number">
+                    <span class="num">78</span><span class="symbol">M+</span>
+                  </span>
+                  <div class="stat-label"><b>Creative Impressions</b></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side Content -->
+          <div class="col-md-4 col-lg-4">
+            <div class="hero-badge">
+              <div class="d-flex hero-badge-wrapper reveal reveal-left"></div>
+
+              <!-- Glass Box -->
+              <div class="box reveal reveal-zoom">
+                <h2>Join Next Batch</h2>
+
+                <form class="enquiry-form" id="enquiryForm">
+
+                  <div class="form-group">
+                    <input type="text" id="enquiryName" placeholder="Your Name" data-required="true">
+                    <div class="error-message" id="nameError"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="tel" id="enquiryPhone" placeholder="Mobile Number" maxlength="10" data-required="true">
+                    <div class="error-message" id="phoneError"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="email" id="enquiryEmail" placeholder="Your Email" data-required="true">
+                    <div class="error-message" id="emailError"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="custom-dropdown" id="courseDropdown">
+                      <div class="dropdown-selected" id="courseSelected">Select Course</div>
+                      <div class="dropdown-options" id="courseOptions">
+                        <div class="dropdown-option" data-value="uiux">UI/UX Design</div>
+                        <div class="dropdown-option" data-value="graphic">Graphic Design</div>
+                        <div class="dropdown-option" data-value="video-editing">Video Editing</div>
+                        <div class="dropdown-option" data-value="motion">Motion Graphics</div>
+                      </div>
+                    </div>
+                    <select id="enquiryCourse" data-required="true" style="display: none;">
+                      <option value="">Select Course</option>
+                      <option value="uiux">UI/UX Design</option>
+                      <option value="graphic">Graphic Design</option>
+                      <option value="video-editing">Video Editing</option>
+                      <option value="motion">Motion Graphics</option>
+                    </select>
+                    <div class="error-message" id="courseError"></div>
+                  </div>
+
+                  <!-- Submit button moved INSIDE -->
+                  <button type="submit" class="blob-btn" id="submitBtn">Submit</button>
+
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </section>
+    <script>
+      const reveals1 = document.querySelectorAll('.reveal');
+
+      const observerReveal1 = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, { threshold: 0.2 });
+
+      reveals1.forEach(el => observerReveal1.observe(el));
+      function animateLetters(selector) {
+        const elements = document.querySelectorAll(selector);
+
+        elements.forEach(el => {
+          const text = el.textContent.trim();
+          el.innerHTML = text.replace(/\S/g, "<span class='letter'>$&</span>");
+
+          const letters = el.querySelectorAll(".letter");
+
+          letters.forEach((letter, i) => {
+            setTimeout(() => {
+              letter.style.opacity = 1;
+              letter.style.transform = "translateY(0)";
+              letter.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+            }, 50 * i);
+          });
+        });
+      }
+
+      // Run animation when page loads
+      window.addEventListener("DOMContentLoaded", () => {
+        animateLetters(".ml-animate");
+      });
+      const form = document.getElementById('enquiryForm');
+      const submitBtn = document.getElementById('submitBtn');
+
+      // Form validation functions
+      function showError(fieldId, message) {
+        const errorDiv = document.getElementById(fieldId + 'Error');
+        const formGroup = errorDiv.closest('.form-group');
+        errorDiv.textContent = message;
+        errorDiv.classList.add('show');
+        formGroup.classList.add('error');
+      }
+
+      function hideError(fieldId) {
+        const errorDiv = document.getElementById(fieldId + 'Error');
+        const formGroup = errorDiv.closest('.form-group');
+        errorDiv.classList.remove('show');
+        formGroup.classList.remove('error');
+      }
+
+      function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function validatePhone(phone) {
+        const phoneRegex = /^[6-9]\d{9}$/;
+        return phoneRegex.test(phone);
+      }
+
+      function validateForm() {
+        let isValid = true;
+        const name = document.getElementById('enquiryName').value.trim();
+        const phone = document.getElementById('enquiryPhone').value.trim();
+        const email = document.getElementById('enquiryEmail').value.trim();
+        const course = document.getElementById('enquiryCourse').value;
+
+        // Clear previous errors
+        ['name', 'phone', 'email', 'course'].forEach(field => hideError(field));
+
+        // Validate name
+        if (!name) {
+          showError('name', 'Please enter your name');
+          isValid = false;
+        }
+
+        // Validate phone
+        if (!phone) {
+          showError('phone', 'Please enter your mobile number');
+          isValid = false;
+        } else if (!validatePhone(phone)) {
+          showError('phone', 'Please enter a valid 10-digit mobile number starting with 6-9');
+          isValid = false;
+        }
+
+        // Validate email
+        if (!email) {
+          showError('email', 'Please enter your email address');
+          isValid = false;
+        } else if (!validateEmail(email)) {
+          showError('email', 'Please enter a valid email address');
+          isValid = false;
+        }
+
+        // Validate course
+        if (!course) {
+          showError('course', 'Please select a course');
+          isValid = false;
+        }
+
+        return isValid;
+      }
+
+      // Handle form submission
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!validateForm()) {
+          return;
+        }
+
+        // Get form data
+        const formData = {
+          name: document.getElementById('enquiryName').value.trim(),
+          phone: document.getElementById('enquiryPhone').value.trim(),
+          email: document.getElementById('enquiryEmail').value.trim(),
+          course: document.getElementById('enquiryCourse').value
+        };
+
+        // Disable submit button and show loading
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        try {
+          const response = await fetch('http://localhost:5001/enquiry/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+          });
+
+          const result = await response.json();
+
+          if (response.ok && result.success) {
+            // Success
+            submitBtn.textContent = 'Submitted Successfully!';
+            submitBtn.style.background = '#4CAF50';
+            form.reset();
+
+            // Reset after 3 seconds
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Submit';
+              submitBtn.style.background = '';
+            }, 3000);
+          } else {
+            // Error
+            submitBtn.textContent = 'Submission Failed';
+            submitBtn.style.background = '#f44336';
+            console.error('Submission error:', result.message);
+
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.textContent = 'Submit';
+              submitBtn.style.background = '';
+            }, 3000);
+          }
+        } catch (error) {
+          console.error('Network error:', error);
+          submitBtn.textContent = 'Network Error';
+          submitBtn.style.background = '#f44336';
+
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit';
+            submitBtn.style.background = '';
+          }, 3000);
+        }
+      });
+
+      // Custom dropdown functionality
+      const courseDropdown = document.getElementById('courseDropdown');
+      const courseSelected = document.getElementById('courseSelected');
+      const courseOptions = document.getElementById('courseOptions');
+      const courseHiddenSelect = document.getElementById('enquiryCourse');
+
+      // Toggle dropdown
+      courseSelected.addEventListener('click', () => {
+        courseDropdown.classList.toggle('open');
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!courseDropdown.contains(e.target)) {
+          courseDropdown.classList.remove('open');
+        }
+      });
+
+      // Handle option selection
+      courseOptions.addEventListener('click', (e) => {
+        if (e.target.classList.contains('dropdown-option')) {
+          const value = e.target.getAttribute('data-value');
+          const text = e.target.textContent;
+
+          // Update display
+          courseSelected.textContent = text;
+
+          // Update hidden select
+          courseHiddenSelect.value = value;
+
+          // Update selected state
+          document.querySelectorAll('.dropdown-option').forEach(option => {
+            option.classList.remove('selected');
+          });
+          e.target.classList.add('selected');
+
+          // Close dropdown
+          courseDropdown.classList.remove('open');
+
+          // Hide error if showing
+          hideError('course');
+        }
+      });
+
+    </script>
+
+
+
+  </section>
+  <!-- ================= WHO WE ARE SECTION ================= -->
+  <section class="who-we-are reveal-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left Side Images -->
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <div class="row">
+            <div class="col-6 reveal slide-down">
+              <img src="Image (1).png" class="img-fluid rounded" alt="Learning">
+            </div>
+            <div class="col-6 reveal slide-down">
+              <img src="Image (2).png" class="img-fluid rounded mt-5 mt-lg-6" alt="Office">
+            </div>
+          </div>
+        </div>
+        <!-- Right Side Text -->
+        <div class="col-lg-6 text-lg-start text-center">
+          <div class="reveal slide-left">
+            <h2 class="section-title">Who we are</h2>
+            <p class="section-text">
+              At Artmount Academy, we are committed to shaping the next generation of creative
+              professionals. As
+              one of
+              the leading institutes for UI/UX design courses in Chennai, we specialize in
+              graphic
+              design,
+              visual design,
+              and video editing training that blends creativity with industry relevance.
+              Our mentors bring years of hands-on experience and guide you through a curriculum designed
+              to
+              turn your
+              creative passion into a successful career. From real-world projects and live workshops
+              to
+              guided
+              portfolio
+              development, we ensure every learner is industry-ready and aligned with the latest
+              design trends.
+              Artmount
+              Academy delivers the best design training in Chennai, helping learners build a strong
+              foundation, gain
+              hands-on industry exposure, and stand out in today’s competitive creative market.
+
+            </p>
+            <a href="Our_Courses.html" class="section-btn-outline-info reveal popup">
+              Start Learning
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const reveals = document.querySelectorAll(".reveal");
+
+      const observerReveal = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      }, { threshold: 0.2 });
+
+      reveals.forEach(el => observerReveal.observe(el));
+    </script>
+  </section>
+  <!-- ================= COURSES SECTION  ================= -->
+  <section class="courses-section scroll-animate fade-trigger">
+    <div class="container">
+      <div class="text-center mb-5 revealX reveal-down">
+        <h2 class="courses-section-title">Career-Focused Design & Digital Marketing Courses in Chennai
+        </h2>
+        <p class="courses-section-text">
+          Our programs are designed for Our programs are designed for practical learning, career growth,
+          and 100%
+          placement support. Gain hands-on experience, mentorship, and real-world exposure to succeed in
+          today’s
+          competitive creative and digital industry. Gain hands-on experience, mentorship, and
+          real-world exposure
+          to succeed in today’s competitive creative and digital industry.
+        </p>
+      </div>
+
+      <div class="row">
+        <!-- Course 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card revealX reveal-up">
+            <div class="course-image" style="background-image:url('Thumbnail.png');"></div>
+            <div class="course-content">
+              <span class="course-category">Design</span>
+              <h3 class="course-title">Graphic Design Masterclass - Chennai</h3>
+              <p class="course-description">
+                Turn your creativity into a career with our Graphic Design course in Chennai.
+                Learn
+                industry-standard
+                tools like Adobe Photoshop, Illustrator, InDesign, and CorelDRAW to design brand
+                identities,
+                packaging,
+                digital ads, and layouts. Build a portfolio that speaks for itself with hands-on
+                projects and
+                real-world
+                assignments.</p>
+              <p class="course-description">No prior experience required – just your passion for design.
+              </p>
+              <button class="btn-enroll">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card revealX reveal-up">
+            <div class="course-image" style="background-image:url('Thumbnail (1).png');"></div>
+            <div class="course-content">
+              <span class="course-category">Design</span>
+              <h3 class="course-title">UI/UX Design Certification – Chennai</h3>
+              <p class="course-description">
+                Step into the world of user experience and interface design with our 12-week
+                UI/UX
+                certification program
+                in Chennai. Cover everything from user research, wireframing, and prototyping
+                to usability
+                testing and
+                Figma mastery.Perfect for freshers, career switchers, and aspiring
+                designers aiming for
+                roles in top
+                Chennai agencies and startups.</p>
+              <p class="course-description"> Get industry-ready with projects, case studies, and portfolio
+                guidance.
+              </p>
+              <button class="btn-enroll">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card revealX reveal-up">
+            <div class="course-image" style="background-image:url('Thumbnail (2).png');"></div>
+            <div class="course-content">
+              <span class="course-category marketing">Marketing</span>
+              <h3 class="course-title">Digital Marketing Course - Chennai</h3>
+              <p class="course-description">
+                Master the art of digital marketing with a comprehensive training program in
+                Chennai. Learn
+                SEO, Google
+                Ads, social media marketing, email marketing, and analytics through live
+                campaigns and
+                practical
+                projects. This course equips you with in-demand skills for freelance work,
+                agency jobs, or
+                corporate
+                careers.
+              </p>
+              <p class="course-description"> Practical, career-focused, and beginner-friendly – no prior
+                experience
+                needed.
+              </p>
+              <button class="btn-enroll">Enroll Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const revealItemsX = document.querySelectorAll('.revealX');
+
+        if (!('IntersectionObserver' in window)) {
+          revealItemsX.forEach(el => el.classList.add('activeX'));
+          return;
+        }
+
+        const observerX = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('activeX');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.18 });
+
+        revealItemsX.forEach(el => observerX.observe(el));
+      })();
+    </script>
+
+
+  </section>
+  <!-- ================= FEATURES SECTION ================= -->
+  <section class="features-section">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="features-section-title reveal-down">Smart Learning, Real Results</h2>
+        <p class="features-section-text reveal-down">Where every lesson is designed for practical impact, equipping you
+          with
+          the
+          expertise and confidence to excel in real-world challenges.</p>
+      </div>
+      <div class="row">
+        <!-- Feature 1 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="features-section-feature-item reveal-up">
+            <div class="feature-icon">
+              <img src="Icon1.png" alt="feature icon">
+            </div>
+            <h4 class="features-section-feature-title">Live Online Sessions with Entrepreneurs</h4>
+            <p class="features-section-feature-text">Interact directly with entrepreneurs, designers, and
+              marketing
+              professionals through engaging online sessions that bring real-world insights into your
+              learning journey.
+            </p>
+          </div>
+        </div>
+        <!-- Feature 2 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="features-section-feature-item reveal-up">
+            <div class="feature-icon">
+              <img src="Icon2.png" alt="feature icon">
+            </div>
+            <h4 class="features-section-feature-title">100% Placement & Post Placement Support</h4>
+            <p class="features-section-feature-text">We provide guaranteed placement assistance in Chennai
+              with
+              continuous post-placement support to help you grow in your dream career.</p>
+          </div>
+        </div>
+        <!-- Feature 3 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="features-section-feature-item reveal-up">
+            <div class="feature-icon">
+              <img src="Icon3.png" alt="feature icon">
+            </div>
+            <h4 class="features-section-feature-title">Practical Oriented Class with Internships</h4>
+            <p class="features-section-feature-text">Experience hands-on learning with internships and live
+              projects,
+              ensuring you’re job-ready with a portfolio that showcases your skills.</p>
+          </div>
+        </div>
+        <!-- Feature 4 -->
+        <div class="col-lg-3 col-md-6">
+          <div class="features-section-feature-item reveal-up">
+            <div class="feature-icon">
+              <img src="Icon4.png" alt="feature icon">
+            </div>
+            <h4 class="features-section-feature-title">One-to-One Mentoring & Personality Development</h4>
+            <p class="features-section-feature-text">Get personalized guidance through one-to-one mentoring
+              sessions
+              that focus on skill-building, confidence, and professional growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const revealElements1 = document.querySelectorAll('.reveal-up');
+      const revealElements2 = document.querySelectorAll('.reveal-down');
+
+      const observer3 = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      revealElements1.forEach(el => observer3.observe(el));
+      revealElements2.forEach(el => observer3.observe(el));
+    </script>
+
+  </section>
+  <!--==================== logo ============================-->
+  <div class="logo">
+    <h2 class="logo-text reveal-down">Our Technolgy Partners for Placement</h2>
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <!-- ORIGINAL 11 -->
+        <div class="carousel-slide"><img src="wraptron logo.png" alt="Wraptron logo"></div>
+        <div class="carousel-slide"><img src="codeup logo.png" alt="Codeup logo"></div>
+        <div class="carousel-slide"><img src="ddc logo.jpg" alt="DDC logo"></div>
+        <div class="carousel-slide"><img src="Collobrator-03.png" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="Collobrator-04.png" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="BBt-3.png" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="Collobrator-06.png" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div>
+        <div class="carousel-slide"><img src="Logo.webp" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div>
+
+        <!-- DUPLICATED 11 -->
+        <div class="carousel-slide"><img src="wraptron logo.png" alt="Wraptron logo"></div>
+        <div class="carousel-slide"><img src="codeup logo.png" alt="Codeup logo"></div>
+        <div class="carousel-slide"><img src="ddc logo.jpg" alt="DDC logo"></div>
+        <div class="carousel-slide"><img src="Collobrator-03.png" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="Collobrator-04.png" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="BBt-3.png" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="Collobrator-06.png" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div>
+        <div class="carousel-slide"><img src="Logo.webp" alt="Partner logo"></div>
+        <div class="carousel-slide"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div>
+      </div>
+
+    </div>
+    <script>
+      (function () {
+        const reveals = document.querySelectorAll('.reveal-down');
+
+        if (!('IntersectionObserver' in window)) {
+          reveals.forEach(el => el.classList.add('active'));
+          return;
+        }
+
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            }
+          });
+        }, { threshold: 0.2 });
+
+        reveals.forEach(el => obs.observe(el));
+      })();
+
+    </script>
+
+
+  </div>
+  <!-- ================= TESTIMONIALS SECTION ================= -->
+  <section class="testimonials-section">
+    <div class="container">
+
+      <!-- Title -->
+      <div class="text-center mb-5 test-reveal-down">
+        <h2 class="testimonials-section-section-title ">Stories from our Learners</h2>
+        <p class="testimonials-section-section-text">
+          Listen to the experiences and learning of our students through our training programs.
+        </p>
+      </div>
+
+      <!-- WRAPPER FOR SLIDER -->
+      <div class="row" id="testimonial-slider">
+        <!-- Testimonial 1 -->
+        <div class="col-lg-4 col-md-6 testimonial-item active test-reveal-up">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              Artmount Academy’s UI/UX course in Chennai helped me build a strong portfolio.
+            </p>
+            <div class="testimonial-author">
+              <img src="Thumbnail.png" class="author-avatar" alt="Revathi S">
+              <span class="author-name">Revathi S</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="col-lg-4 col-md-6 testimonial-item test-reveal-up">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              Great practical sessions on Adobe Illustrator and Photoshop. Highly recommend!
+            </p>
+            <div class="testimonial-author">
+              <img src="Image (2).png" class="author-avatar" alt="Suresh K">
+              <span class="author-name">Suresh K</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="col-lg-4 col-md-6 testimonial-item test-reveal-up">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              Clear teaching, useful tools, and great support throughout the course.
+            </p>
+            <div class="testimonial-author">
+              <img src="Image (1).png" class="author-avatar" alt="Swetha M">
+              <span class="author-name">Swetha M</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrow buttons -->
+    <div class="iconss test-reveal-up">
+      <button class="arrow-btn" id="prevBtn" title="Previous testimonial"><i
+          class="fa-solid fa-arrow-left"></i></button>
+      <button class="arrow-btn" id="nextBtn" title="Next testimonial"><i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+
+    <!-- ⭐ ADD THIS JS CODE -->
+    <script>
+      const items = document.querySelectorAll(".testimonial-item");
+      const revealEls = document.querySelectorAll('.test-reveal-up');
+      const revealEls2 = document.querySelectorAll('.test-reveal-down');
+      let index = 0;
+
+      function updateSlider() {
+        // Only apply slider on mobile
+        if (window.innerWidth <= 768) {
+          items.forEach((item, idx) => {
+            item.classList.toggle("active", idx === index);
+          });
+        } else {
+          // Desktop: show all
+          items.forEach(item => item.classList.add("active"));
+        }
+      }
+
+      document.getElementById("nextBtn").addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          index = (index + 1) % items.length;
+          updateSlider();
+        }
+      });
+
+      document.getElementById("prevBtn").addEventListener("click", () => {
+        if (window.innerWidth <= 768) {
+          index = (index - 1 + items.length) % items.length;
+          updateSlider();
+        }
+      });
+
+      updateSlider(); // run on load
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      revealEls.forEach(el => obs.observe(el));
+      revealEls2.forEach(el => obs.observe(el));
+    </script>
+  </section>
+  <!-- ================= CTA Section ================= -->
+  <section class="cta-section cta-reveal-up">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left content -->
+        <div class="col-lg-6">
+          <h2 class="cta-heading cta-reveal-left">Ready to Grow<br>with Artmount?</h2>
+          <p class="cta-text cta-reveal-left">
+            Let’s kickstart your UI/UX or Graphic Design journey at<br>
+            Artmount. Contact us now for a free demo or batch info!
+          </p>
+          <!-- Desktop button -->
+
+          <a href="#" id="desktopSubmit" class="btn-contact btn-desktop cta-reveal-down">Contact us</a>
+
+        </div>
+
+        <!-- Right form -->
+        <div class="col-lg-6">
+          <form id="contactForm" class="cta-reveal-right" novalidate>
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" />
+              <small class="error" id="ctaNameError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Email" />
+              <small class="error" id="ctaEmailError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." />
+              <small class="error" id="ctaMobileError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="description" class="form-control" placeholder="Description" />
+              <small class="error" id="ctaDescriptionError"></small>
+            </div>
+
+            <!-- Mobile button -->
+            <div>
+              <button type="submit" class="btn-contact btn-mobile cta-reveal-down">Contact us</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script>
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const mobileInput = document.getElementById("mobile");
+        const descInput = document.getElementById("description");
+
+        const nameError = document.getElementById("ctaNameError");
+        const emailError = document.getElementById("ctaEmailError");
+        const mobileError = document.getElementById("ctaMobileError");
+        const descError = document.getElementById("ctaDescriptionError");
+
+        // Regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const mobileRegex = /^[0-9]{10}$/;
+
+        // Validation functions
+        function validateName() {
+          if (nameInput.value.trim() === "") {
+            nameError.textContent = "Name is required";
+            nameInput.classList.add("invalid");
+            nameInput.classList.remove("valid");
+            return false;
+          } else {
+            nameError.textContent = "";
+            nameInput.classList.remove("invalid");
+            nameInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        function validateEmail() {
+          if (!emailRegex.test(emailInput.value.trim())) {
+            emailError.textContent = "Enter a valid email";
+            emailInput.classList.add("invalid");
+            emailInput.classList.remove("valid");
+            return false;
+          } else {
+            emailError.textContent = "";
+            emailInput.classList.remove("invalid");
+            emailInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        function validateMobile() {
+          if (!mobileRegex.test(mobileInput.value.trim())) {
+            mobileError.textContent = "Enter a 10-digit mobile number";
+            mobileInput.classList.add("invalid");
+            mobileInput.classList.remove("valid");
+            return false;
+          } else {
+            mobileError.textContent = "";
+            mobileInput.classList.remove("invalid");
+            mobileInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        function validateDesc() {
+          if (descInput.value.trim() === "") {
+            descError.textContent = "Description is required";
+            descInput.classList.add("invalid");
+            descInput.classList.remove("valid");
+            return false;
+          } else {
+            descError.textContent = "";
+            descInput.classList.remove("invalid");
+            descInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        // Live validation (on input)
+        nameInput.addEventListener("input", validateName);
+        emailInput.addEventListener("input", validateEmail);
+        mobileInput.addEventListener("input", validateMobile);
+        descInput.addEventListener("input", validateDesc);
+
+        // Final check on submit
+        // Final check on submit
+
+        document.getElementById("desktopSubmit").addEventListener("click", function (e) {
+          e.preventDefault(); // stop jumping to top
+          document.getElementById("contactForm").requestSubmit();
+        });
+        const revealEls21 = document.querySelectorAll(
+          '.cta-reveal-up, .cta-reveal-left, .cta-reveal-right, .cta-reveal-down'
+        );
+
+        const obs2 = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+            }
+          });
+        }, { threshold: 0.2 });
+
+        revealEls21.forEach(el => obs.observe(el));
+
+
+
+      </script>
+
+    </div>
+  </section>
+  <!-- ================= Footer ================= -->
+  <footer class="custom-footer">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Left Text -->
+        <div class="col-lg-4 footer-col footer-reveal-down">
+          <p>
+            From innovative marketing
+            strategies to operational
+            excellence, we provide
+            expert
+          </p>
+        </div>
+
+        <!-- Middle Menu -->
+        <div class="col-lg-4 footer-col footer-reveal-down">
+          <h5>Menu</h5>
+          <ul class="list-unstyled">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Our_Courses.html">Our Courses</a></li>
+            <li><a href="About_Us.html">About us</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contactpage.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Right Office -->
+        <div class="col-lg-4 footer-col footer-reveal-down">
+          <h5>OFFICE LOCATION</h5>
+          <div class="office-address1">
+            <h5>Address 1</h5>
+            <p>No.4, Alamathi main road, New vellanur, Avadi, Chennai-600062</p>
+          </div>
+          <div class="office-address2">
+            <h5>Address 2</h5>
+            <p>c201a, 19th St, Periyar Nagar West, Perambur, Chennai, Tamil Nadu 600082</p>
+          </div>
+          <div class="copyright footer-reveal-left">
+            <p>© By Artmount Academy. All rights reserved.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons footer-reveal-up">
+      <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
+      <div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
+      <div class="social-icon"><i class="fab fa-twitter"></i></div>
+    </div>
+    </div>
+    <script>
+      const revealEls3 = document.querySelectorAll(
+        '.footer-reveal-up, .footer-reveal-down, .footer-reveal-left, .footer-reveal-left'
+      );
+
+      const obs4 = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      revealEls3.forEach(el => obs.observe(el));
+    </script>
+
+  </footer>
+
+  <!-- =============backend script code ============== -->
+  <script>
+    const API_URL = 'http://localhost:5001';
+
+    // CTA Form Handler
+    document.querySelector('#contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // 🔥 Prevent double submission
+      if (this.classList.contains("submitting")) return;
+      this.classList.add("submitting");
+
+      const submitBtn = this.querySelector('.btn-mobile');
+      const desktopBtn = document.getElementById('desktopSubmit');
+      const originalText = submitBtn.textContent;
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('mobile').value.trim();
+      const message = document.getElementById('description').value.trim();
+
+      // Custom inline validation (no alerts)
+      const isNameValid = validateName();
+      const isEmailValid = validateEmail();
+      const isMobileValid = validateMobile();
+      const isDescValid = validateDesc();
+
+      if (!isNameValid || !isEmailValid || !isMobileValid || !isDescValid) {
+        this.classList.remove("submitting");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      desktopBtn.style.pointerEvents = 'none';
+      desktopBtn.style.opacity = '0.6';
+
+      try {
+        const response = await fetch(`${API_URL}/contact/submit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, message })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert(data.message || 'Thank you! We got your inquiry.');
+          this.reset();
+        } else {
+          alert(data.message || 'Failed to submit. Try again.');
+        }
+      } catch (error) {
+        alert('Network error.');
+        console.error(error);
+      } finally {
+        // 🔥 Allow submission again
+        this.classList.remove("submitting");
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        desktopBtn.style.pointerEvents = 'auto';
+        desktopBtn.style.opacity = '1';
+      }
+    });
+
+    // Desktop button triggers form
+    document.getElementById('desktopSubmit').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('contactForm').requestSubmit();
+    });
+  </script>
+
+
+</body>
+
+</html>

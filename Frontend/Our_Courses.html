@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artmount Courses</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="Our_Courses.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <input type="checkbox" id="menu-toggle" title="Toggle navigation menu" />
+  <label for="menu-toggle" class="navbar-icon" aria-label="Toggle navigation menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+  <!-- Side Navigation Menu -->
+  <nav class="navbar-menu">
+    <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="Our_Courses.html">Our Courses</a></li>
+      <li><a href="About_Us.html">About Us</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contactpage.html">Contact Us</a></li>
+    </ul>
+  </nav>
+  <section class="our-courses">
+    <div class="hero text-center">
+      <div class="hero text-center">
+        <div class="container">
+          <h1 class="hero-title reveal reveal-up">Learn the Art of Branding, Design, and Digital Marketing</h1>
+          <h3 class="hero-subtitle reveal reveal-up">Our Courses</h3>
+          <p class="hero-text reveal reveal-up">Explore our list of courses that we offer at Artmount academy</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Courses Section -->
+    <div class="courses">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10 position-relative">
+
+            <div class="fade-bottom">
+              <img src="girl.png" alt="Student" class="img-fluid reveal ">
+            </div>
+            <div class="course-label circle1 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
+            <div class="course-label circle2 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
+            <div class="course-label circle3 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
+            <div class="course-label circle4 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
+            <div class="course-label plus1 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+            <div class="course-label plus2 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+            <div class="course-label plus3 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+            <div class="course-label plus4 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+            <div class="course-label plus5 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+            <div class="course-label motion reveal reveal-right">
+              Motion Graphics
+              <button onclick="window.location.href='motion_graphic.html'">Enroll Now</button>
+            </div>
+            <div class="course-label digital reveal reveal-right">Digital Marketing <button
+                onclick="window.location.href='digital_marketing.html'">Enroll Now</button></div>
+            <div class="course-label graphic reveal reveal-left">Graphic designing <button
+                onclick="window.location.href='graphic_design.html'">Enroll Now</button></div>
+            <div class="course-label uiux reveal reveal-left">UI/UX Design <button onclick="window.location.href='uiux_design.html'">Enroll
+                Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+const reveals1 = document.querySelectorAll('.reveal');
+const observerReveal1 = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+  });
+}, { threshold: 0.2 });
+
+reveals1.forEach(el => observerReveal1.observe(el));
+
+</script>
+  </section>
+
+
+  <!-- ================= CTA Section ================= -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left content -->
+        <div class="col-lg-6">
+          <h2 class="cta-heading">Ready to Grow<br>with Artmount?</h2>
+          <p class="cta-text">
+            Let’s kickstart your UI/UX or Graphic Design journey at<br>
+            Artmount. Contact us now for a free demo or batch info!
+          </p>
+          <!-- Desktop button -->
+          <a href="#" id="desktopSubmit" class="btn-contact btn-desktop">Contact us</a>
+        </div>
+
+        <!-- Right form -->
+        <div class="col-lg-6">
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" />
+              <small class="error" id="nameError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Email" />
+              <small class="error" id="emailError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." />
+              <small class="error" id="mobileError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="description" class="form-control" placeholder="Description" />
+              <small class="error" id="descriptionError"></small>
+            </div>
+
+            <!-- Mobile button -->
+            <button type="submit" class="btn-contact btn-mobile">Contact us</button>
+          </form>
+        </div>
+      </div>
+      <script>
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const mobileInput = document.getElementById("mobile");
+        const descInput = document.getElementById("description");
+
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const mobileError = document.getElementById("mobileError");
+        const descError = document.getElementById("descriptionError");
+
+        // Regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const mobileRegex = /^[0-9]{10}$/;
+
+        // Validation functions
+        function validateName() {
+          if (nameInput.value.trim() === "") {
+            nameError.textContent = "Name is required";
+            nameInput.classList.add("invalid");
+            nameInput.classList.remove("valid");
+            return false;
+          } else {
+            nameError.textContent = "";
+            nameInput.classList.remove("invalid");
+            nameInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        function validateEmail() {
+          if (!emailRegex.test(emailInput.value.trim())) {
+            emailError.textContent = "Enter a valid email";
+            emailInput.classList.add("invalid");
+            emailInput.classList.remove("valid");
+            return false;
+          } else {
+            emailError.textContent = "";
+            emailInput.classList.remove("invalid");
+            emailInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        function validateMobile() {
+          if (!mobileRegex.test(mobileInput.value.trim())) {
+            mobileError.textContent = "Enter a 10-digit mobile number";
+            mobileInput.classList.add("invalid");
+            mobileInput.classList.remove("valid");
+            return false;
+          } else {
+            mobileError.textContent = "";
+            mobileInput.classList.remove("invalid");
+            mobileInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        function validateDesc() {
+          if (descInput.value.trim() === "") {
+            descError.textContent = "Description is required";
+            descInput.classList.add("invalid");
+            descInput.classList.remove("valid");
+            return false;
+          } else {
+            descError.textContent = "";
+            descInput.classList.remove("invalid");
+            descInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        // Live validation (on input)
+        nameInput.addEventListener("input", validateName);
+        emailInput.addEventListener("input", validateEmail);
+        mobileInput.addEventListener("input", validateMobile);
+        descInput.addEventListener("input", validateDesc);
+
+        // Final check on submit
+        // Final check on submit
+
+        document.getElementById("desktopSubmit").addEventListener("click", function (e) {
+          e.preventDefault(); // stop jumping to top
+          document.getElementById("contactForm").requestSubmit();
+        });
+
+
+      </script>
+
+    </div>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer class="custom-footer">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Left Text -->
+        <div class="col-lg-4 footer-col">
+          <p>
+            From innovative marketing
+            strategies to operational
+            excellence, we provide
+            expert
+          </p>
+        </div>
+
+        <!-- Middle Menu -->
+        <div class="col-lg-4 footer-col">
+          <h5>Menu</h5>
+          <ul class="list-unstyled">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Our_Courses.html">Our Courses</a></li>
+            <li><a href="About_Us.html">About us</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contactpage.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Right Office -->
+        <div class="col-lg-4 footer-col">
+          <h5>OFFICE LOCATION</h5>
+          <div class="office-address1">
+            <h5>Address 1</h5>
+            <p>No.4, Alamathi main road, New vellanur, Avadi, Chennai-600062</p>
+          </div>
+          <div class="office-address2">
+            <h5>Address 2</h5>
+            <p>c201a, 19th St, Periyar Nagar West, Perambur, Chennai, Tamil Nadu 600082</p>
+          </div>
+          <div class="copyright">
+            <p>© By Artmount Academy. All rights reserved.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+    <!-- Social Icons -->
+    <div class="social-icons">
+      <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
+      <div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
+      <div class="social-icon"><i class="fab fa-twitter"></i></div>
+    </div>
+    </div>
+  </footer>
+
+  <!-- =============backend script code ============== -->
+  <script>
+    const API_URL = 'http://localhost:5001';
+
+    // CTA Form Handler
+    document.querySelector('#contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // 🔥 Prevent double submission
+      if (this.classList.contains("submitting")) return;
+      this.classList.add("submitting");
+
+      const submitBtn = this.querySelector('.btn-mobile');
+      const desktopBtn = document.getElementById('desktopSubmit');
+      const originalText = submitBtn.textContent;
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('mobile').value.trim();
+      const message = document.getElementById('description').value.trim();
+
+      if (!name || !email || !phone || !message) {
+        alert('Please fill in all fields');
+        this.classList.remove("submitting");
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      desktopBtn.style.pointerEvents = 'none';
+      desktopBtn.style.opacity = '0.6';
+
+      try {
+        const response = await fetch(`${API_URL}/contact/submit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, message })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert(data.message || 'Thank you! We got your inquiry.');
+          this.reset();
+        } else {
+          alert(data.message || 'Failed to submit. Try again.');
+        }
+      } catch (error) {
+        alert('Network error.');
+        console.error(error);
+      } finally {
+        // 🔥 Allow submission again
+        this.classList.remove("submitting");
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        desktopBtn.style.pointerEvents = 'auto';
+        desktopBtn.style.opacity = '1';
+      }
+    });
+
+    // Desktop button triggers form
+    document.getElementById('desktopSubmit').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('contactForm').requestSubmit();
+    });
+  </script>
+
+
+
+</body>
+
+</html>

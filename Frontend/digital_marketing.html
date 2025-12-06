@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Digital Marketing</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link href="course_details.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- ==================== HEADER SECTION ==================== -->
+    <header class="header">
+
+        <!-- Navbar Icon -->
+        <!-- Hamburger Menu (checkbox + label) -->
+        <input type="checkbox" id="menu-toggle" title="Toggle navigation menu" />
+        <label for="menu-toggle" class="navbar-icon" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <!-- Side Navigation Menu -->
+        <nav class="navbar-menu">
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Our_Courses.html">Our Courses</a></li>
+                <li><a href="About_Us.html">About Us</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contactpage.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="header-content">
+            <h1>Digital Marketing</h1>
+            <div class="header-image">
+                <img src="Frame 1321314415.png" alt="Course Details" />
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row g-0">
+            <!-- ==================== MAIN CONTENT SECTION ==================== -->
+            <div class="col-lg-8 col-md-12">
+                <div class="main-content p-4">
+
+                    <!-- Navigation Tabs -->
+                    <ul class="nav nav-underline mb-4" id="courseTabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" onclick="showTab(this, 'description')">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="showTab(this, 'courses')">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="showTab(this, 'review')">Review</a>
+                        </li>
+                    </ul>
+
+                    <!-- Description Tab Content -->
+                    <div id="description-content" class="tab-content">
+                        <div class="description-container">
+                            <div class="description-text-section mb-4">
+                                <p class="description-text">
+                                    This course is your complete guide to mastering Digital Marketing, designed for
+                                    students, entrepreneurs, and professionals who want to build a strong online
+                                    presence. Learn how to promote brands effectively using SEO, Google Ads, and social
+                                    media marketing. At Artmount Academy Chennai, we combine strategic learning with
+                                    real-time marketing projects, helping you gain the skills and confidence to run
+                                    successful campaigns and grow businesses online.
+                                </p>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#gain">
+                                    <h6 class="mb-0 fw-medium">What You'll Gain</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="gain" class="collapse show">
+                                    <div class="accordion-content p-3">
+                                        <ul class="course-list">
+                                            <p>By the end of this digital marketing course in Chennai, you’ll gain a
+                                                deep understanding of how online marketing works from search engine
+                                                optimization (SEO) and content marketing to paid advertising and email
+                                                campaigns. You’ll also learn how to analyze marketing data and use
+                                                insights to improve performance. This course helps you become job-ready
+                                                with a portfolio of live campaigns that demonstrate your expertise to
+                                                potential employers or clients.
+                                            </p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#coverage">
+                                    <h6 class="mb-0 fw-medium">Course Coverage - DM & SM</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="coverage" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <ul class="course-list">
+                                            <p>The Digital Marketing and Social Media modules are structured to cover
+                                                all key areas of online promotion. You’ll explore SEO, SEM, Google Ads,
+                                                Social Media Strategy, Content Creation, Influencer Marketing, and Web
+                                                Analytics. Each module blends strategic concepts with hands-on practice,
+                                                ensuring you understand how to plan, execute, and manage digital
+                                                marketing campaigns effectively across multiple platforms.
+                                            </p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#tools">
+                                    <h6 class="mb-0 fw-medium">Tools Covered</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="tools" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <ul class="course-list">
+                                            <p>At Artmount Academy, we give you hands-on experience with the tools that
+                                                matter in today’s marketing world. You’ll work with Google Analytics,
+                                                Search Console, Meta Ads Manager, Canva, Mailchimp, and Keyword Planner.
+                                                You’ll also learn the basics of WordPress and YouTube Marketing, making
+                                                you skilled in both organic and paid strategies. Every tool is taught
+                                                through live exercises to help you apply your learning practically.
+                                            </p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#jobs">
+                                    <h6 class="mb-0 fw-medium">What Jobs Can You Get?</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="jobs" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <ul class="course-list">
+                                            <p>After completing the Digital Marketing course at Artmount Academy
+                                                Chennai, you can pursue roles such as Digital Marketing Executive, SEO
+                                                Analyst, Social Media Manager, PPC Specialist, or Content Strategist.
+                                                You’ll also have the freedom to work as a freelancer or start your own
+                                                digital agency. With the growing need for skilled marketers in Chennai
+                                                and across India, this course opens doors to limitless career
+                                                opportunities in the digital space.</p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Courses Tab Content -->
+                    <div id="courses-content" class="tab-content" style="display: none;">
+                        <div class="description-container">
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#chapter1">
+                                    <h6 class="mb-0 fw-medium">Chapter 1: Course Overview</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="chapter1" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <p class="text-muted">Get introduced to the comprehensive world of graphic
+                                            design and understand the course structure.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#chapter2">
+                                    <h6 class="mb-0 fw-medium">Chapter 2: Curriculum</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="chapter2" class="collapse show">
+                                    <div class="accordion-content p-3">
+                                        <div class="curriculum-items">
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Installing Vue JS
+                                            </div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Understand Vue
+                                                Components</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Templating</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Forms</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Styling</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Routing</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Animation</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#chapter3">
+                                    <h6 class="mb-0 fw-medium">Chapter 3: Components</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="chapter3" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <p class="text-muted">Learn about component-based architecture and how to create
+                                            reusable components.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#chapter4">
+                                    <h6 class="mb-0 fw-medium">Chapter 4: Coding</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="chapter4" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <p class="text-muted">Put your knowledge into practice with hands-on coding
+                                            exercises and projects.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Tab Content -->
+                    <div id="review-content" class="tab-content" style="display: none;">
+                        <div class="description-container">
+                            <div class="text-center py-5">
+                                <h5>Student Reviews</h5>
+                                <p class="text-muted">Reviews and feedback from our students will be displayed here.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ==================== SIDEBAR SECTION ==================== -->
+            <div class="col-lg-4 col-md-12 d-flex justify-content-lg-end sidebar-content-wrapper">
+
+                <!-- Enroll Now Button (mobile only) -->
+                <div class="text-center mb-3 d-block d-lg-none d-md-none mobile-enroll-btn">
+                    <button class="btn btn-primary px-5 py-2 rounded-3 fw-medium">Enroll Now</button>
+                </div>
+
+                <div class="sidebar-content p-0">
+                    <div class="instructor-card mb-4 text-white position-relative overflow-hidden">
+                        <img src="Group 7121.png" alt="Sidebar Background" class="sidebar-bg-image" />
+                        <div class="content-overlay">
+                            <span class="webinar-label mb-2">WEBINAR</span>
+                            <h4 class="fw-bold instructor-title mb-2">Ana Kursova</h4>
+                            <p class="instructor-desc mb-3">
+                                Masterclass in Design Thinking,<br>Innovation & Creativity
+                            </p>
+                            <button class="btn btn-learn-more mb-2">Learn More</button>
+                        </div>
+                    </div>
+                    <!-- Original Enroll Now Button -->
+                    <div class="text-center mb-4 desktop-enroll-btn">
+                        <button class="btn btn-primary px-5 py-2 rounded-3 fw-medium">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+               <!-- ================= CTA Section ================= -->
+  <section class="cta-section cta-reveal-up">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left content -->
+        <div class="col-lg-6">
+          <h2 class="cta-heading cta-reveal-left">Ready to Grow<br>with Artmount?</h2>
+          <p class="cta-text cta-reveal-left">
+            Let’s kickstart your UI/UX or Graphic Design journey at<br>
+            Artmount. Contact us now for a free demo or batch info!
+          </p>
+          <!-- Desktop button -->
+
+          <a href="#" id="desktopSubmit" class="btn-contact btn-desktop cta-reveal-down">Contact us</a>
+
+        </div>
+
+        <!-- Right form -->
+        <div class="col-lg-6">
+          <form id="contactForm" class="cta-reveal-right" novalidate>
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" />
+              <small class="error" id="nameError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Email" />
+              <small class="error" id="emailError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." />
+              <small class="error" id="mobileError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="description" class="form-control" placeholder="Description" />
+              <small class="error" id="descriptionError"></small>
+            </div>
+
+            <!-- Mobile button -->
+            <div>
+              <button type="submit" class="btn-contact btn-mobile cta-reveal-down">Contact us</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <script>
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const mobileInput = document.getElementById("mobile");
+        const descInput = document.getElementById("description");
+
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const mobileError = document.getElementById("mobileError");
+        const descError = document.getElementById("descriptionError");
+
+        // Regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const mobileRegex = /^[0-9]{10}$/;
+
+        // Validation functions
+        function validateName() {
+          if (nameInput.value.trim() === "") {
+            nameError.textContent = "Name is required";
+            nameInput.classList.add("invalid");
+            nameInput.classList.remove("valid");
+            return false;
+          } else {
+            nameError.textContent = "";
+            nameInput.classList.remove("invalid");
+            nameInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        function validateEmail() {
+          if (!emailRegex.test(emailInput.value.trim())) {
+            emailError.textContent = "Enter a valid email";
+            emailInput.classList.add("invalid");
+            emailInput.classList.remove("valid");
+            return false;
+          } else {
+            emailError.textContent = "";
+            emailInput.classList.remove("invalid");
+            emailInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        function validateMobile() {
+          if (!mobileRegex.test(mobileInput.value.trim())) {
+            mobileError.textContent = "Enter a 10-digit mobile number";
+            mobileInput.classList.add("invalid");
+            mobileInput.classList.remove("valid");
+            return false;
+          } else {
+            mobileError.textContent = "";
+            mobileInput.classList.remove("invalid");
+            mobileInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        function validateDesc() {
+          if (descInput.value.trim() === "") {
+            descError.textContent = "Description is required";
+            descInput.classList.add("invalid");
+            descInput.classList.remove("valid");
+            return false;
+          } else {
+            descError.textContent = "";
+            descInput.classList.remove("invalid");
+            descInput.classList.add("valid");
+            return true;
+          }
+        }
+
+        // Live validation (on input)
+        nameInput.addEventListener("input", validateName);
+        emailInput.addEventListener("input", validateEmail);
+        mobileInput.addEventListener("input", validateMobile);
+        descInput.addEventListener("input", validateDesc);
+
+        // Final check on submit
+        // Final check on submit
+        
+        document.getElementById("desktopSubmit").addEventListener("click", function (e) {
+          e.preventDefault(); // stop jumping to top
+          document.getElementById("contactForm").requestSubmit();
+        });
+        const revealEls21 = document.querySelectorAll(
+          '.cta-reveal-up, .cta-reveal-left, .cta-reveal-right, .cta-reveal-down'
+        );
+
+        const obs2 = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('reveal-visible');
+            }
+          });
+        }, { threshold: 0.2 });
+
+        revealEls21.forEach(el => obs2.observe(el));
+      </script>
+    </div>
+  </section>
+
+        <!-- ================= Footer ================= -->
+        <footer class="custom-footer">
+            <div class="container">
+                <div class="row">
+                    <!-- Left Text -->
+                    <div class="col-lg-4 footer-col">
+                        <p>
+                            From innovative marketing
+                            strategies to operational
+                            excellence, we provide
+                            expert
+                        </p>
+                    </div>
+
+                    <!-- Middle Menu -->
+                    <div class="col-lg-4 footer-col">
+                        <h5>Menu</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="Home.html">Home</a></li>
+                            <li><a href="Our_Courses.html">Our Courses</a></li>
+                            <li><a href="About_Us.html">About us</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="contactpage.html">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Office -->
+                    <div class="col-lg-4 footer-col">
+                        <h5>OFFICE LOCATION</h5>
+                        <div class="office-address1">
+                            <h5>Address 1</h5>
+                            <p>No.4, Alamathi main road, New vellanur, Avadi, Chennai-600062</p>
+                        </div>
+                        <div class="office-address2">
+                            <h5>Address 2</h5>
+                            <p>c201a, 19th St, Periyar Nagar West, Perambur, Chennai, Tamil Nadu 600082</p>
+                        </div>
+                        <div class="copyright">
+                            <p>© By Artmount Academy. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Social Icons -->
+            <div class="footer-social-icons">
+                <div class="footer-social-icon"><i class="fab fa-facebook-f"></i></div>
+                <div class="footer-social-icon"><i class="fab fa-linkedin-in"></i></div>
+                <div class="footer-social-icon"><i class="fab fa-twitter"></i></div>
+            </div>
+    </div>
+    </footer>
+
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            function showTab(element, tab) {
+                // Hide all tab content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.style.display = 'none';
+                });
+
+                // Show selected tab content
+                document.getElementById(tab + '-content').style.display = 'block';
+
+                // Remove 'active' from all nav links
+                document.querySelectorAll('#courseTabs .nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Add 'active' to clicked link
+                element.classList.add('active');
+            }
+        </script>
+  
+ <!-- =============backend script code ============== -->
+<script>
+const API_URL = 'http://localhost:5001';
+
+// CTA Form Handler
+document.querySelector('#contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // 🔥 Prevent double submission
+    if (this.classList.contains("submitting")) return;
+    this.classList.add("submitting");
+
+    const submitBtn = this.querySelector('.btn-mobile');
+    const desktopBtn = document.getElementById('desktopSubmit');
+    const originalText = submitBtn.textContent;
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('mobile').value.trim();
+    const message = document.getElementById('description').value.trim();
+
+    if (!name || !email || !phone || !message) {
+        alert('Please fill in all fields');
+        this.classList.remove("submitting");
+        return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    desktopBtn.style.pointerEvents = 'none';
+    desktopBtn.style.opacity = '0.6';
+
+    try {
+        const response = await fetch(`${API_URL}/contact/submit`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, phone, message })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert(data.message || 'Thank you! We got your inquiry.');
+            this.reset();
+        } else {
+            alert(data.message || 'Failed to submit. Try again.');
+        }
+    } catch (error) {
+        alert('Network error.');
+        console.error(error);
+    } finally {
+        // 🔥 Allow submission again
+        this.classList.remove("submitting");
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        desktopBtn.style.pointerEvents = 'auto';
+        desktopBtn.style.opacity = '1';
+    }
+});
+
+// Desktop button triggers form
+document.getElementById('desktopSubmit').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').requestSubmit();
+});
+</script>
+
+
+
+</body>
+
+</html>

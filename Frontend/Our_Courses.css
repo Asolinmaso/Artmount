@@ -835,7 +835,7 @@ body:has(#menu-toggle:checked) {
     position: absolute;
     width:49px;
     top:100px;
-    left: 300px;
+    left: 280px;
     background: #ffffffff;
     right: auto !important;
     bottom: auto !important;
@@ -868,7 +868,7 @@ body:has(#menu-toggle:checked) {
      position: absolute;
     top:150px;
     width:49px;
-    left:340px;
+    left:300px;
     background: transparent;
      right: auto !important;
     bottom: auto !important;

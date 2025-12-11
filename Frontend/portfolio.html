@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Portfolio - Creative Work That Speaks for Itself</title>
+    <link rel="icon" type="image/png" href="artmount-logo-a.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -18,44 +19,75 @@
          Navigation Section and Hero section
          ==================== -->
   <!-- Replacing old bootstrap navbar with minimal custom hamburger menu -->
+   <!-- Hero / Portfolio Header -->
+<header class="sticky-header">
+  <img src="artmount-logo-black.png" alt="Artmount Logo" class="hero-logo reveal reveal-zoom" id="logo">
+
+  <!-- Hamburger Menu -->
   <input type="checkbox" id="menu-toggle" title="Toggle navigation menu" />
   <label for="menu-toggle" class="navbar-icon" aria-label="Toggle navigation menu">
     <span></span>
     <span></span>
     <span></span>
   </label>
+
+  <!-- Side Navigation Drawer -->
   <nav class="navbar-menu">
     <ul>
-      <li><a href="Home.html">Home</a></li>
-      <li><a href="Our_Courses.html">Our Courses</a></li>
-      <li><a href="About_Us.html">About Us</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="contactpage.html">Contact Us</a></li>
+      <li><a href="Home.html" class="underline-animate">Home</a></li>
+      <li><a href="Our_Courses.html" class="underline-animate">Our Courses</a></li>
+      <li><a href="About_Us.html" class="underline-animate">About Us</a></li>
+      <li><a href="portfolio.html" class="underline-animate">Portfolio</a></li>
+      <li><a href="contactpage.html" class="underline-animate">Contact Us</a></li>
     </ul>
   </nav>
+</header>
 
-<section class="portfolio">
-  <p class="subtitle">Our Portfolio</p>
-  <h1 class="title">Creative Work That Speaks<br>for Itself</h1>
-  <div class="floating-images">
-    <div class="item img1"><img src="download01.jpg" alt=""></div>
-    <div class="item img2"><img src="download02.jpg" alt=""></div>
-    <div class="item img3"><img src="download03.jpg" alt=""></div>
-    <div class="item img4"><img src="download06.jpg" alt=""></div>
-    <div class="item img5"><img src="download08.jpg" alt=""></div>
-    <div class="item img6"><img src="download04.jpg" alt=""></div>
-    <div class="item img7"><img src="download07.jpg" alt=""></div>
-    <div class="item img8"><img src="download11.jpg" alt=""></div>
-    <div class="item img9"><img src="download10.jpg" alt=""></div>
-    <div class="item img10"><img src="download05.jpg" alt=""></div>
-    <div class="item img11"><img src="download09.jpg" alt=""></div>
-    <div class="item img12"><img src="download12.jpg" alt=""></div>
+ <section class="portfolio">
+      <p class="subtitle">Our Portfolio</p>
+      <h1 class="title animated">Creative Work That Speaks for Itself</h1>
+      <div class="floating-images">
+        <div class="item img1 float-hero"><img src="download01.jpg" alt=""></div>
+        <div class="item img2 float-hero"><img src="download02.jpg" alt=""></div>
+        <div class="item img3 float-hero"><img src="download03.jpg" alt=""></div>
+        <div class="item img4 float-hero"><img src="download06.jpg" alt=""></div>
+        <div class="item img5 float-hero"><img src="download08.jpg" alt=""></div>
+        <div class="item img6 float-hero"><img src="download04.jpg" alt=""></div>
+        <div class="item img7 float-hero"><img src="download07.jpg" alt=""></div>
+        <div class="item img8 float-hero"><img src="download11.jpg" alt=""></div>
+        <div class="item img9 float-hero"><img src="download10.jpg" alt=""></div>
+        <div class="item img10 float-hero"><img src="download05.jpg" alt=""></div>
+        <div class="item img11 float-hero"><img src="download09.jpg" alt=""></div>
+        <div class="item img12 float-hero"><img src="download12.jpg" alt=""></div>
 
-    <div class="text text1">Projects in motion</div>
-    <div class="text text2">our creative portfolio</div>
-    <div class="text text3">See what we create together</div>
-  </div>
-</section>
+        <div class="text text1 float-location">Projects in motion</div>
+        <div class="text text2 float-location">our creative portfolio</div>
+        <div class="text text3 float-location">See what we create together</div>
+      </div>
+      <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector(".title.animated");
+  if (!title) return;
+
+  const parts = title.innerHTML.split("<br>");
+  title.innerHTML = "";
+
+  let index = 0;
+
+  parts.forEach((part, line) => {
+    [...part].forEach(ch => {
+      const span = document.createElement("span");
+      span.textContent = ch;
+      span.style.setProperty("--i", index++);
+      title.appendChild(span);
+    });
+    if (line < parts.length - 1) {
+      title.appendChild(document.createElement("br"));
+    }
+  });
+});
+</script>
+    </section>
 
 
 <!-- ====================
@@ -206,208 +238,214 @@
 </section>
 
 
-<!-- ================= CTA Section ================= -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Left content -->
-                <div class="col-lg-6">
-                    <h2 class="cta-heading">Ready to Grow<br>with Artmount?</h2>
-                    <p class="cta-text">
-                        Let’s kickstart your UI/UX or Graphic Design journey at<br>
-                        Artmount. Contact us now for a free demo or batch info!
-                    </p>
-                    <!-- Desktop button -->
-                    <a href="#" id="desktopSubmit" class="btn-contact btn-desktop">Contact us</a>
-                </div>
+ <!-- ================= CTA Section ================= -->
+  <section class="cta-section cta-reveal-up">
+    <div class="container">
+      <div class="row">
+        <!-- Left content -->
+        <div class="col-lg-6">
+          <h2 class="cta-heading cta-reveal-left underline-anim">Ready to Grow<br>with Artmount?</h2>
+          <p class="cta-text cta-reveal-left">
+            Let's kickstart your UI/UX or Graphic Design journey at
+            Artmount. Contact us now for a free demo or batch info!
+          </p>
+        </div>
 
-                <!-- Right form -->
-                <div class="col-lg-6">
-                    <form id="contactForm" novalidate>
-                        <div class="form-group">
-                            <input type="text" id="name" class="form-control" placeholder="Name" />
-                            <small class="error" id="nameError"></small>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="email" id="email" class="form-control" placeholder="Email" />
-                            <small class="error" id="emailError"></small>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." />
-                            <small class="error" id="mobileError"></small>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="description" class="form-control" placeholder="Description" />
-                            <small class="error" id="descriptionError"></small>
-                        </div>
-
-                        <!-- Mobile button -->
-                        <button type="submit" class="btn-contact btn-mobile">Contact us</button>
-                    </form>
-                </div>
+        <!-- Right form -->
+        <div class="col-lg-6">
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" />
+              <small class="error" id="nameError"></small>
             </div>
-            <script>
-                const nameInput = document.getElementById("name");
-                const emailInput = document.getElementById("email");
-                const mobileInput = document.getElementById("mobile");
-                const descInput = document.getElementById("description");
 
-                const nameError = document.getElementById("nameError");
-                const emailError = document.getElementById("emailError");
-                const mobileError = document.getElementById("mobileError");
-                const descError = document.getElementById("descriptionError");
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Email" />
+              <small class="error" id="emailError"></small>
+            </div>
 
-                // Regex
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                const mobileRegex = /^[0-9]{10}$/;
+            <div class="form-group">
+              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." />
+              <small class="error" id="mobileError"></small>
+            </div>
 
-                // Validation functions
-                function validateName() {
-                    if (nameInput.value.trim() === "") {
-                        nameError.textContent = "Name is required";
-                        nameInput.classList.add("invalid");
-                        nameInput.classList.remove("valid");
-                        return false;
-                    } else {
-                        nameError.textContent = "";
-                        nameInput.classList.remove("invalid");
-                        nameInput.classList.add("valid");
-                        return true;
-                    }
-                }
+            <div class="form-group">
+              <input type="text" id="description" class="form-control" placeholder="Description" />
+              <small class="error" id="descriptionError"></small>
+            </div>
 
-                function validateEmail() {
-                    if (!emailRegex.test(emailInput.value.trim())) {
-                        emailError.textContent = "Enter a valid email";
-                        emailInput.classList.add("invalid");
-                        emailInput.classList.remove("valid");
-                        return false;
-                    } else {
-                        emailError.textContent = "";
-                        emailInput.classList.remove("invalid");
-                        emailInput.classList.add("valid");
-                        return true;
-                    }
-                }
-
-                function validateMobile() {
-                    if (!mobileRegex.test(mobileInput.value.trim())) {
-                        mobileError.textContent = "Enter a 10-digit mobile number";
-                        mobileInput.classList.add("invalid");
-                        mobileInput.classList.remove("valid");
-                        return false;
-                    } else {
-                        mobileError.textContent = "";
-                        mobileInput.classList.remove("invalid");
-                        mobileInput.classList.add("valid");
-                        return true;
-                    }
-                }
-
-                function validateDesc() {
-                    if (descInput.value.trim() === "") {
-                        descError.textContent = "Description is required";
-                        descInput.classList.add("invalid");
-                        descInput.classList.remove("valid");
-                        return false;
-                    } else {
-                        descError.textContent = "";
-                        descInput.classList.remove("invalid");
-                        descInput.classList.add("valid");
-                        return true;
-                    }
-                }
-
-                // Live validation (on input)
-                nameInput.addEventListener("input", validateName);
-                emailInput.addEventListener("input", validateEmail);
-                mobileInput.addEventListener("input", validateMobile);
-                descInput.addEventListener("input", validateDesc);
-
-                // Final check on submit
-                // Final check on submit
-                document.getElementById("contactForm").addEventListener("submit", function (e) {
-                    e.preventDefault();
-
-                    if (validateName() & validateEmail() & validateMobile() & validateDesc()) {
-                        alert("Form submitted successfully!");
-
-                        // Reset the form
-                        this.reset();
-
-                        // Remove validation styles after reset
-                        [nameInput, emailInput, mobileInput, descInput].forEach(input => {
-                            input.classList.remove("valid", "invalid");
-                        });
-                    }
-                });
-                document.getElementById("desktopSubmit").addEventListener("click", function (e) {
-                    e.preventDefault(); // stop jumping to top
-                    document.getElementById("contactForm").requestSubmit();
-                });
-
-
-            </script>
-
-        </div>
-    </section>
-
-  <!-- ================= Footer ================= -->
-      <footer class="custom-footer">
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Left Text -->
-      <div class="col-lg-4 footer-col">
-        <p>
-          From innovative marketing 
-          strategies to operational 
-          excellence, we provide
-          expert
-        </p>
-      </div>
-
-      <!-- Middle Menu -->
-      <div class="col-lg-4 footer-col">
-        <h5>Menu</h5>
-        <ul class="list-unstyled">
-          <li><a href="Home.html">Home</a></li>
-           <li><a href="Our_Courses.html">Our Courses</a></li>
-          <li><a href="About_Us.html">About us</a></li>
-           <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contactpage.html">Contact</a></li>    
-        </ul>
-      </div>
-
-      <!-- Right Office -->
-      <div class="col-lg-4 footer-col">
-        <h5>OFFICE LOCATION</h5>
-        <div class="office-address1">
-          <h5>Address 1</h5>
-         <p>No.4, Alamathi main road, New vellanur, Avadi, Chennai-600062</p>   
-        </div>  
-        <div class="office-address2">
-           <h5>Address 2</h5>
-          <p>c201a, 19th St, Periyar Nagar West, Perambur, Chennai, Tamil Nadu 600082</p>
-        </div> 
-        <div class="copyright">
-           <p>© By Artmount Academy. All rights reserved.</p>
-          </div>            
-          </div>         
+            <!-- One single button (desktop + mobile unified) -->
+            <button type="submit" id="desktopSubmit" class="btn-contact btn-submit">Submit</button>
+          </form>
         </div>
       </div>
     </div>
+    <script>
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const mobileInput = document.getElementById("mobile");
+      const descInput = document.getElementById("description");
 
-    <!-- Social Icons -->
-    <div class="social-icons">
-      <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
-      <div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
-      <div class="social-icon"><i class="fab fa-twitter"></i></div>
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const mobileError = document.getElementById("mobileError");
+      const descError = document.getElementById("descriptionError");
+
+      // Regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const mobileRegex = /^[0-9]{10}$/;
+
+      // Validation functions
+      function validateName() {
+        if (nameInput.value.trim() === "") {
+          nameError.textContent = "Name is required";
+          nameInput.classList.add("invalid");
+          nameInput.classList.remove("valid");
+          return false;
+        } else {
+          nameError.textContent = "";
+          nameInput.classList.remove("invalid");
+          nameInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateEmail() {
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailError.textContent = "Enter a valid email";
+          emailInput.classList.add("invalid");
+          emailInput.classList.remove("valid");
+          return false;
+        } else {
+          emailError.textContent = "";
+          emailInput.classList.remove("invalid");
+          emailInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateMobile() {
+        if (!mobileRegex.test(mobileInput.value.trim())) {
+          mobileError.textContent = "Enter a 10-digit mobile number";
+          mobileInput.classList.add("invalid");
+          mobileInput.classList.remove("valid");
+          return false;
+        } else {
+          mobileError.textContent = "";
+          mobileInput.classList.remove("invalid");
+          mobileInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateDesc() {
+        if (descInput.value.trim() === "") {
+          descError.textContent = "Description is required";
+          descInput.classList.add("invalid");
+          descInput.classList.remove("valid");
+          return false;
+        } else {
+          descError.textContent = "";
+          descInput.classList.remove("invalid");
+          descInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      // Live validation (on input)
+      nameInput.addEventListener("input", validateName);
+      emailInput.addEventListener("input", validateEmail);
+      mobileInput.addEventListener("input", validateMobile);
+      descInput.addEventListener("input", validateDesc);
+
+      // Final check on submit
+      // Final check on submit
+
+      document.getElementById("desktopSubmit").addEventListener("click", function (e) {
+        e.preventDefault(); // stop jumping to top
+        document.getElementById("contactForm").requestSubmit();
+      });
+
+
+    </script>
+  </section>
+
+ <!-- ================= Footer ================= -->
+  <footer class="custom-footer">
+    <div class="container-fluid">
+      <div class="row footer-main-row">
+        <!-- COLUMN 1: Logo + Intro + Social -->
+        <div class="col-lg-4 col-md-6 footer-col">
+          <div class="footer-left shifted-col">
+            <!-- Logo -->
+            <img src="artmount-logo-a.png" alt="ArtMount Academy" class="footer-logo">
+
+            <!-- Intro text (replace line later, structure same) -->
+            <p class="footer-text">
+              From innovative marketing strategies to operational excellence, we provide expert
+            </p>
+
+            <!-- Social Icons -->
+
+          </div>
+        </div>
+
+        <!-- COLUMN 2: Center Navigation -->
+        <div class="col-lg-4 col-md-6 footer-col">
+          <div class="shifted-col">
+            <h5 class="footer-menu-title">Menu</h5>
+            <nav class="footer-menu">
+              <a href="Home.html" class="footer-link hover-pop underline-anim">Home</a>
+              <a href="Our_Courses.html" class="footer-link hover-pop underline-anim">Our Courses</a>
+              <a href="About_Us.html" class="footer-link hover-pop underline-anim">About Us</a>
+              <a href="portfolio.html" class="footer-link hover-pop underline-anim">Portfolio</a>
+              <a href="contactpage.html" class="footer-link hover-pop underline-anim">Contact</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- COLUMN 3: Address -->
+        <div class="col-lg-4 col-md-12 footer-col">
+          <div class="footer-address shifted-col">
+            <h5>Office Address</h5>
+            <p>N0.4,Alamathi main road,New vellanur,</p>
+            <p>Avadi, Chennai-600062</p>
+
+
+            <div style="margin-top: 20px;">
+              <p>c201a, 19th St, periar nagaar West,</p>
+              <p> Perambur, Chennai-600082</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-social">
+              <ul class="socials">
+                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+                      alt="LinkedIn"></a></li>
+
+                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                      alt="Instagram"></a></li>
+
+                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                      alt="WhatsApp"></a></li>
+
+                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+                      alt="Facebook"></a></li>
+
+                <li><a href="mailto:info@artmountacademy.com"><img
+                      src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
+                      alt="gmail"></a></li>
+              </ul>
+            </div>
+
+      <!-- BOTTOM BRANDING -->
+      <div class="footer-bottom">
+        <span>ArtMount Academy</span>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

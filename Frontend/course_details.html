@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Course Details</title>
+    <link rel="icon" type="image/png" href="artmount-logo-a.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
     <link href="course_details.css" rel="stylesheet" />
 </head>
 
@@ -31,13 +31,14 @@
         <!-- Side Navigation Menu -->
         <nav class="navbar-menu">
             <ul>
-                <li><a href="Home.html">Home</a></li>
-                <li><a href="Our_Courses.html">Our Courses</a></li>
-                <li><a href="About_Us.html">About Us</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contactpage.html">Contact Us</a></li>
+                <li><a href="Home.html" class="underline-animate">Home</a></li>
+                <li><a href="Our_Courses.html" class="underline-animate">Our Courses</a></li>
+                <li><a href="About_Us.html" class="underline-animate">About Us</a></li>
+                <li><a href="portfolio.html" class="underline-animate">Portfolio</a></li>
+                <li><a href="contactpage.html" class="underline-animate">Contact Us</a></li>
             </ul>
         </nav>
+       <img src="artmount-logo-black.png" alt="Artmount Logo" class="hero-logo reveal reveal-zoom" id="logo">
         <div class="header-content">
             <h1>Course Details</h1>
             <div class="header-image">
@@ -269,23 +270,19 @@
          <!-- ================= CTA Section ================= -->
   <section class="cta-section cta-reveal-up">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row">
         <!-- Left content -->
         <div class="col-lg-6">
-          <h2 class="cta-heading cta-reveal-left">Ready to Grow<br>with Artmount?</h2>
+          <h2 class="cta-heading cta-reveal-left underline-anim">Ready to Grow<br>with Artmount?</h2>
           <p class="cta-text cta-reveal-left">
-            Let’s kickstart your UI/UX or Graphic Design journey at<br>
+            Let's kickstart your UI/UX or Graphic Design journey at
             Artmount. Contact us now for a free demo or batch info!
           </p>
-          <!-- Desktop button -->
-
-          <a href="#" id="desktopSubmit" class="btn-contact btn-desktop cta-reveal-down">Contact us</a>
-
         </div>
 
         <!-- Right form -->
         <div class="col-lg-6">
-          <form id="contactForm" class="cta-reveal-right" novalidate>
+          <form id="contactForm" novalidate>
             <div class="form-group">
               <input type="text" id="name" class="form-control" placeholder="Name" />
               <small class="error" id="nameError"></small>
@@ -306,173 +303,179 @@
               <small class="error" id="descriptionError"></small>
             </div>
 
-            <!-- Mobile button -->
-            <div>
-              <button type="submit" class="btn-contact btn-mobile cta-reveal-down">Contact us</button>
-            </div>
+            <!-- One single button (desktop + mobile unified) -->
+            <button type="submit" id="desktopSubmit" class="btn-contact btn-submit">Submit</button>
           </form>
         </div>
       </div>
-      <script>
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const mobileInput = document.getElementById("mobile");
-        const descInput = document.getElementById("description");
-
-        const nameError = document.getElementById("nameError");
-        const emailError = document.getElementById("emailError");
-        const mobileError = document.getElementById("mobileError");
-        const descError = document.getElementById("descriptionError");
-
-        // Regex
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const mobileRegex = /^[0-9]{10}$/;
-
-        // Validation functions
-        function validateName() {
-          if (nameInput.value.trim() === "") {
-            nameError.textContent = "Name is required";
-            nameInput.classList.add("invalid");
-            nameInput.classList.remove("valid");
-            return false;
-          } else {
-            nameError.textContent = "";
-            nameInput.classList.remove("invalid");
-            nameInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        function validateEmail() {
-          if (!emailRegex.test(emailInput.value.trim())) {
-            emailError.textContent = "Enter a valid email";
-            emailInput.classList.add("invalid");
-            emailInput.classList.remove("valid");
-            return false;
-          } else {
-            emailError.textContent = "";
-            emailInput.classList.remove("invalid");
-            emailInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        function validateMobile() {
-          if (!mobileRegex.test(mobileInput.value.trim())) {
-            mobileError.textContent = "Enter a 10-digit mobile number";
-            mobileInput.classList.add("invalid");
-            mobileInput.classList.remove("valid");
-            return false;
-          } else {
-            mobileError.textContent = "";
-            mobileInput.classList.remove("invalid");
-            mobileInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        function validateDesc() {
-          if (descInput.value.trim() === "") {
-            descError.textContent = "Description is required";
-            descInput.classList.add("invalid");
-            descInput.classList.remove("valid");
-            return false;
-          } else {
-            descError.textContent = "";
-            descInput.classList.remove("invalid");
-            descInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        // Live validation (on input)
-        nameInput.addEventListener("input", validateName);
-        emailInput.addEventListener("input", validateEmail);
-        mobileInput.addEventListener("input", validateMobile);
-        descInput.addEventListener("input", validateDesc);
-
-        // Final check on submit
-        // Final check on submit
-        
-        document.getElementById("desktopSubmit").addEventListener("click", function (e) {
-          e.preventDefault(); // stop jumping to top
-          document.getElementById("contactForm").requestSubmit();
-        });
-        const revealEls21 = document.querySelectorAll(
-          '.cta-reveal-up, .cta-reveal-left, .cta-reveal-right, .cta-reveal-down'
-        );
-
-        const obs2 = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('reveal-visible');
-            }
-          });
-        }, { threshold: 0.2 });
-
-        revealEls21.forEach(el => obs2.observe(el));
-
-
-      </script>
-
     </div>
+    <script>
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const mobileInput = document.getElementById("mobile");
+      const descInput = document.getElementById("description");
+
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const mobileError = document.getElementById("mobileError");
+      const descError = document.getElementById("descriptionError");
+
+      // Regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const mobileRegex = /^[0-9]{10}$/;
+
+      // Validation functions
+      function validateName() {
+        if (nameInput.value.trim() === "") {
+          nameError.textContent = "Name is required";
+          nameInput.classList.add("invalid");
+          nameInput.classList.remove("valid");
+          return false;
+        } else {
+          nameError.textContent = "";
+          nameInput.classList.remove("invalid");
+          nameInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateEmail() {
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailError.textContent = "Enter a valid email";
+          emailInput.classList.add("invalid");
+          emailInput.classList.remove("valid");
+          return false;
+        } else {
+          emailError.textContent = "";
+          emailInput.classList.remove("invalid");
+          emailInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateMobile() {
+        if (!mobileRegex.test(mobileInput.value.trim())) {
+          mobileError.textContent = "Enter a 10-digit mobile number";
+          mobileInput.classList.add("invalid");
+          mobileInput.classList.remove("valid");
+          return false;
+        } else {
+          mobileError.textContent = "";
+          mobileInput.classList.remove("invalid");
+          mobileInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateDesc() {
+        if (descInput.value.trim() === "") {
+          descError.textContent = "Description is required";
+          descInput.classList.add("invalid");
+          descInput.classList.remove("valid");
+          return false;
+        } else {
+          descError.textContent = "";
+          descInput.classList.remove("invalid");
+          descInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      // Live validation (on input)
+      nameInput.addEventListener("input", validateName);
+      emailInput.addEventListener("input", validateEmail);
+      mobileInput.addEventListener("input", validateMobile);
+      descInput.addEventListener("input", validateDesc);
+
+      // Final check on submit
+      // Final check on submit
+
+      document.getElementById("desktopSubmit").addEventListener("click", function (e) {
+        e.preventDefault(); // stop jumping to top
+        document.getElementById("contactForm").requestSubmit();
+      });
+
+
+    </script>
   </section>
 
 
-        <!-- ================= Footer ================= -->
-        <footer class="custom-footer">
-            <div class="container">
-                <div class="row">
-                    <!-- Left Text -->
-                    <div class="col-lg-4 footer-col">
-                        <p>
-                            From innovative marketing
-                            strategies to operational
-                            excellence, we provide
-                            expert
-                        </p>
-                    </div>
+   <!-- ================= Footer ================= -->
+  <footer class="custom-footer">
+    <div class="container-fluid">
+      <div class="row footer-main-row">
+        <!-- COLUMN 1: Logo + Intro + Social -->
+        <div class="col-lg-4 col-md-6 footer-col">
+          <div class="footer-left shifted-col">
+            <!-- Logo -->
+            <img src="artmount-logo-a.png" alt="ArtMount Academy" class="footer-logo">
 
-                    <!-- Middle Menu -->
-                    <div class="col-lg-4 footer-col">
-                        <h5>Menu</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="Home.html">Home</a></li>
-                            <li><a href="Our_Courses.html">Our Courses</a></li>
-                            <li><a href="About_Us.html">About us</a></li>
-                            <li><a href="portfolio.html">Portfolio</a></li>
-                            <li><a href="contactpage.html">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Right Office -->
-                    <div class="col-lg-4 footer-col">
-                        <h5>OFFICE LOCATION</h5>
-                        <div class="office-address1">
-                            <h5>Address 1</h5>
-                            <p>No.4, Alamathi main road, New vellanur, Avadi, Chennai-600062</p>
-                        </div>
-                        <div class="office-address2">
-                            <h5>Address 2</h5>
-                            <p>c201a, 19th St, Periyar Nagar West, Perambur, Chennai, Tamil Nadu 600082</p>
-                        </div>
-                        <div class="copyright">
-                            <p>© By Artmount Academy. All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <!-- Intro text (replace line later, structure same) -->
+            <p class="footer-text">
+              From innovative marketing strategies to operational excellence, we provide expert
+            </p>
 
             <!-- Social Icons -->
-            <div class="footer-social-icons">
-                <div class="footer-social-icon"><i class="fab fa-facebook-f"></i></div>
-                <div class="footer-social-icon"><i class="fab fa-linkedin-in"></i></div>
-                <div class="footer-social-icon"><i class="fab fa-twitter"></i></div>
-            </div>
-    </div>
-    </footer>
 
+          </div>
+        </div>
+
+        <!-- COLUMN 2: Center Navigation -->
+        <div class="col-lg-4 col-md-6 footer-col">
+          <div class="shifted-col">
+            <h5 class="footer-menu-title">Menu</h5>
+            <nav class="footer-menu">
+              <a href="Home.html" class="footer-link hover-pop underline-anim">Home</a>
+              <a href="Our_Courses.html" class="footer-link hover-pop underline-anim">Our Courses</a>
+              <a href="About_Us.html" class="footer-link hover-pop underline-anim">About Us</a>
+              <a href="portfolio.html" class="footer-link hover-pop underline-anim">Portfolio</a>
+              <a href="contactpage.html" class="footer-link hover-pop underline-anim">Contact</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- COLUMN 3: Address -->
+        <div class="col-lg-4 col-md-12 footer-col">
+          <div class="footer-address shifted-col">
+            <h5>Office Address</h5>
+            <p>N0.4,Alamathi main road,New vellanur,</p>
+            <p>Avadi, Chennai-600062</p>
+
+
+            <div style="margin-top: 20px;">
+              <p>c201a, 19th St, periar nagaar West,</p>
+              <p> Perambur, Chennai-600082</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-social">
+              <ul class="socials">
+                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+                      alt="LinkedIn"></a></li>
+
+                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                      alt="Instagram"></a></li>
+
+                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                      alt="WhatsApp"></a></li>
+
+                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+                      alt="Facebook"></a></li>
+
+                <li><a href="mailto:info@artmountacademy.com"><img
+                      src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
+                      alt="gmail"></a></li>
+              </ul>
+            </div>
+
+      <!-- BOTTOM BRANDING -->
+      <div class="footer-bottom">
+        <span>ArtMount Academy</span>
+      </div>
+    </div>
+  </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
+  <link rel="icon" type="image/png" href="artmount-logo-a.png">
   <!-- Bootstrap CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
@@ -15,6 +16,11 @@
   <!-- plus jakarta sans -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Sekuya&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,52 +43,83 @@
 
 <body>
   <!-- ================= Header SECTION ================= -->
-  <section class="header">
+  <section class="header" id="hero">
     <section class="hero-section">
       <!-- Navbar Icon -->
       <!-- Hamburger Menu (checkbox + label) -->
-      <div class="menu-wrapper">
-        <input type="checkbox" id="menu-toggle" title="Toggle navigation menu" />
-        <label for="menu-toggle" class="navbar-icon" aria-label="Toggle navigation menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-        <!-- Side Navigation Menu -->
-        <nav class="navbar-menu">
-          <ul>
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="Our_Courses.html">Our Courses</a></li>
-            <li><a href="About_Us.html">About Us</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="contactpage.html">Contact Us</a></li>
-          </ul>
-        </nav>
+      <div class="sticky-header">
+        <img src="artmount-logo.png" alt="Artmount Logo" class="hero-logo reveal reveal-zoom" id="logo">
+        <div class="menu-wrapper">
+          <input type="checkbox" id="menu-toggle" title="Toggle navigation menu" />
+          <label for="menu-toggle" class="navbar-icon" aria-label="Toggle navigation menu" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <!-- Side Navigation Menu -->
+          <nav class="navbar-menu">
+            <ul>
+              <li><a href="Home.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Home</span>
+                </a></li>
+
+              <li class="has-submenu">
+                <a href="Our_Courses.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Our Courses</span>
+                </a>
+
+                <ul class="submenu">
+                  <li><a href="graphic_design.html" class="hover-pop underline-anim">Graphic designing</a></li>
+                  <li><a href="digital_marketing.html" class="hover-pop underline-anim">Digital Marketing</a></li>
+                  <li><a href="uiux_design.html" class="hover-pop underline-anim">UI/UX Design</a></li>
+                  <li><a href="Video_editing.html" class="hover-pop underline-anim">Video Editing</a></li>
+                </ul>
+              </li>
+
+              <li><a href="About_Us.html" class="nav-link hover-pop">
+                  <span class="underline-animate">About Us</span>
+                </a></li>
+
+              <li><a href="portfolio.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Portfolio</span>
+                </a></li>
+
+              <li><a href="contactpage.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Contact Us</span>
+                </a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
       <div class="container">
         <div class="row align-items-center">
           <!-- Left Side Content -->
           <div class="col-md-8 col-lg-8">
-            <img src="artmount-logo.png" alt="Artmount Logo" class="hero-logo reveal reveal-zoom">
             <div class="hero-content reveal reveal-left">
-              <h1 class="ml-animate">Learn from Top Industry Experts in UI/UX & Graphic Design</h1>
+              <div class="console-container">
+                <span id="static-text"></span>
+                <span id="dynamic-text"></span>
+                <span class="console-cursor" id="cursor">|</span>
+              </div>
 
               <p>
                 Master UI/UX Design, Graphic Design, and Video Editing courses in Chennai with hands-on
                 projects, live mentoring, and real-world applications.
               </p>
-              <a href="Our_Courses.html" class="btn btn-primary">
-                Our Courses <i class="fa-solid fa-arrow-right"></i>
+              <a href="Our_Courses.html" class="section-btn-outline-info0 reveal popup">
+
+                Our Courses
               </a>
+
 
 
               <!-- Stats Section -->
               <div class="stats-container">
                 <div class="stat-item reveal reveal-up">
                   <span class="stat-number">
-                    <span class="num">200</span><span class="symbol">+</span>
+                    <span class="num">12</span><span class="symbol">K+</span>
                   </span>
-                  <div class="stat-label"><b> Successful Projects </b></div>
+                  <div class="stat-label"><b> Students Empowered</b></div>
 
                 </div>
 
@@ -102,6 +139,50 @@
 
                 </div>
               </div>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  const counters = document.querySelectorAll(".num");
+                  let started = false; // ensures animation runs only once
+
+                  function startCounter() {
+                    if (started) return;
+                    started = true;
+
+                    counters.forEach(counter => {
+                      let target = +counter.innerText;
+                      let duration = 2000; // 2 seconds
+                      let step = target / (duration / 16);
+
+                      let count = 0;
+                      let updateCounter = () => {
+                        count += step;
+                        if (count < target) {
+                          counter.innerText = Math.floor(count);
+                          requestAnimationFrame(updateCounter);
+                        } else {
+                          counter.innerText = target;
+                        }
+                      };
+
+                      counter.innerText = "0"; // start from 0
+                      requestAnimationFrame(updateCounter);
+                    });
+                  }
+
+                  // Trigger animation when section appears in viewport
+                  const observer = new IntersectionObserver(
+                    entries => {
+                      entries.forEach(entry => {
+                        if (entry.isIntersecting) startCounter();
+                      });
+                    },
+                    { threshold: 0.4 }
+                  );
+
+                  observer.observe(document.querySelector(".stats-container"));
+                });
+              </script>
+
             </div>
           </div>
 
@@ -152,7 +233,7 @@
                   </div>
 
                   <!-- Submit button moved INSIDE -->
-                  <button type="submit" class="blob-btn" id="submitBtn">Submit</button>
+                  <button type="submit" class="section-btn-outline-info1 reveal popup" id="submitBtn">Submit</button>
 
                 </form>
               </div>
@@ -160,6 +241,24 @@
 
           </div>
         </div>
+        <script>
+          window.addEventListener("scroll", function () {
+            const header = document.querySelector(".sticky-header");
+            const firstSection = document.getElementById("hero");  // first section
+            const firstSectionHeight = firstSection.offsetHeight;
+
+            if (window.scrollY > 0) {
+              header.classList.add("scrolled");
+              logo.src = "artmount-logo-black.png";
+
+            } else {
+              header.classList.remove("scrolled");
+              logo.src = "artmount-logo.png";
+            }
+          });
+        </script>
+
+
     </section>
     <script>
       const reveals1 = document.querySelectorAll('.reveal');
@@ -382,6 +481,68 @@
 
     </script>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+
+        const staticText = "Learn from Top Industry Experts in ";
+        const dynamicWords = [
+          "Graphic Design",
+          "Video Editing & Animation",
+          "UI/UX Design",
+          "Digital Marketing"
+        ];
+
+        const staticEl = document.getElementById("static-text");
+        const dynamicEl = document.getElementById("dynamic-text");
+        const cursor = document.getElementById("cursor");
+
+        // 🔹 SHOW STATIC TEXT IMMEDIATELY (NO ANIMATION)
+        staticEl.textContent = staticText;
+
+        let wordIndex = 0;
+        let letterIndex = 0;
+        let deleting = false;
+        let isPaused = false;
+
+        /* ---- LOOPING DYNAMIC TEXT WITH PAUSE ---- */
+        setInterval(() => {
+          if (isPaused) return;
+
+          const currentWord = dynamicWords[wordIndex];
+
+          // Typing
+          if (!deleting) {
+            dynamicEl.textContent = currentWord.slice(0, letterIndex + 1);
+            letterIndex++;
+
+            if (letterIndex === currentWord.length) {
+              isPaused = true;
+              setTimeout(() => {
+                deleting = true;
+                isPaused = false;
+              }, 1500); // ⏸ reading pause
+            }
+          }
+          // Deleting
+          else {
+            dynamicEl.textContent = currentWord.slice(0, letterIndex - 1);
+            letterIndex--;
+
+            if (letterIndex === 0) {
+              deleting = false;
+              wordIndex = (wordIndex + 1) % dynamicWords.length;
+            }
+          }
+        }, 100);
+
+        /* ---- CURSOR BLINK ---- */
+        setInterval(() => {
+          cursor.classList.toggle("hidden");
+        }, 400);
+
+      });
+    </script>
+
 
 
   </section>
@@ -403,7 +564,7 @@
         <!-- Right Side Text -->
         <div class="col-lg-6 text-lg-start text-center">
           <div class="reveal slide-left">
-            <h2 class="section-title">Who we are</h2>
+            <h2 class="section-title">Who we <span class="colored-text">are</span></h2>
             <p class="section-text">
               At Artmount Academy, we are committed to shaping the next generation of creative
               professionals. As
@@ -428,9 +589,7 @@
               hands-on industry exposure, and stand out in today’s competitive creative market.
 
             </p>
-            <a href="Our_Courses.html" class="section-btn-outline-info reveal popup">
-              Start Learning
-            </a>
+            <a href="Our_Courses.html" class="section-btn-outline-info reveal popup">Start Learning</a>
           </div>
         </div>
       </div>
@@ -448,12 +607,15 @@
 
       reveals.forEach(el => observerReveal.observe(el));
     </script>
+
+
   </section>
   <!-- ================= COURSES SECTION  ================= -->
   <section class="courses-section scroll-animate fade-trigger">
     <div class="container">
       <div class="text-center mb-5 revealX reveal-down">
-        <h2 class="courses-section-title">Career-Focused Design & Digital Marketing Courses in Chennai
+        <h2 class="courses-section-title">Career-Focused <span class="colored-text">Design & Digital Marketing
+            Courses</span> in Chennai
         </h2>
         <p class="courses-section-text">
           Our programs are designed for Our programs are designed for practical learning, career growth,
@@ -473,21 +635,20 @@
             <div class="course-image" style="background-image:url('Thumbnail.png');"></div>
             <div class="course-content">
               <span class="course-category">Design</span>
-              <h3 class="course-title">Graphic Design Masterclass - Chennai</h3>
+              <h3 class="course-title">Best Graphic Design & Video Editing Courses – Chennai</h3>
               <p class="course-description">
-                Turn your creativity into a career with our Graphic Design course in Chennai.
-                Learn
-                industry-standard
-                tools like Adobe Photoshop, Illustrator, InDesign, and CorelDRAW to design brand
-                identities,
-                packaging,
-                digital ads, and layouts. Build a portfolio that speaks for itself with hands-on
-                projects and
-                real-world
-                assignments.</p>
-              <p class="course-description">No prior experience required – just your passion for design.
+                Unlock your creative potential with Artmount’s industry-leading Graphic Design and Video Editing courses
+                in Chennai. Learn essential tools like Adobe Photoshop, Illustrator, InDesign, Premiere Pro, and After
+                Effects—preparing you to design brand identities, digital ads, layouts, and professional video content.
               </p>
-              <button class="btn-enroll">Enroll Now</button>
+              <p class="course-description">Build a strong portfolio through practical, hands-on learning designed to
+                make you job-ready. Whether
+                you’re a beginner or looking to upskill, our programs help you elevate your creative capabilities.
+              </p>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='Video_editing.html'">
+                Explore Now
+              </button>
             </div>
           </div>
         </div>
@@ -513,7 +674,10 @@
               <p class="course-description"> Get industry-ready with projects, case studies, and portfolio
                 guidance.
               </p>
-              <button class="btn-enroll">Enroll Now</button>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='uiux_design.html'">
+                Explore Now
+              </button>
             </div>
           </div>
         </div>
@@ -524,7 +688,7 @@
             <div class="course-image" style="background-image:url('Thumbnail (2).png');"></div>
             <div class="course-content">
               <span class="course-category marketing">Marketing</span>
-              <h3 class="course-title">Digital Marketing Course - Chennai</h3>
+              <h3 class="course-title">Digital Marketing Course – Chennai</h3>
               <p class="course-description">
                 Master the art of digital marketing with a comprehensive training program in
                 Chennai. Learn
@@ -541,7 +705,10 @@
                 experience
                 needed.
               </p>
-              <button class="btn-enroll">Enroll Now</button>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='digital_marketing.html'">
+                Explore Now
+              </button>
             </div>
           </div>
         </div>
@@ -575,7 +742,8 @@
   <section class="features-section">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="features-section-title reveal-down">Smart Learning, Real Results</h2>
+        <h2 class="features-section-title reveal-down">Smart Learning, <span class="colored-text">Real Results</span>
+        </h2>
         <p class="features-section-text reveal-down">Where every lesson is designed for practical impact, equipping you
           with
           the
@@ -653,35 +821,39 @@
   </section>
   <!--==================== logo ============================-->
   <div class="logo">
-    <h2 class="logo-text reveal-down">Our Technolgy Partners for Placement</h2>
+    <h2 class="logo-text reveal-down">Our Technolgy Partners for <span class="colored-text">Placements</span></h2>
     <div class="carousel-container">
       <div class="carousel-track">
-        <!-- ORIGINAL 11 -->
-        <div class="carousel-slide"><img src="wraptron logo.png" alt="Wraptron logo"></div>
-        <div class="carousel-slide"><img src="codeup logo.png" alt="Codeup logo"></div>
-        <div class="carousel-slide"><img src="ddc logo.jpg" alt="DDC logo"></div>
-        <div class="carousel-slide"><img src="Collobrator-03.png" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="Collobrator-04.png" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="BBt-3.png" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="Collobrator-06.png" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div>
-        <div class="carousel-slide"><img src="Logo.webp" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div>
-
-        <!-- DUPLICATED 11 -->
-        <div class="carousel-slide"><img src="wraptron logo.png" alt="Wraptron logo"></div>
-        <div class="carousel-slide"><img src="codeup logo.png" alt="Codeup logo"></div>
-        <div class="carousel-slide"><img src="ddc logo.jpg" alt="DDC logo"></div>
-        <div class="carousel-slide"><img src="Collobrator-03.png" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="Collobrator-04.png" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="BBt-3.png" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="Collobrator-06.png" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div>
-        <div class="carousel-slide"><img src="Logo.webp" alt="Partner logo"></div>
-        <div class="carousel-slide"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div>
+        <div class="group">
+          <!-- ORIGINAL 10 -->
+          <div class="logo-box"><img src="wraptron logo.png" alt="Wraptron logo"></div>
+          <div class="logo-box"><img src="codeup logo.png" alt="Codeup logo"></div>
+          <div class="logo-box"><img src="ddc logo.jpg" alt="DDC logo"></div>
+          <div class="logo-box"><img src="Collobrator-03.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Collobrator-04.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="BBt-3.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Collobrator-06.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div>
+          <div class="logo-box"><img src="Logo.webp" alt="Partner logo"></div>
+          <div class="logo-box"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div>
+        </div>
+        <!-- DUPLICATED 10 -->
+        <div aria-hidden="" class="group">
+          <div class="logo-box"><img src="wraptron logo.png" alt="Wraptron logo"></div>
+          <div class="logo-box"><img src="codeup logo.png" alt="Codeup logo"></div>
+          <div class="logo-box"><img src="ddc logo.jpg" alt="DDC logo"></div>
+          <div class="logo-box"><img src="Collobrator-03.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Collobrator-04.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="BBt-3.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Collobrator-06.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div>
+          <div class="logo-box"><img src="Logo.webp" alt="Partner logo"></div>
+          <div class="logo-box"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div>
+        </div>
       </div>
-
     </div>
+
+
     <script>
       (function () {
         const reveals = document.querySelectorAll('.reveal-down');
@@ -712,7 +884,9 @@
 
       <!-- Title -->
       <div class="text-center mb-5 test-reveal-down">
-        <h2 class="testimonials-section-section-title ">Stories from our Learners</h2>
+        <h2 class="testimonials-section-section-title">
+          Here From Our <span class="colored-text">Mountains</span>
+        </h2>
         <p class="testimonials-section-section-text">
           Listen to the experiences and learning of our students through our training programs.
         </p>
@@ -830,223 +1004,239 @@
   <!-- ================= CTA Section ================= -->
   <section class="cta-section cta-reveal-up">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row">
         <!-- Left content -->
         <div class="col-lg-6">
-          <h2 class="cta-heading cta-reveal-left">Ready to Grow<br>with Artmount?</h2>
+          <h2 class="cta-heading cta-reveal-left underline-anim">Ready to Grow<br>with Artmount?</h2>
           <p class="cta-text cta-reveal-left">
-            Let’s kickstart your UI/UX or Graphic Design journey at<br>
+            Let's kickstart your UI/UX or Graphic Design journey at
             Artmount. Contact us now for a free demo or batch info!
           </p>
-          <!-- Desktop button -->
-
-          <a href="#" id="desktopSubmit" class="btn-contact btn-desktop cta-reveal-down">Contact us</a>
-
         </div>
 
         <!-- Right form -->
         <div class="col-lg-6">
-          <form id="contactForm" class="cta-reveal-right" novalidate>
+          <form id="contactForm" novalidate>
             <div class="form-group">
               <input type="text" id="name" class="form-control" placeholder="Name" />
-              <small class="error" id="ctaNameError"></small>
+              <small class="error" id="nameError"></small>
             </div>
 
             <div class="form-group">
               <input type="email" id="email" class="form-control" placeholder="Email" />
-              <small class="error" id="ctaEmailError"></small>
+              <small class="error" id="emailError"></small>
             </div>
 
             <div class="form-group">
               <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." />
-              <small class="error" id="ctaMobileError"></small>
+              <small class="error" id="mobileError"></small>
             </div>
 
             <div class="form-group">
               <input type="text" id="description" class="form-control" placeholder="Description" />
-              <small class="error" id="ctaDescriptionError"></small>
+              <small class="error" id="descriptionError"></small>
             </div>
 
-            <!-- Mobile button -->
-            <div>
-              <button type="submit" class="btn-contact btn-mobile cta-reveal-down">Contact us</button>
-            </div>
+            <!-- One single button (desktop + mobile unified) -->
+            <button type="submit" id="desktopSubmit" class="btn-contact btn-submit">Submit</button>
           </form>
         </div>
       </div>
-      <script>
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const mobileInput = document.getElementById("mobile");
-        const descInput = document.getElementById("description");
-
-        const nameError = document.getElementById("ctaNameError");
-        const emailError = document.getElementById("ctaEmailError");
-        const mobileError = document.getElementById("ctaMobileError");
-        const descError = document.getElementById("ctaDescriptionError");
-
-        // Regex
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const mobileRegex = /^[0-9]{10}$/;
-
-        // Validation functions
-        function validateName() {
-          if (nameInput.value.trim() === "") {
-            nameError.textContent = "Name is required";
-            nameInput.classList.add("invalid");
-            nameInput.classList.remove("valid");
-            return false;
-          } else {
-            nameError.textContent = "";
-            nameInput.classList.remove("invalid");
-            nameInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        function validateEmail() {
-          if (!emailRegex.test(emailInput.value.trim())) {
-            emailError.textContent = "Enter a valid email";
-            emailInput.classList.add("invalid");
-            emailInput.classList.remove("valid");
-            return false;
-          } else {
-            emailError.textContent = "";
-            emailInput.classList.remove("invalid");
-            emailInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        function validateMobile() {
-          if (!mobileRegex.test(mobileInput.value.trim())) {
-            mobileError.textContent = "Enter a 10-digit mobile number";
-            mobileInput.classList.add("invalid");
-            mobileInput.classList.remove("valid");
-            return false;
-          } else {
-            mobileError.textContent = "";
-            mobileInput.classList.remove("invalid");
-            mobileInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        function validateDesc() {
-          if (descInput.value.trim() === "") {
-            descError.textContent = "Description is required";
-            descInput.classList.add("invalid");
-            descInput.classList.remove("valid");
-            return false;
-          } else {
-            descError.textContent = "";
-            descInput.classList.remove("invalid");
-            descInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        // Live validation (on input)
-        nameInput.addEventListener("input", validateName);
-        emailInput.addEventListener("input", validateEmail);
-        mobileInput.addEventListener("input", validateMobile);
-        descInput.addEventListener("input", validateDesc);
-
-        // Final check on submit
-        // Final check on submit
-
-        document.getElementById("desktopSubmit").addEventListener("click", function (e) {
-          e.preventDefault(); // stop jumping to top
-          document.getElementById("contactForm").requestSubmit();
-        });
-        const revealEls21 = document.querySelectorAll(
-          '.cta-reveal-up, .cta-reveal-left, .cta-reveal-right, .cta-reveal-down'
-        );
-
-        const obs2 = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('reveal-visible');
-            }
-          });
-        }, { threshold: 0.2 });
-
-        revealEls21.forEach(el => obs.observe(el));
-
-
-
-      </script>
-
     </div>
+    <script>
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const mobileInput = document.getElementById("mobile");
+      const descInput = document.getElementById("description");
+
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const mobileError = document.getElementById("mobileError");
+      const descError = document.getElementById("descriptionError");
+
+      // Regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const mobileRegex = /^[0-9]{10}$/;
+
+      // Validation functions
+      function validateName() {
+        if (nameInput.value.trim() === "") {
+          nameError.textContent = "Name is required";
+          nameInput.classList.add("invalid");
+          nameInput.classList.remove("valid");
+          return false;
+        } else {
+          nameError.textContent = "";
+          nameInput.classList.remove("invalid");
+          nameInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateEmail() {
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailError.textContent = "Enter a valid email";
+          emailInput.classList.add("invalid");
+          emailInput.classList.remove("valid");
+          return false;
+        } else {
+          emailError.textContent = "";
+          emailInput.classList.remove("invalid");
+          emailInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateMobile() {
+        if (!mobileRegex.test(mobileInput.value.trim())) {
+          mobileError.textContent = "Enter a 10-digit mobile number";
+          mobileInput.classList.add("invalid");
+          mobileInput.classList.remove("valid");
+          return false;
+        } else {
+          mobileError.textContent = "";
+          mobileInput.classList.remove("invalid");
+          mobileInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateDesc() {
+        if (descInput.value.trim() === "") {
+          descError.textContent = "Description is required";
+          descInput.classList.add("invalid");
+          descInput.classList.remove("valid");
+          return false;
+        } else {
+          descError.textContent = "";
+          descInput.classList.remove("invalid");
+          descInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      // Live validation (on input)
+      nameInput.addEventListener("input", validateName);
+      emailInput.addEventListener("input", validateEmail);
+      mobileInput.addEventListener("input", validateMobile);
+      descInput.addEventListener("input", validateDesc);
+
+      // Final check on submit
+      // Final check on submit
+
+      document.getElementById("desktopSubmit").addEventListener("click", function (e) {
+        e.preventDefault(); // stop jumping to top
+        document.getElementById("contactForm").requestSubmit();
+      });
+
+
+    </script>
   </section>
   <!-- ================= Footer ================= -->
   <footer class="custom-footer">
     <div class="container-fluid">
-      <div class="row">
-        <!-- Left Text -->
-        <div class="col-lg-4 footer-col footer-reveal-down">
-          <p>
-            From innovative marketing
-            strategies to operational
-            excellence, we provide
-            expert
-          </p>
+      <div class="row footer-main-row justify-content-between">
+
+        <!-- COLUMN 1: Logo + Intro -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-left ">
+            <img src="artmount-logo-a.png" alt="ArtMount Academy" class="footer-logo">
+            <p class="footer-text">
+              From innovative marketing strategies to operational excellence, we provide expert
+            </p>
+          </div>
         </div>
 
-        <!-- Middle Menu -->
-        <div class="col-lg-4 footer-col footer-reveal-down">
-          <h5>Menu</h5>
-          <ul class="list-unstyled">
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="Our_Courses.html">Our Courses</a></li>
-            <li><a href="About_Us.html">About us</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="contactpage.html">Contact</a></li>
-          </ul>
+        <!-- COLUMN 2: Quick Links -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="shifted-col ">
+            <h5 class="footer-menu-title text-center">Quick Links</h5>
+            <nav class="footer-menu ">
+              <a href="Home.html" class="footer-link hover-pop underline-anim">Home</a>
+              <a href="Our_Courses.html" class="footer-link hover-pop underline-anim">Our Courses</a>
+              <a href="About_Us.html" class="footer-link hover-pop underline-anim">About Us</a>
+              <a href="portfolio.html" class="footer-link hover-pop underline-anim">Portfolio</a>
+              <a href="contactpage.html" class="footer-link hover-pop underline-anim">Contact</a>
+            </nav>
+          </div>
         </div>
 
-        <!-- Right Office -->
-        <div class="col-lg-4 footer-col footer-reveal-down">
-          <h5>OFFICE LOCATION</h5>
-          <div class="office-address1">
-            <h5>Address 1</h5>
-            <p>No.4, Alamathi main road, New vellanur, Avadi, Chennai-600062</p>
+        <!-- COLUMN 3: Address -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-contact shifted-col">
+            <h5>Contact</h5>
+            <p><strong>Phone:</strong> <br>+91 8778359643</p>
+            <p><strong>Email:</strong> <br>info@artmountacademy.com</p>
           </div>
-          <div class="office-address2">
-            <h5>Address 2</h5>
-            <p>c201a, 19th St, Periyar Nagar West, Perambur, Chennai, Tamil Nadu 600082</p>
-          </div>
-          <div class="copyright footer-reveal-left">
-            <p>© By Artmount Academy. All rights reserved.</p>
+        </div>
+
+
+
+        <!-- COLUMN 4: Contact Information -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-address shifted-col">
+            <h5>Office Address</h5>
+            <p>No.4, Alamathi main road, New Vellanur, Avadi, Chennai-600062</p>
+
+            <div style="margin-top: 20px;">
+              <p>c201a, 19th St, Periyar nagar West, Perambur, Chennai-600082</p>
+            </div>
           </div>
         </div>
 
       </div>
-    </div>
-    </div>
 
-    <!-- Social Icons -->
-    <div class="social-icons footer-reveal-up">
-      <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
-      <div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
-      <div class="social-icon"><i class="fab fa-twitter"></i></div>
-    </div>
-    </div>
-    <script>
-      const revealEls3 = document.querySelectorAll(
-        '.footer-reveal-up, .footer-reveal-down, .footer-reveal-left, .footer-reveal-left'
-      );
+      <div class="footer-social">
+        <ul class="socials">
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+                alt="LinkedIn"></a></li>
 
-      const obs4 = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-          }
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"></a></li>
+
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                alt="WhatsApp"></a></li>
+
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+                alt="Facebook"></a></li>
+
+          <li><a href="mailto:info@artmountacademy.com"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="gmail"></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- BOTTOM BRANDING -->
+      <!-- FOOTER BRAND -->
+      <div class="footer-bottom" id="footer">
+        <svg viewBox="0 0 1320 300">
+          <text x="50%" y="58%" dy=".35em" text-anchor="middle">
+            ARTMOUNT
+          </text>
+        </svg>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const footer = document.querySelector("#footer");
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  footer.classList.add("footer-animate");
+                  observer.unobserve(footer); // runs animation only once
+                }
+              });
+            },
+            {
+              threshold: 0.4, // 40% of footer visible
+            }
+          );
+
+          observer.observe(footer);
         });
-      }, { threshold: 0.2 });
+      </script>
 
-      revealEls3.forEach(el => obs.observe(el));
-    </script>
 
   </footer>
 
@@ -1062,7 +1252,7 @@
       if (this.classList.contains("submitting")) return;
       this.classList.add("submitting");
 
-      const submitBtn = this.querySelector('.btn-mobile');
+      const submitBtn = document.getElementById('desktopSubmit');
       const desktopBtn = document.getElementById('desktopSubmit');
       const originalText = submitBtn.textContent;
 
@@ -1071,13 +1261,8 @@
       const phone = document.getElementById('mobile').value.trim();
       const message = document.getElementById('description').value.trim();
 
-      // Custom inline validation (no alerts)
-      const isNameValid = validateName();
-      const isEmailValid = validateEmail();
-      const isMobileValid = validateMobile();
-      const isDescValid = validateDesc();
-
-      if (!isNameValid || !isEmailValid || !isMobileValid || !isDescValid) {
+      if (!name || !email || !phone || !message) {
+        alert('Please fill in all fields');
         this.classList.remove("submitting");
         return;
       }
@@ -1120,6 +1305,52 @@
     document.getElementById('desktopSubmit').addEventListener('click', function (e) {
       e.preventDefault();
       document.getElementById('contactForm').requestSubmit();
+    });
+  </script>
+
+  <!-- button js code  -->
+  <script>
+    const magicButtons = document.querySelectorAll('.magic-btn');
+
+    function makeSparks(event) {
+      const btn = event.target;
+      const rect = btn.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const count = 60;
+
+      for (let i = 0; i < count; i++) {
+        const spark = document.createElement('span');
+        spark.classList.add('spark');
+
+        if (i % 3 === 0) {
+          spark.classList.add('ring');
+        } else {
+          spark.classList.add('dot');
+        }
+
+        spark.style.left = centerX + 'px';
+        spark.style.top = centerY + 'px';
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 120 + Math.random() * 160;
+        spark.style.setProperty('--x', Math.cos(angle) * distance + 'px');
+        spark.style.setProperty('--y', Math.sin(angle) * distance + 'px');
+
+        const size = 6 + Math.random() * 16;
+        spark.style.width = size + 'px';
+        spark.style.height = size + 'px';
+
+        document.body.appendChild(spark);
+
+        setTimeout(() => spark.remove(), 1200);
+      }
+    }
+
+    // add event to all magic buttons
+    magicButtons.forEach(btn => {
+      btn.addEventListener('mouseenter', makeSparks);
     });
   </script>
 

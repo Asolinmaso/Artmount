@@ -5,8 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artmount About Us</title>
+  <link rel="icon" type="image/png" href="artmount-logo-a.png">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Sekuya&display=swap" rel="stylesheet">
+   <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
   <link rel="preconnect" href="https://rsms.me/">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="About_Us.css">
@@ -15,9 +24,8 @@
 
 <body>
   <!-- About Us Section -->
-  <section class="about-section">
-    <!-- Navbar Icon -->
-    <!-- Hamburger Menu (checkbox + label) -->
+  <header class="sticky-header">
+    <img src="artmount-logo-black.png" alt="Artmount Logo" class="hero-logo reveal reveal-zoom" id="logo">
     <input type="checkbox" id="menu-toggle" title="Toggle navigation menu" />
     <label for="menu-toggle" class="navbar-icon" aria-label="Toggle navigation menu">
       <span></span>
@@ -26,28 +34,141 @@
     </label>
     <!-- Side Navigation Menu -->
     <nav class="navbar-menu">
-      <ul>
-        <li><a href="Home.html">Home</a></li>
-        <li><a href="Our_Courses.html">Our Courses</a></li>
-        <li><a href="About_Us.html">About Us</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contactpage.html">Contact Us</a></li>
-      </ul>
-    </nav>
+            <ul>
+              <li><a href="Home.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Home</span>
+                </a></li>
+
+              <li class="has-submenu">
+                <a href="Our_Courses.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Our Courses</span>
+                </a>
+
+                <ul class="submenu">
+                  <li><a href="graphic_design.html" class="hover-pop underline-anim">Graphic designing</a></li>
+                  <li><a href="digital_marketing.html" class="hover-pop underline-anim">Digital Marketing</a></li>
+                  <li><a href="uiux_design.html" class="hover-pop underline-anim">UI/UX Design</a></li>
+                  <li><a href="Video_editing.html" class="hover-pop underline-anim">Video Editing</a></li>
+                </ul>
+              </li>
+
+              <li><a href="About_Us.html" class="nav-link hover-pop">
+                  <span class="underline-animate">About Us</span>
+                </a></li>
+
+              <li><a href="portfolio.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Portfolio</span>
+                </a></li>
+
+              <li><a href="contactpage.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Contact Us</span>
+                </a></li>
+            </ul>
+          </nav>
+  </header>
+  <section class="about-section">
+    <!-- Navbar Icon -->
+    <!-- Hamburger Menu (checkbox + label) -->
+
     <div class="container">
-      <div class="about-us-label">About us</div>
-      <h1 class="main-heading">Get to Know the Story, People, and Purpose Behind us</h1>
+      <h2 class="sub-heading">About <span class="colored-text">us</span></h2>
+      <div class="console-container">
+            <span id="static-text" class="static-text"></span>
+            <span class="dynamic-wrapper">
+              <span id="dynamic-text"></span>
+              <span class="console-cursor" id="cursor">|</span>
+            </span>
+          </div>
       <p class="description">
         Artmount Academy is one of the best design institutes in Chennai, where creativity meets opportunity. We
         provide industry-recognized UI UX courses in Chennai, along with graphic design and digital marketing training,
         guided by expert mentors from the creative industry.</p>
-       <p class="description">Our goal is to help students transform their passion into successful careers through hands-on learning,
+      <p class="description">Our goal is to help students transform their passion into successful careers through
+        hands-on learning,
         real-world projects, and personalized mentorship. At Artmount, you’ll master essential tools like Figma, Adobe
         Creative Suite, and Google Ads, while building a professional portfolio that stands out. </p>
-       <p class="description"> With certification programs, career support, and a focus on practical skills, Artmount Academy empowers aspiring
+      <p class="description"> With certification programs, career support, and a focus on practical skills, Artmount
+        Academy empowers aspiring
         designers and marketers to land top design jobs in Chennai and beyond.
       </p>
     </div>
+    <script>
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".sticky-header");
+
+        const triggerPoint = 120;
+
+        if (window.scrollY > triggerPoint) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    </script>
+
+ 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const staticText = "Get to Know the ";
+  const dynamicWords = [
+    "Story" ,
+    "People",
+    "Purpose Behind us"
+  ];
+
+  const staticEl = document.getElementById("static-text");
+  const dynamicEl = document.getElementById("dynamic-text");
+  const cursor = document.getElementById("cursor");
+
+  // 🔹 SHOW STATIC TEXT IMMEDIATELY (NO ANIMATION)
+  staticEl.textContent = staticText;
+
+  let wordIndex = 0;
+  let letterIndex = 0;
+  let deleting = false;
+  let isPaused = false;
+
+  /* ---- LOOPING DYNAMIC TEXT WITH PAUSE ---- */
+  setInterval(() => {
+    if (isPaused) return;
+
+    const currentWord = dynamicWords[wordIndex];
+
+    // Typing
+    if (!deleting) {
+      dynamicEl.textContent = currentWord.slice(0, letterIndex + 1);
+      letterIndex++;
+
+      if (letterIndex === currentWord.length) {
+        isPaused = true;
+        setTimeout(() => {
+          deleting = true;
+          isPaused = false;
+        }, 1500); // ⏸ reading pause
+      }
+    }
+    // Deleting
+    else {
+      dynamicEl.textContent = currentWord.slice(0, letterIndex - 1);
+      letterIndex--;
+
+      if (letterIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % dynamicWords.length;
+      }
+    }
+  }, 100);
+
+  /* ---- CURSOR BLINK ---- */
+  setInterval(() => {
+    cursor.classList.toggle("hidden");
+  }, 400);
+
+});
+</script>
+
+
   </section>
 
   <!-- Team Section -->
@@ -55,43 +176,58 @@
     <div class="container">
       <div class="team-grid">
         <div class="team-member team-member-1">
-          <div class="team-member-name">Sarah Johnson</div>
+          <div class="team-member-name">Mr.Nandha Kumar</div>
         </div>
         <div class="team-member team-member-2">
-          <div class="team-member-name">Emily Chen</div>
+          <div class="team-member-name">Ms.Hepsibah catherine</div>
         </div>
         <div class="team-member team-member-3">
-          <div class="team-member-name">Michael Rodriguez</div>
+          <div class="team-member-name">Mr.Bharma Rishi</div>
         </div>
         <div class="team-member team-member-4">
-          <div class="team-member-name">Jessica Williams</div>
+          <div class="team-member-name">Mr.Bhuvanesh Kumar</div>
         </div>
         <div class="team-member team-member-5">
-          <div class="team-member-name">David Kim</div>
+          <div class="team-member-name">Mrs.Priyadharshini</div>
         </div>
         <div class="team-member team-member-6">
-          <div class="team-member-name">Lisa Thompson</div>
+          <div class="team-member-name">Mr.Prem Kumar</div>
         </div>
         <div class="team-member team-member-7">
-          <div class="team-member-name">James Wilson</div>
+          <div class="team-member-name">Mrs.Sangeetha</div>
         </div>
       </div>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const title = document.querySelector('.main-heading.hero-title.four');
+        if (!title) return;
+
+        const text = title.textContent;
+        title.textContent = '';
+
+        [...text].forEach((ch, i) => {
+          const span = document.createElement('span');
+          span.textContent = ch;
+          span.style.animationDelay = (i * 0.05) + 's';
+          title.appendChild(span);
+        });
+      });
+    </script>
   </section>
 
   <!-- ================= CTA Section ================= -->
-  <section class="cta-section">
+  <section class="cta-section cta-reveal-up">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row">
         <!-- Left content -->
         <div class="col-lg-6">
-          <h2 class="cta-heading">Ready to Grow<br>with Artmount?</h2>
-          <p class="cta-text">
-            Let’s kickstart your UI/UX or Graphic Design journey at<br>
+          <h2 class="cta-heading cta-reveal-left underline-anim">Ready to Grow<br>with Artmount?</h2>
+          <p class="cta-text cta-reveal-left">
+            Let's kickstart your UI/UX or Graphic Design journey at
             Artmount. Contact us now for a free demo or batch info!
           </p>
-          <!-- Desktop button -->
-          <a href="#" id="desktopSubmit" class="btn-contact btn-desktop">Contact us</a>
         </div>
 
         <!-- Right form -->
@@ -117,209 +253,261 @@
               <small class="error" id="descriptionError"></small>
             </div>
 
-            <!-- Mobile button -->
-            <button type="submit" class="btn-contact btn-mobile">Contact us</button>
+            <!-- One single button (desktop + mobile unified) -->
+            <button type="submit" id="desktopSubmit" class="btn-contact btn-submit">Submit</button>
           </form>
         </div>
       </div>
-      <script>
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const mobileInput = document.getElementById("mobile");
-        const descInput = document.getElementById("description");
-
-        const nameError = document.getElementById("nameError");
-        const emailError = document.getElementById("emailError");
-        const mobileError = document.getElementById("mobileError");
-        const descError = document.getElementById("descriptionError");
-
-        // Regex
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const mobileRegex = /^[0-9]{10}$/;
-
-        // Validation functions
-        function validateName() {
-          if (nameInput.value.trim() === "") {
-            nameError.textContent = "Name is required";
-            nameInput.classList.add("invalid");
-            nameInput.classList.remove("valid");
-            return false;
-          } else {
-            nameError.textContent = "";
-            nameInput.classList.remove("invalid");
-            nameInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        function validateEmail() {
-          if (!emailRegex.test(emailInput.value.trim())) {
-            emailError.textContent = "Enter a valid email";
-            emailInput.classList.add("invalid");
-            emailInput.classList.remove("valid");
-            return false;
-          } else {
-            emailError.textContent = "";
-            emailInput.classList.remove("invalid");
-            emailInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        function validateMobile() {
-          if (!mobileRegex.test(mobileInput.value.trim())) {
-            mobileError.textContent = "Enter a 10-digit mobile number";
-            mobileInput.classList.add("invalid");
-            mobileInput.classList.remove("valid");
-            return false;
-          } else {
-            mobileError.textContent = "";
-            mobileInput.classList.remove("invalid");
-            mobileInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        function validateDesc() {
-          if (descInput.value.trim() === "") {
-            descError.textContent = "Description is required";
-            descInput.classList.add("invalid");
-            descInput.classList.remove("valid");
-            return false;
-          } else {
-            descError.textContent = "";
-            descInput.classList.remove("invalid");
-            descInput.classList.add("valid");
-            return true;
-          }
-        }
-
-        // Live validation (on input)
-        nameInput.addEventListener("input", validateName);
-        emailInput.addEventListener("input", validateEmail);
-        mobileInput.addEventListener("input", validateMobile);
-        descInput.addEventListener("input", validateDesc);
-
-        // Final check on submit
-        // Final check on submit
-        
-        document.getElementById("desktopSubmit").addEventListener("click", function (e) {
-          e.preventDefault(); // stop jumping to top
-          document.getElementById("contactForm").requestSubmit();
-        });
-
-
-      </script>
-
     </div>
+    <script>
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const mobileInput = document.getElementById("mobile");
+      const descInput = document.getElementById("description");
+
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const mobileError = document.getElementById("mobileError");
+      const descError = document.getElementById("descriptionError");
+
+      // Regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const mobileRegex = /^[0-9]{10}$/;
+
+      // Validation functions
+      function validateName() {
+        if (nameInput.value.trim() === "") {
+          nameError.textContent = "Name is required";
+          nameInput.classList.add("invalid");
+          nameInput.classList.remove("valid");
+          return false;
+        } else {
+          nameError.textContent = "";
+          nameInput.classList.remove("invalid");
+          nameInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateEmail() {
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailError.textContent = "Enter a valid email";
+          emailInput.classList.add("invalid");
+          emailInput.classList.remove("valid");
+          return false;
+        } else {
+          emailError.textContent = "";
+          emailInput.classList.remove("invalid");
+          emailInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateMobile() {
+        if (!mobileRegex.test(mobileInput.value.trim())) {
+          mobileError.textContent = "Enter a 10-digit mobile number";
+          mobileInput.classList.add("invalid");
+          mobileInput.classList.remove("valid");
+          return false;
+        } else {
+          mobileError.textContent = "";
+          mobileInput.classList.remove("invalid");
+          mobileInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateDesc() {
+        if (descInput.value.trim() === "") {
+          descError.textContent = "Description is required";
+          descInput.classList.add("invalid");
+          descInput.classList.remove("valid");
+          return false;
+        } else {
+          descError.textContent = "";
+          descInput.classList.remove("invalid");
+          descInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      // Live validation (on input)
+      nameInput.addEventListener("input", validateName);
+      emailInput.addEventListener("input", validateEmail);
+      mobileInput.addEventListener("input", validateMobile);
+      descInput.addEventListener("input", validateDesc);
+
+      // Final check on submit
+      // Final check on submit
+
+      document.getElementById("desktopSubmit").addEventListener("click", function (e) {
+        e.preventDefault(); // stop jumping to top
+        document.getElementById("contactForm").requestSubmit();
+      });
+
+
+    </script>
   </section>
 
   <!-- ================= Footer ================= -->
   <footer class="custom-footer">
     <div class="container-fluid">
-      <div class="row">
-        <!-- Left Text -->
-        <div class="col-lg-4 footer-col">
-          <p>
-            From innovative marketing
-            strategies to operational
-            excellence, we provide
-            expert
-          </p>
+      <div class="row footer-main-row justify-content-between">
+
+        <!-- COLUMN 1: Logo + Intro -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-left ">
+            <img src="artmount-logo-a.png" alt="ArtMount Academy" class="footer-logo">
+            <p class="footer-text">
+              From innovative marketing strategies to operational excellence, we provide expert
+            </p>
+          </div>
         </div>
 
-        <!-- Middle Menu -->
-        <div class="col-lg-4 footer-col">
-          <h5>Menu</h5>
-          <ul class="list-unstyled">
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="Our_Courses.html">Our Courses</a></li>
-            <li><a href="About_Us.html">About us</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="contactpage.html">Contact</a></li>
-          </ul>
+        <!-- COLUMN 2: Quick Links -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="shifted-col ">
+            <h5 class="footer-menu-title text-center">Quick Links</h5>
+            <nav class="footer-menu ">
+              <a href="Home.html" class="footer-link hover-pop underline-anim">Home</a>
+              <a href="Our_Courses.html" class="footer-link hover-pop underline-anim">Our Courses</a>
+              <a href="About_Us.html" class="footer-link hover-pop underline-anim">About Us</a>
+              <a href="portfolio.html" class="footer-link hover-pop underline-anim">Portfolio</a>
+              <a href="contactpage.html" class="footer-link hover-pop underline-anim">Contact</a>
+            </nav>
+          </div>
         </div>
 
-        <!-- Right Office -->
-        <div class="col-lg-4 footer-col">
-          <h5>OFFICE LOCATION</h5>
-          <div class="office-address1">
-            <h5>Address 1</h5>
-            <p>No.4, Alamathi main road, New vellanur, Avadi, Chennai-600062</p>
-          </div>
-          <div class="office-address2">
-            <h5>Address 2</h5>
-            <p>c201a, 19th St, Periyar Nagar West, Perambur, Chennai, Tamil Nadu 600082</p>
-          </div>
-          <div class="copyright">
-            <p>© By Artmount Academy. All rights reserved.</p>
+        <!-- COLUMN 3: Address -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-contact shifted-col">
+            <h5>Contact</h5>
+            <p><strong>Phone:</strong> <br>+91 8778359643</p>
+            <p><strong>Email:</strong> <br>info@artmountacademy.com</p>
           </div>
         </div>
+
+
+
+        <!-- COLUMN 4: Contact Information -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-address shifted-col">
+            <h5>Office Address</h5>
+            <p>No.4, Alamathi main road, New Vellanur, Avadi, Chennai-600062</p>
+
+            <div style="margin-top: 20px;">
+              <p>c201a, 19th St, Periyar nagar West, Perambur, Chennai-600082</p>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-    </div>
 
-    <!-- Social Icons -->
-    <div class="social-icons">
-      <div class="social-icon"><i class="fab fa-facebook-f"></i></div>
-      <div class="social-icon"><i class="fab fa-linkedin-in"></i></div>
-      <div class="social-icon"><i class="fab fa-twitter"></i></div>
-    </div>
-    </div>
+      <div class="footer-social">
+        <ul class="socials">
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+                alt="LinkedIn"></a></li>
+
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"></a></li>
+
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                alt="WhatsApp"></a></li>
+
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+                alt="Facebook"></a></li>
+
+          <li><a href="mailto:info@artmountacademy.com"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="gmail"></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- BOTTOM BRANDING -->
+      <!-- FOOTER BRAND -->
+      <div class="footer-bottom" id="footer">
+        <svg viewBox="0 0 1320 300">
+          <text x="50%" y="58%" dy=".35em" text-anchor="middle">
+            ARTMOUNT
+          </text>
+        </svg>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const footer = document.querySelector("#footer");
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  footer.classList.add("footer-animate");
+                  observer.unobserve(footer); // runs animation only once
+                }
+              });
+            },
+            {
+              threshold: 0.4, // 40% of footer visible
+            }
+          );
+
+          observer.observe(footer);
+        });
+      </script>
+
+
   </footer>
 
-
   <!-- =============backend script code ============== -->
-<script>
-const API_URL = 'http://localhost:5001';
+  <script>
+    const API_URL = 'http://localhost:5001';
 
-// CTA Form Handler
-document.querySelector('#contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+    // CTA Form Handler
+    document.querySelector('#contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-    // 🔥 Prevent double submission
-    if (this.classList.contains("submitting")) return;
-    this.classList.add("submitting");
+      // 🔥 Prevent double submission
+      if (this.classList.contains("submitting")) return;
+      this.classList.add("submitting");
 
-    const submitBtn = this.querySelector('.btn-mobile');
-    const desktopBtn = document.getElementById('desktopSubmit');
-    const originalText = submitBtn.textContent;
+      const submitBtn = this.querySelector('.btn-mobile');
+      const desktopBtn = document.getElementById('desktopSubmit');
+      const originalText = submitBtn.textContent;
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('mobile').value.trim();
-    const message = document.getElementById('description').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('mobile').value.trim();
+      const message = document.getElementById('description').value.trim();
 
-    if (!name || !email || !phone || !message) {
+      if (!name || !email || !phone || !message) {
         alert('Please fill in all fields');
         this.classList.remove("submitting");
         return;
-    }
+      }
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    desktopBtn.style.pointerEvents = 'none';
-    desktopBtn.style.opacity = '0.6';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+      desktopBtn.style.pointerEvents = 'none';
+      desktopBtn.style.opacity = '0.6';
 
-    try {
+      try {
         const response = await fetch(`${API_URL}/contact/submit`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, phone, message })
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, message })
         });
 
         const data = await response.json();
 
         if (response.ok) {
-            alert(data.message || 'Thank you! We got your inquiry.');
-            this.reset();
+          alert(data.message || 'Thank you! We got your inquiry.');
+          this.reset();
         } else {
-            alert(data.message || 'Failed to submit. Try again.');
+          alert(data.message || 'Failed to submit. Try again.');
         }
-    } catch (error) {
+      } catch (error) {
         alert('Network error.');
         console.error(error);
-    } finally {
+      } finally {
         // 🔥 Allow submission again
         this.classList.remove("submitting");
 
@@ -327,15 +515,15 @@ document.querySelector('#contactForm').addEventListener('submit', async function
         submitBtn.textContent = originalText;
         desktopBtn.style.pointerEvents = 'auto';
         desktopBtn.style.opacity = '1';
-    }
-});
+      }
+    });
 
-// Desktop button triggers form
-document.getElementById('desktopSubmit').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('contactForm').requestSubmit();
-});
-</script>
+    // Desktop button triggers form
+    document.getElementById('desktopSubmit').addEventListener('click', function (e) {
+      e.preventDefault();
+      document.getElementById('contactForm').requestSubmit();
+    });
+  </script>
 
 
 

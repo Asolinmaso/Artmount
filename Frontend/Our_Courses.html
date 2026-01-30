@@ -10,6 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Sekuya&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+   <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
   <link rel="stylesheet" href="Our_Courses.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
@@ -26,106 +34,224 @@
       <span></span>
     </label>
     <!-- Side Navigation Menu -->
-    <nav class="navbar-menu">
-      <ul>
-        <li><a href="Home.html" class="underline-animate">Home</a></li>
-        <li><a href="Our_Courses.html" class="underline-animate">Our Courses</a></li>
-        <li><a href="About_Us.html" class="underline-animate">About Us</a></li>
-        <li><a href="portfolio.html" class="underline-animate">Portfolio</a></li>
-        <li><a href="contactpage.html" class="underline-animate">Contact Us</a></li>
-      </ul>
-    </nav>
+   <nav class="navbar-menu">
+            <ul>
+              <li><a href="Home.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Home</span>
+                </a></li>
+
+              <li class="has-submenu">
+                <a href="Our_Courses.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Our Courses</span>
+                </a>
+
+                <ul class="submenu">
+                  <li><a href="graphic_design.html" class="hover-pop underline-anim">Graphic designing</a></li>
+                  <li><a href="digital_marketing.html" class="hover-pop underline-anim">Digital Marketing</a></li>
+                  <li><a href="uiux_design.html" class="hover-pop underline-anim">UI/UX Design</a></li>
+                  <li><a href="Video_editing.html" class="hover-pop underline-anim">Video Editing</a></li>
+                </ul>
+              </li>
+
+              <li><a href="About_Us.html" class="nav-link hover-pop">
+                  <span class="underline-animate">About Us</span>
+                </a></li>
+
+              <li><a href="portfolio.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Portfolio</span>
+                </a></li>
+
+              <li><a href="contactpage.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Contact Us</span>
+                </a></li>
+            </ul>
+          </nav>
+
   </header>
   <section class="our-courses">
-      <div class="hero text-center">
-        <div class="container">
-          <div class="hero-title-frame">
-          <h1 class="hero-title four">Learn the Art of Branding, Design, and Digital Marketing</h1>
+    <div class="hero text-center">
+      <div class="container">
+        <div class="hero-title-frame">
+          <div class="console-container">
+            <span id="static-text" class="static-text"></span>
+            <span class="dynamic-wrapper">
+              <span id="dynamic-text"></span>
+              <span class="console-cursor" id="cursor">|</span>
+            </span>
+          </div>
+
         </div>
-          <h3 class="hero-subtitle reveal reveal-zoom">Our Courses</h3>
-          <p class="hero-text reveal reveal-zoom">Explore our list of courses that we offer at Artmount academy</p>
-        </div>
+        <h3 class="hero-subtitle reveal reveal-zoom">Our <span class="colored-text">Courses</span></h3>
+        <p class="hero-text reveal reveal-zoom">Explore our list of courses that we offer at Artmount academy</p>
       </div>
-      <script>
-  (function () {
-    const header = document.querySelector(".sticky-header");
-    const hero = document.querySelector(".hero");
-    if (!header || !hero) return;
+    </div>
+    <script>
+      (function () {
+        const header = document.querySelector(".sticky-header");
+        const hero = document.querySelector(".hero");
+        if (!header || !hero) return;
 
-    const headerHeight = header.offsetHeight || 220;
-    const triggerPoint = Math.max(10, Math.min(10, headerHeight));
+        const headerHeight = header.offsetHeight || 220;
+        const triggerPoint = Math.max(10, Math.min(10, headerHeight));
 
-    window.addEventListener("scroll", function () {
-      if (window.scrollY > triggerPoint) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > triggerPoint) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        });
 
-    if (window.scrollY > triggerPoint) header.classList.add("scrolled");
-  })();
-</script>
+        if (window.scrollY > triggerPoint) header.classList.add("scrolled");
+      })();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const part1 = "Learn the Art of ";
+        const part2 = "Branding, Design, and Digital Marketing";
+
+        const target = document.getElementById("text");
+        const cursor = document.getElementById("console");
+
+        let index = 0;
+        const fullText = part1 + part2;
+
+        const typingInterval = setInterval(() => {
+          if (index < fullText.length) {
+            const currentText = fullText.slice(0, index + 1);
+
+            if (index < part1.length) {
+              target.innerHTML = currentText;
+            } else {
+              const typedPart2 = currentText.slice(part1.length);
+
+              // Make "and" black
+              const styledText = typedPart2.replace(
+                /\band\b/g,
+                `<span class="and-black">and</span>`
+              );
+
+              target.innerHTML =
+                part1 +
+                `<span class="highlight">${styledText}</span>`;
+            }
+
+            index++;
+          } else {
+            clearInterval(typingInterval);
+
+            setTimeout(() => {
+              cursor.style.display = "none";
+            }, 800);
+          }
+        }, 80);
+
+        // Cursor blink
+        setInterval(() => {
+          cursor.classList.toggle("hidden");
+        }, 400);
+      });
+    </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // Disable animation on mobile
-  if (window.innerWidth <= 500) return;
+document.addEventListener("DOMContentLoaded", () => {
 
-  const heroTitle = document.querySelector('.hero-title.four');
-  if (!heroTitle) return;
+  const staticText = "Learn the Art of ";
+  const dynamicWords = [
+    "Branding",
+    "Design",
+    "Digital Marketing"
+  ];
 
-  const text = heroTitle.textContent;
-  heroTitle.textContent = '';
+  const staticEl = document.getElementById("static-text");
+  const dynamicEl = document.getElementById("dynamic-text");
+  const cursor = document.getElementById("cursor");
 
-  [...text].forEach((ch, index) => {
-    const span = document.createElement('span');
-    span.textContent = ch;
+  // 🔹 SHOW STATIC TEXT IMMEDIATELY (NO ANIMATION)
+  staticEl.textContent = staticText;
 
-    const delay = index * 0.08;
-    span.style.animationDelay = `${delay}s`;
+  let wordIndex = 0;
+  let letterIndex = 0;
+  let deleting = false;
+  let isPaused = false;
 
-    heroTitle.appendChild(span);
-  });
+  /* ---- LOOPING DYNAMIC TEXT WITH PAUSE ---- */
+  setInterval(() => {
+    if (isPaused) return;
+
+    const currentWord = dynamicWords[wordIndex];
+
+    // Typing
+    if (!deleting) {
+      dynamicEl.textContent = currentWord.slice(0, letterIndex + 1);
+      letterIndex++;
+
+      if (letterIndex === currentWord.length) {
+        isPaused = true;
+        setTimeout(() => {
+          deleting = true;
+          isPaused = false;
+        }, 1500); // ⏸ reading pause
+      }
+    }
+    // Deleting
+    else {
+      dynamicEl.textContent = currentWord.slice(0, letterIndex - 1);
+      letterIndex--;
+
+      if (letterIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % dynamicWords.length;
+      }
+    }
+  }, 100);
+
+  /* ---- CURSOR BLINK ---- */
+  setInterval(() => {
+    cursor.classList.toggle("hidden");
+  }, 400);
+
 });
 </script>
 
 
 
-</section>
-    <!-- Courses Section -->
-    <section class="courses">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-10 position-relative">
 
-            <div class="fade-bottom">
-              <img src="girl.png" alt="Student" class="img-fluid reveal ">
-            </div>
-            <div class="course-label circle1 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
-            <div class="course-label circle2 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
-            <div class="course-label circle3 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
-            <div class="course-label circle4 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
-            <div class="course-label plus1 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
-            <div class="course-label plus2 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
-            <div class="course-label plus3 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
-            <div class="course-label plus4 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
-            <div class="course-label plus5 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
-            <div class="course-label motion reveal reveal-right">
-              Video Editing
-              <button onclick="window.location.href='motion_graphic.html'">Explore Now</button>
-            </div>
-            <div class="course-label digital reveal reveal-right">Digital Marketing <button
-                onclick="window.location.href='digital_marketing.html'">Explore Now</button></div>
-            <div class="course-label graphic reveal reveal-left">Graphic designing <button
-                onclick="window.location.href='graphic_design.html'">Explore Now</button></div>
-            <div class="course-label uiux reveal reveal-left">UI/UX Design <button
-                onclick="window.location.href='uiux_design.html'">Explore
-                Now</button></div>
+  </section>
+  <!-- Courses Section -->
+  <section class="courses">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10 position-relative">
+
+          <div class="fade-bottom">
+            <img src="girl.png" alt="Student" class="img-fluid reveal ">
           </div>
+          <div class="course-label circle1 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
+          <div class="course-label circle2 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
+          <div class="course-label circle3 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
+          <div class="course-label circle4 reveal reveal-zoom"><img src="cirlce.png" alt="circle"></div>
+          <div class="course-label plus1 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+          <div class="course-label plus2 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+          <div class="course-label plus3 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+          <div class="course-label plus4 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+          <div class="course-label plus5 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
+          <div class="course-label motion reveal reveal-right">
+            Video Editing
+            <button onclick="window.location.href='Video_editing.html'">Explore Now</button>
+          </div>
+          <div class="course-label digital reveal reveal-right">Digital Marketing <button
+              onclick="window.location.href='digital_marketing.html'">Explore Now</button></div>
+          <div class="course-label graphic reveal reveal-left">Graphic designing <button
+              onclick="window.location.href='graphic_design.html'">Explore Now</button></div>
+          <div class="course-label uiux reveal reveal-left">UI/UX Design <button
+              onclick="window.location.href='uiux_design.html'">Explore
+              Now</button></div>
         </div>
       </div>
-      <script>
+    </div>
+    <script>
       const reveals1 = document.querySelectorAll('.reveal');
       const observerReveal1 = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -138,11 +264,217 @@ document.addEventListener('DOMContentLoaded', () => {
       reveals1.forEach(el => observerReveal1.observe(el));
 
     </script>
-    </section>
+  </section>
 
-    
-  
- <!-- ================= CTA Section ================= -->
+  <!-- ================= COURSES SECTION  ================= -->
+  <section class="courses-section scroll-animate fade-trigger">
+    <div class="container">
+      
+
+      <div class="row gy-4">
+        <!-- Course 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card revealX ">
+            <div class="course-image" style="background-image:url('Thumbnail.png');"></div>
+            <div class="course-content">
+              <span class="course-category">Design</span>
+              <h3 class="course-title">Best Graphic Design & Video Editing Courses – Chennai</h3>
+              <p class="course-description">
+                Unlock your creative potential with Artmount’s industry-leading Graphic Design and Video Editing courses
+                in Chennai. Learn essential tools like Adobe Photoshop, Illustrator, InDesign, Premiere Pro, and After
+                Effects—preparing you to design brand identities, digital ads, layouts, and professional video content.
+              </p>
+              <p class="course-description">Build a strong portfolio through practical, hands-on learning designed to
+                make you job-ready. Whether
+                you’re a beginner or looking to upskill, our programs help you elevate your creative capabilities.
+              </p>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='Video_editing.html'">
+                Explore Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card revealX ">
+            <div class="course-image" style="background-image:url('Thumbnail (1).png');"></div>
+            <div class="course-content">
+              <span class="course-category">Design</span>
+              <h3 class="course-title">UI/UX Design Certification – Chennai</h3>
+              <p class="course-description">
+                Step into the world of user experience and interface design with our 12-week
+                UI/UX
+                certification program
+                in Chennai. Cover everything from user research, wireframing, and prototyping
+                to usability
+                testing and
+                Figma mastery.Perfect for freshers, career switchers, and aspiring
+                designers aiming for
+                roles in top
+                Chennai agencies and startups.</p>
+              <p class="course-description"> Get industry-ready with projects, case studies, and portfolio
+                guidance.
+              </p>
+             <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='uiux_design.html'">
+                Explore Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card revealX ">
+            <div class="course-image" style="background-image:url('Thumbnail (2).png');"></div>
+            <div class="course-content">
+              <span class="course-category marketing">Marketing</span>
+              <h3 class="course-title">Digital Marketing Course – Chennai</h3>
+              <p class="course-description">
+                Master the art of digital marketing with a comprehensive training program in
+                Chennai. Learn
+                SEO, Google
+                Ads, social media marketing, email marketing, and analytics through live
+                campaigns and
+                practical
+                projects. This course equips you with in-demand skills for freelance work,
+                agency jobs, or
+                corporate
+                careers.
+              </p>
+              <p class="course-description"> Practical, career-focused, and beginner-friendly – no prior
+                experience
+                needed.
+              </p>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='digital_marketing.html'">
+                Explore Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Course 4 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card revealX ">
+            <div class="course-image" style="background-image:url('Thumbnail (2).png');"></div>
+            <div class="course-content">
+              <span class="course-category marketing">Marketing</span>
+              <h3 class="course-title">Digital Marketing Course – Chennai</h3>
+              <p class="course-description">
+                Master the art of digital marketing with a comprehensive training program in
+                Chennai. Learn
+                SEO, Google
+                Ads, social media marketing, email marketing, and analytics through live
+                campaigns and
+                practical
+                projects. This course equips you with in-demand skills for freelance work,
+                agency jobs, or
+                corporate
+                careers.
+              </p>
+              <p class="course-description"> Practical, career-focused, and beginner-friendly – no prior
+                experience
+                needed.
+              </p>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='digital_marketing.html'">
+                Explore Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Course 5 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card revealX ">
+            <div class="course-image" style="background-image:url('Thumbnail (2).png');"></div>
+            <div class="course-content">
+              <span class="course-category marketing">Marketing</span>
+              <h3 class="course-title">Digital Marketing Course – Chennai</h3>
+              <p class="course-description">
+                Master the art of digital marketing with a comprehensive training program in
+                Chennai. Learn
+                SEO, Google
+                Ads, social media marketing, email marketing, and analytics through live
+                campaigns and
+                practical
+                projects. This course equips you with in-demand skills for freelance work,
+                agency jobs, or
+                corporate
+                careers.
+              </p>
+              <p class="course-description"> Practical, career-focused, and beginner-friendly – no prior
+                experience
+                needed.
+              </p>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='digital_marketing.html'">
+                Explore Now
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Course 6 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="course-card revealX ">
+            <div class="course-image" style="background-image:url('Thumbnail (2).png');"></div>
+            <div class="course-content">
+              <span class="course-category marketing">Marketing</span>
+              <h3 class="course-title">Digital Marketing Course – Chennai</h3>
+              <p class="course-description">
+                Master the art of digital marketing with a comprehensive training program in
+                Chennai. Learn
+                SEO, Google
+                Ads, social media marketing, email marketing, and analytics through live
+                campaigns and
+                practical
+                projects. This course equips you with in-demand skills for freelance work,
+                agency jobs, or
+                corporate
+                careers.
+              </p>
+              <p class="course-description"> Practical, career-focused, and beginner-friendly – no prior
+                experience
+                needed.
+              </p>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='digital_marketing.html'">
+                Explore Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        const revealItemsX = document.querySelectorAll('.revealX');
+
+        if (!('IntersectionObserver' in window)) {
+          revealItemsX.forEach(el => el.classList.add('activeX'));
+          return;
+        }
+
+        const observerX = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('activeX');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.18 });
+
+        revealItemsX.forEach(el => observerX.observe(el));
+      })();
+    </script>
+
+
+  </section>
+
+
+
+  <!-- ================= CTA Section ================= -->
   <section class="cta-section cta-reveal-up">
     <div class="container">
       <div class="row">
@@ -274,32 +606,26 @@ document.addEventListener('DOMContentLoaded', () => {
     </script>
   </section>
 
-  
   <!-- ================= Footer ================= -->
   <footer class="custom-footer">
     <div class="container-fluid">
-      <div class="row footer-main-row">
-        <!-- COLUMN 1: Logo + Intro + Social -->
-        <div class="col-lg-4 col-md-6 footer-col">
-          <div class="footer-left shifted-col">
-            <!-- Logo -->
-            <img src="artmount-logo-a.png" alt="ArtMount Academy" class="footer-logo">
+      <div class="row footer-main-row justify-content-between">
 
-            <!-- Intro text (replace line later, structure same) -->
+        <!-- COLUMN 1: Logo + Intro -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-left ">
+            <img src="artmount-logo-a.png" alt="ArtMount Academy" class="footer-logo">
             <p class="footer-text">
               From innovative marketing strategies to operational excellence, we provide expert
             </p>
-
-            <!-- Social Icons -->
-
           </div>
         </div>
 
-        <!-- COLUMN 2: Center Navigation -->
-        <div class="col-lg-4 col-md-6 footer-col">
-          <div class="shifted-col">
-            <h5 class="footer-menu-title">Menu</h5>
-            <nav class="footer-menu">
+        <!-- COLUMN 2: Quick Links -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="shifted-col ">
+            <h5 class="footer-menu-title text-center">Quick Links</h5>
+            <nav class="footer-menu ">
               <a href="Home.html" class="footer-link hover-pop underline-anim">Home</a>
               <a href="Our_Courses.html" class="footer-link hover-pop underline-anim">Our Courses</a>
               <a href="About_Us.html" class="footer-link hover-pop underline-anim">About Us</a>
@@ -310,47 +636,84 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- COLUMN 3: Address -->
-        <div class="col-lg-4 col-md-12 footer-col">
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-contact shifted-col">
+            <h5>Contact</h5>
+            <p><strong>Phone:</strong> <br>+91 8778359643</p>
+            <p><strong>Email:</strong> <br>info@artmountacademy.com</p>
+          </div>
+        </div>
+
+
+
+        <!-- COLUMN 4: Contact Information -->
+        <div class="col-lg-3 col-md-6 footer-col">
           <div class="footer-address shifted-col">
             <h5>Office Address</h5>
-            <p>N0.4,Alamathi main road,New vellanur,</p>
-            <p>Avadi, Chennai-600062</p>
-
+            <p>No.4, Alamathi main road, New Vellanur, Avadi, Chennai-600062</p>
 
             <div style="margin-top: 20px;">
-              <p>c201a, 19th St, periar nagaar West,</p>
-              <p> Perambur, Chennai-600082</p>
-
+              <p>c201a, 19th St, Periyar nagar West, Perambur, Chennai-600082</p>
             </div>
           </div>
         </div>
+
       </div>
+
       <div class="footer-social">
-              <ul class="socials">
-                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
-                      alt="LinkedIn"></a></li>
+        <ul class="socials">
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+                alt="LinkedIn"></a></li>
 
-                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                      alt="Instagram"></a></li>
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"></a></li>
 
-                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-                      alt="WhatsApp"></a></li>
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                alt="WhatsApp"></a></li>
 
-                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
-                      alt="Facebook"></a></li>
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+                alt="Facebook"></a></li>
 
-                <li><a href="mailto:info@artmountacademy.com"><img
-                      src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
-                      alt="gmail"></a></li>
-              </ul>
-            </div>
+          <li><a href="mailto:info@artmountacademy.com"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="gmail"></a>
+          </li>
+        </ul>
+      </div>
 
       <!-- BOTTOM BRANDING -->
-      <div class="footer-bottom">
-        <span>ArtMount Academy</span>
+      <!-- FOOTER BRAND -->
+      <div class="footer-bottom" id="footer">
+        <svg viewBox="0 0 1320 300">
+          <text x="50%" y="58%" dy=".35em" text-anchor="middle">
+            ARTMOUNT
+          </text>
+        </svg>
       </div>
-    </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const footer = document.querySelector("#footer");
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  footer.classList.add("footer-animate");
+                  observer.unobserve(footer); // runs animation only once
+                }
+              });
+            },
+            {
+              threshold: 0.4, // 40% of footer visible
+            }
+          );
+
+          observer.observe(footer);
+        });
+      </script>
+
+
   </footer>
+
 
   <!-- =============backend script code ============== -->
   <script>

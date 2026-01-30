@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Motion Graphics</title>
+    <link rel="icon" type="image/png" href="artmount-logo-a.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Sekuya&display=swap" rel="stylesheet">
+   <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet" />
+
+  <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+
+    <link href="Video_editing.css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- ==================== HEADER SECTION ==================== -->
+
+
+    <!-- Navbar Icon -->
+    <!-- Hamburger Menu (checkbox + label) -->
+    <!-- Hero / Portfolio Header -->
+    <header class="sticky-header">
+        <img src="artmount-logo-black.png" alt="Artmount Logo" class="hero-logo reveal reveal-zoom" id="logo">
+
+        <!-- Hamburger Menu -->
+        <input type="checkbox" id="menu-toggle" title="Toggle navigation menu" />
+        <label for="menu-toggle" class="navbar-icon" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Side Navigation Drawer -->
+        <nav class="navbar-menu">
+            <ul>
+              <li><a href="Home.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Home</span>
+                </a></li>
+
+              <li class="has-submenu">
+                <a href="Our_Courses.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Our Courses</span>
+                </a>
+
+                <ul class="submenu">
+                  <li><a href="graphic_design.html" class="hover-pop underline-anim">Graphic designing</a></li>
+                  <li><a href="digital_marketing.html" class="hover-pop underline-anim">Digital Marketing</a></li>
+                  <li><a href="uiux_design.html" class="hover-pop underline-anim">UI/UX Design</a></li>
+                  <li><a href="Video_editing.html" class="hover-pop underline-anim">Video Editing</a></li>
+                </ul>
+              </li>
+
+              <li><a href="About_Us.html" class="nav-link hover-pop">
+                  <span class="underline-animate">About Us</span>
+                </a></li>
+
+              <li><a href="portfolio.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Portfolio</span>
+                </a></li>
+
+              <li><a href="contactpage.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Contact Us</span>
+                </a></li>
+            </ul>
+          </nav>
+    </header>
+
+    <section class="header">
+        <div class="header-content">
+               <div class='console-container'><span id='text'></span><span class='console-underscore' id='console'>|</span></div>
+            <div class="header-image">
+                <img src="Frame 1321314415.png" alt="Course Details" />
+            </div>
+        </div>
+        <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const part1 = "Video ";
+  const part2 = "Editing";
+
+  const target = document.getElementById("text");
+  const cursor = document.getElementById("console");
+
+  let index = 0;
+  const fullText = part1 + part2;
+
+  const typingInterval = setInterval(() => {
+    if (index < fullText.length) {
+      const currentText = fullText.slice(0, index + 1);
+
+      if (index < part1.length) {
+        target.innerHTML = currentText;
+      } else {
+        target.innerHTML =
+          part1 +
+          `<span class="highlight">${currentText.slice(part1.length)}</span>`;
+      }
+
+      index++;
+    } else {
+      clearInterval(typingInterval);
+
+      // stop cursor after typing
+      setTimeout(() => {
+        cursor.style.display = "none";
+      }, 800);
+    }
+  }, 80);
+
+  // Cursor blink
+  setInterval(() => {
+    cursor.classList.toggle("hidden");
+  }, 400);
+});
+</script>
+
+
+    </section>
+    <div class="container-fluid">
+        <div class="row g-0">
+            <!-- ==================== MAIN CONTENT SECTION ==================== -->
+            <div class="col-lg-8 col-md-12">
+                <div class="main-content p-4">
+
+                    <!-- Navigation Tabs -->
+                    <ul class="nav nav-underline mb-4" id="courseTabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" onclick="showTab(this, 'description')">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="showTab(this, 'courses')">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="showTab(this, 'review')">Review</a>
+                        </li>
+                    </ul>
+
+                    <!-- Description Tab Content -->
+                    <div id="description-content" class="tab-content">
+                        <div class="description-container">
+                            <div class="description-text-section mb-4">
+                                <p class="description-text">
+                                    This course takes you on a creative journey into the world of Motion Graphics and
+                                    Animation, designed for beginners and aspiring visual storytellers. Learn how to
+                                    blend art, design, and movement to create visually stunning videos and brand
+                                    stories. At Artmount Academy Chennai, we focus on real-world skills from concept
+                                    development to execution helping you master the tools and techniques used by top
+                                    professionals in the motion design industry.
+                                </p>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#gain">
+                                    <h6 class="mb-0 fw-medium">What You'll Gain</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="gain" class="collapse show">
+                                    <div class="accordion-content p-3">
+                                        <ul class="course-list">
+                                            <p>By completing this motion graphics course in Chennai, you’ll gain the
+                                                ability to design, animate, and edit engaging visuals for marketing,
+                                                entertainment, and social media. You’ll learn how to tell stories using
+                                                motion, timing, and rhythm, making your designs come alive. With
+                                                hands-on training and mentor guidance, you’ll develop both technical
+                                                skills and creative confidence to build impactful motion projects and a
+                                                portfolio that gets noticed.
+                                            </p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#coverage">
+                                    <h6 class="mb-0 fw-medium">Course Coverage - MG & AV</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="coverage" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <ul class="course-list">
+                                            <p>TOur Motion Graphics and Audio-Visual Design module covers every step of
+                                                the animation workflow. You’ll learn storyboarding, keyframe animation,
+                                                kinetic typography, visual effects, transitions, and sound
+                                                synchronization. Each session is designed to improve your creative
+                                                direction and design flow, giving you the skills to create captivating
+                                                motion content for brands, ads, and digital platforms.
+                                            </p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#tools">
+                                    <h6 class="mb-0 fw-medium">Tools Covered</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="tools" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <ul class="course-list">
+                                            <p>At Artmount Academy, you’ll get practical experience with
+                                                industry-leading tools like Adobe After Effects, Premiere Pro,
+                                                Photoshop, Illustrator, and Cinema 4D. You’ll also explore audio editing
+                                                and compositing techniques, ensuring your motion projects are
+                                                professional and polished. Through real-time projects and hands-on
+                                                sessions, we prepare you for production-ready motion design work.
+                                            </p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#jobs">
+                                    <h6 class="mb-0 fw-medium">What Jobs Can You Get?</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="jobs" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <ul class="course-list">
+                                            <p>After completing the Motion Graphics course at Artmount Academy Chennai,
+                                                you’ll be ready for roles such as Motion Graphic Designer, Video Editor,
+                                                Visual Effects Artist, Animator, or Creative Visualizer. You can work in
+                                                media houses, advertising agencies, production studios, or as a
+                                                freelance motion designer. With the growing demand for visual content,
+                                                this course opens up exciting career opportunities in Chennai and across
+                                                India.</p>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Courses Tab Content -->
+                    <div id="courses-content" class="tab-content" style="display: none;">
+                        <div class="description-container">
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#chapter1">
+                                    <h6 class="mb-0 fw-medium">Chapter 1: Course Overview</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="chapter1" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <p class="text-muted">Get introduced to the comprehensive world of graphic
+                                            design and understand the course structure.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#chapter2">
+                                    <h6 class="mb-0 fw-medium">Chapter 2: Curriculum</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="chapter2" class="collapse show">
+                                    <div class="accordion-content p-3">
+                                        <div class="curriculum-items">
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Installing Vue JS
+                                            </div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Understand Vue
+                                                Components</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Templating</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Forms</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Styling</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Routing</div>
+                                            <div class="curriculum-item py-2 px-3 mb-2 rounded-2">Vue Animation</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#chapter3">
+                                    <h6 class="mb-0 fw-medium">Chapter 3: Components</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="chapter3" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <p class="text-muted">Learn about component-based architecture and how to create
+                                            reusable components.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <div class="accordion-header p-3 d-flex justify-content-between align-items-center"
+                                    data-bs-toggle="collapse" data-bs-target="#chapter4">
+                                    <h6 class="mb-0 fw-medium">Chapter 4: Coding</h6>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div id="chapter4" class="collapse">
+                                    <div class="accordion-content p-3">
+                                        <p class="text-muted">Put your knowledge into practice with hands-on coding
+                                            exercises and projects.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Tab Content -->
+                    <div id="review-content" class="tab-content" style="display: none;">
+                        <div class="description-container">
+                            <div class="text-center py-5">
+                                <h5>Student Reviews</h5>
+                                <p class="text-muted">Reviews and feedback from our students will be displayed here.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ==================== SIDEBAR SECTION ==================== -->
+            <div class="col-lg-4 col-md-12 d-flex justify-content-lg-end sidebar-content-wrapper">
+
+                <!-- Enroll Now Button (mobile only) -->
+                <div class="text-center mb-3 d-block d-lg-none d-md-none mobile-enroll-btn">
+                    <button class="btn btn-primary px-5 py-2 rounded-3 fw-medium">Enroll Now</button>
+                </div>
+
+                <div class="sidebar-content p-0">
+                    <div class="instructor-card mb-4 text-white position-relative overflow-hidden">
+                        <img src="Group 7121.png" alt="Sidebar Background" class="sidebar-bg-image" />
+                        <div class="content-overlay">
+                            <span class="webinar-label mb-2">WEBINAR</span>
+                            <h4 class="fw-bold instructor-title mb-2">Ana Kursova</h4>
+                            <p class="instructor-desc mb-3">
+                                Masterclass in Design Thinking,<br>Innovation & Creativity
+                            </p>
+                            <button class="btn btn-learn-more mb-2">Learn More</button>
+                        </div>
+                    </div>
+                    <!-- Original Enroll Now Button -->
+                    <div class="text-center mb-4 desktop-enroll-btn">
+                        <button class="btn btn-primary px-5 py-2 rounded-3 fw-medium">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+       <!-- ================= CTA Section ================= -->
+  <section class="cta-section cta-reveal-up">
+    <div class="container">
+      <div class="row">
+        <!-- Left content -->
+        <div class="col-lg-6">
+          <h2 class="cta-heading cta-reveal-left underline-anim">Ready to Grow<br>with Artmount?</h2>
+          <p class="cta-text cta-reveal-left">
+            Let's kickstart your UI/UX or Graphic Design journey at
+            Artmount. Contact us now for a free demo or batch info!
+          </p>
+        </div>
+
+        <!-- Right form -->
+        <div class="col-lg-6">
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <input type="text" id="name" class="form-control" placeholder="Name" />
+              <small class="error" id="nameError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="email" id="email" class="form-control" placeholder="Email" />
+              <small class="error" id="emailError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." />
+              <small class="error" id="mobileError"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="text" id="description" class="form-control" placeholder="Description" />
+              <small class="error" id="descriptionError"></small>
+            </div>
+
+            <!-- One single button (desktop + mobile unified) -->
+            <button type="submit" id="desktopSubmit" class="btn-contact btn-submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const mobileInput = document.getElementById("mobile");
+      const descInput = document.getElementById("description");
+
+      const nameError = document.getElementById("nameError");
+      const emailError = document.getElementById("emailError");
+      const mobileError = document.getElementById("mobileError");
+      const descError = document.getElementById("descriptionError");
+
+      // Regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const mobileRegex = /^[0-9]{10}$/;
+
+      // Validation functions
+      function validateName() {
+        if (nameInput.value.trim() === "") {
+          nameError.textContent = "Name is required";
+          nameInput.classList.add("invalid");
+          nameInput.classList.remove("valid");
+          return false;
+        } else {
+          nameError.textContent = "";
+          nameInput.classList.remove("invalid");
+          nameInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateEmail() {
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailError.textContent = "Enter a valid email";
+          emailInput.classList.add("invalid");
+          emailInput.classList.remove("valid");
+          return false;
+        } else {
+          emailError.textContent = "";
+          emailInput.classList.remove("invalid");
+          emailInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateMobile() {
+        if (!mobileRegex.test(mobileInput.value.trim())) {
+          mobileError.textContent = "Enter a 10-digit mobile number";
+          mobileInput.classList.add("invalid");
+          mobileInput.classList.remove("valid");
+          return false;
+        } else {
+          mobileError.textContent = "";
+          mobileInput.classList.remove("invalid");
+          mobileInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      function validateDesc() {
+        if (descInput.value.trim() === "") {
+          descError.textContent = "Description is required";
+          descInput.classList.add("invalid");
+          descInput.classList.remove("valid");
+          return false;
+        } else {
+          descError.textContent = "";
+          descInput.classList.remove("invalid");
+          descInput.classList.add("valid");
+          return true;
+        }
+      }
+
+      // Live validation (on input)
+      nameInput.addEventListener("input", validateName);
+      emailInput.addEventListener("input", validateEmail);
+      mobileInput.addEventListener("input", validateMobile);
+      descInput.addEventListener("input", validateDesc);
+
+      // Final check on submit
+      // Final check on submit
+
+      document.getElementById("desktopSubmit").addEventListener("click", function (e) {
+        e.preventDefault(); // stop jumping to top
+        document.getElementById("contactForm").requestSubmit();
+      });
+
+
+    </script>
+  </section>
+
+  <!-- ================= Footer ================= -->
+  <footer class="custom-footer">
+    <div class="container-fluid">
+      <div class="row footer-main-row justify-content-between">
+
+        <!-- COLUMN 1: Logo + Intro -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-left ">
+            <img src="artmount-logo-a.png" alt="ArtMount Academy" class="footer-logo">
+            <p class="footer-text">
+              From innovative marketing strategies to operational excellence, we provide expert
+            </p>
+          </div>
+        </div>
+
+        <!-- COLUMN 2: Quick Links -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="shifted-col ">
+            <h5 class="footer-menu-title text-center">Quick Links</h5>
+            <nav class="footer-menu ">
+              <a href="Home.html" class="footer-link hover-pop underline-anim">Home</a>
+              <a href="Our_Courses.html" class="footer-link hover-pop underline-anim">Our Courses</a>
+              <a href="About_Us.html" class="footer-link hover-pop underline-anim">About Us</a>
+              <a href="portfolio.html" class="footer-link hover-pop underline-anim">Portfolio</a>
+              <a href="contactpage.html" class="footer-link hover-pop underline-anim">Contact</a>
+            </nav>
+          </div>
+        </div>
+
+        <!-- COLUMN 3: Address -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-contact shifted-col">
+            <h5>Contact</h5>
+            <p><strong>Phone:</strong> <br>+91 8778359643</p>
+            <p><strong>Email:</strong> <br>info@artmountacademy.com</p>
+          </div>
+        </div>
+
+
+
+        <!-- COLUMN 4: Contact Information -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-address shifted-col">
+            <h5>Office Address</h5>
+            <p>No.4, Alamathi main road, New Vellanur, Avadi, Chennai-600062</p>
+
+            <div style="margin-top: 20px;">
+              <p>c201a, 19th St, Periyar nagar West, Perambur, Chennai-600082</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-social">
+        <ul class="socials">
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+                alt="LinkedIn"></a></li>
+
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"></a></li>
+
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                alt="WhatsApp"></a></li>
+
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+                alt="Facebook"></a></li>
+
+          <li><a href="mailto:info@artmountacademy.com"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="gmail"></a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- BOTTOM BRANDING -->
+      <!-- FOOTER BRAND -->
+      <div class="footer-bottom" id="footer">
+        <svg viewBox="0 0 1320 300">
+          <text x="50%" y="58%" dy=".35em" text-anchor="middle">
+            ARTMOUNT
+          </text>
+        </svg>
+      </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const footer = document.querySelector("#footer");
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  footer.classList.add("footer-animate");
+                  observer.unobserve(footer); // runs animation only once
+                }
+              });
+            },
+            {
+              threshold: 0.4, // 40% of footer visible
+            }
+          );
+
+          observer.observe(footer);
+        });
+      </script>
+
+
+  </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showTab(element, tab) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+
+            // Show selected tab content
+            document.getElementById(tab + '-content').style.display = 'block';
+
+            // Remove 'active' from all nav links
+            document.querySelectorAll('#courseTabs .nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Add 'active' to clicked link
+            element.classList.add('active');
+        }
+    </script>
+
+    <!-- =============backend script code ============== -->
+    <script>
+        const API_URL = 'http://localhost:5001';
+
+        // CTA Form Handler
+        document.querySelector('#contactForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // 🔥 Prevent double submission
+            if (this.classList.contains("submitting")) return;
+            this.classList.add("submitting");
+
+            const submitBtn = this.querySelector('.btn-mobile');
+            const desktopBtn = document.getElementById('desktopSubmit');
+            const originalText = submitBtn.textContent;
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('mobile').value.trim();
+            const message = document.getElementById('description').value.trim();
+
+            if (!name || !email || !phone || !message) {
+                alert('Please fill in all fields');
+                this.classList.remove("submitting");
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            desktopBtn.style.pointerEvents = 'none';
+            desktopBtn.style.opacity = '0.6';
+
+            try {
+                const response = await fetch(`${API_URL}/contact/submit`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, message })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert(data.message || 'Thank you! We got your inquiry.');
+                    this.reset();
+                } else {
+                    alert(data.message || 'Failed to submit. Try again.');
+                }
+            } catch (error) {
+                alert('Network error.');
+                console.error(error);
+            } finally {
+                // 🔥 Allow submission again
+                this.classList.remove("submitting");
+
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                desktopBtn.style.pointerEvents = 'auto';
+                desktopBtn.style.opacity = '1';
+            }
+        });
+
+        // Desktop button triggers form
+        document.getElementById('desktopSubmit').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.getElementById('contactForm').requestSubmit();
+        });
+    </script>
+
+
+
+</body>
+
+</html>

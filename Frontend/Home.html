@@ -16,6 +16,11 @@
   <!-- plus jakarta sans -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;500;600;700&display=swap"
     rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Sekuya&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,11 +59,34 @@
           <!-- Side Navigation Menu -->
           <nav class="navbar-menu">
             <ul>
-              <li><a href="Home.html" class="underline-animate">Home</a></li>
-              <li><a href="Our_Courses.html" class="underline-animate">Our Courses</a></li>
-              <li><a href="About_Us.html" class="underline-animate">About Us</a></li>
-              <li><a href="portfolio.html" class="underline-animate">Portfolio</a></li>
-              <li><a href="contactpage.html" class="underline-animate">Contact Us</a></li>
+              <li><a href="Home.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Home</span>
+                </a></li>
+
+              <li class="has-submenu">
+                <a href="Our_Courses.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Our Courses</span>
+                </a>
+
+                <ul class="submenu">
+                  <li><a href="graphic_design.html" class="hover-pop underline-anim">Graphic designing</a></li>
+                  <li><a href="digital_marketing.html" class="hover-pop underline-anim">Digital Marketing</a></li>
+                  <li><a href="uiux_design.html" class="hover-pop underline-anim">UI/UX Design</a></li>
+                  <li><a href="Video_editing.html" class="hover-pop underline-anim">Video Editing</a></li>
+                </ul>
+              </li>
+
+              <li><a href="About_Us.html" class="nav-link hover-pop">
+                  <span class="underline-animate">About Us</span>
+                </a></li>
+
+              <li><a href="portfolio.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Portfolio</span>
+                </a></li>
+
+              <li><a href="contactpage.html" class="nav-link hover-pop">
+                  <span class="underline-animate">Contact Us</span>
+                </a></li>
             </ul>
           </nav>
         </div>
@@ -68,17 +96,18 @@
           <!-- Left Side Content -->
           <div class="col-md-8 col-lg-8">
             <div class="hero-content reveal reveal-left">
-              <h1 class="ml-animate">Learn from Top Industry Experts in UI/UX & Graphic Design</h1>
+              <div class="console-container">
+                <span id="static-text"></span>
+                <span id="dynamic-text"></span>
+                <span class="console-cursor" id="cursor">|</span>
+              </div>
 
               <p>
                 Master UI/UX Design, Graphic Design, and Video Editing courses in Chennai with hands-on
                 projects, live mentoring, and real-world applications.
               </p>
               <a href="Our_Courses.html" class="section-btn-outline-info0 reveal popup">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+
                 Our Courses
               </a>
 
@@ -88,7 +117,7 @@
               <div class="stats-container">
                 <div class="stat-item reveal reveal-up">
                   <span class="stat-number">
-                    <span class="num">1200</span><span class="symbol">+</span>
+                    <span class="num">12</span><span class="symbol">K+</span>
                   </span>
                   <div class="stat-label"><b> Students Empowered</b></div>
 
@@ -204,8 +233,7 @@
                   </div>
 
                   <!-- Submit button moved INSIDE -->
-                  <button type="submit" class="section-btn-outline-info1 reveal popup"
-                    id="submitBtn">Submit</button>
+                  <button type="submit" class="section-btn-outline-info1 reveal popup" id="submitBtn">Submit</button>
 
                 </form>
               </div>
@@ -453,6 +481,69 @@
 
     </script>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+
+        const staticText = "Learn from Top Industry Experts in ";
+        const dynamicWords = [
+          "Graphic Design",
+          "Video Editing & Animation",
+          "UI/UX Design",
+          "Digital Marketing"
+        ];
+
+        const staticEl = document.getElementById("static-text");
+        const dynamicEl = document.getElementById("dynamic-text");
+        const cursor = document.getElementById("cursor");
+
+        // 🔹 SHOW STATIC TEXT IMMEDIATELY (NO ANIMATION)
+        staticEl.textContent = staticText;
+
+        let wordIndex = 0;
+        let letterIndex = 0;
+        let deleting = false;
+        let isPaused = false;
+
+        /* ---- LOOPING DYNAMIC TEXT WITH PAUSE ---- */
+        setInterval(() => {
+          if (isPaused) return;
+
+          const currentWord = dynamicWords[wordIndex];
+
+          // Typing
+          if (!deleting) {
+            dynamicEl.textContent = currentWord.slice(0, letterIndex + 1);
+            letterIndex++;
+
+            if (letterIndex === currentWord.length) {
+              isPaused = true;
+              setTimeout(() => {
+                deleting = true;
+                isPaused = false;
+              }, 1500); // ⏸ reading pause
+            }
+          }
+          // Deleting
+          else {
+            dynamicEl.textContent = currentWord.slice(0, letterIndex - 1);
+            letterIndex--;
+
+            if (letterIndex === 0) {
+              deleting = false;
+              wordIndex = (wordIndex + 1) % dynamicWords.length;
+            }
+          }
+        }, 100);
+
+        /* ---- CURSOR BLINK ---- */
+        setInterval(() => {
+          cursor.classList.toggle("hidden");
+        }, 400);
+
+      });
+    </script>
+
+
 
   </section>
   <!-- ================= WHO WE ARE SECTION ================= -->
@@ -554,7 +645,10 @@
                 make you job-ready. Whether
                 you’re a beginner or looking to upskill, our programs help you elevate your creative capabilities.
               </p>
-              <button type="button" class="magic-btn section-btn-outline-info2">Explore Now</button>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='Video_editing.html'">
+                Explore Now
+              </button>
             </div>
           </div>
         </div>
@@ -580,7 +674,10 @@
               <p class="course-description"> Get industry-ready with projects, case studies, and portfolio
                 guidance.
               </p>
-              <button class="magic-btn section-btn-outline-info2">Explore Now</button>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='uiux_design.html'">
+                Explore Now
+              </button>
             </div>
           </div>
         </div>
@@ -608,7 +705,10 @@
                 experience
                 needed.
               </p>
-              <button class="magic-btn section-btn-outline-info2">Explore Now</button>
+              <button type="button" class="magic-btn section-btn-outline-info2"
+                onclick="window.location.href='digital_marketing.html'">
+                Explore Now
+              </button>
             </div>
           </div>
         </div>
@@ -722,35 +822,38 @@
   <!--==================== logo ============================-->
   <div class="logo">
     <h2 class="logo-text reveal-down">Our Technolgy Partners for <span class="colored-text">Placements</span></h2>
-      <div class="carousel-container">
-        <div class="carousel-track">
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="group">
           <!-- ORIGINAL 10 -->
-          <div class="carousel-slide"><div class="logo-box"><img src="wraptron logo.png" alt="Wraptron logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="codeup logo.png" alt="Codeup logo"></div></div>
-          <div class="carousel-slide"> <div class="logo-box"><img src="ddc logo.jpg" alt="DDC logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Collobrator-03.png" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Collobrator-04.png" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="BBt-3.png" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Collobrator-06.png" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Logo.webp" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div></div>
-
-          <!-- DUPLICATED 10 -->
-          <div class="carousel-slide"><div class="logo-box"><img src="wraptron logo.png" alt="Wraptron logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="codeup logo.png" alt="Codeup logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="ddc logo.jpg" alt="DDC logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Collobrator-03.png" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Collobrator-04.png" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="BBt-3.png" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Collobrator-06.png" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="Logo.webp" alt="Partner logo"></div></div>
-          <div class="carousel-slide"><div class="logo-box"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div></div>
+          <div class="logo-box"><img src="wraptron logo.png" alt="Wraptron logo"></div>
+          <div class="logo-box"><img src="codeup logo.png" alt="Codeup logo"></div>
+          <div class="logo-box"><img src="ddc logo.jpg" alt="DDC logo"></div>
+          <div class="logo-box"><img src="Collobrator-03.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Collobrator-04.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="BBt-3.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Collobrator-06.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div>
+          <div class="logo-box"><img src="Logo.webp" alt="Partner logo"></div>
+          <div class="logo-box"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div>
         </div>
-
+        <!-- DUPLICATED 10 -->
+        <div aria-hidden="" class="group">
+          <div class="logo-box"><img src="wraptron logo.png" alt="Wraptron logo"></div>
+          <div class="logo-box"><img src="codeup logo.png" alt="Codeup logo"></div>
+          <div class="logo-box"><img src="ddc logo.jpg" alt="DDC logo"></div>
+          <div class="logo-box"><img src="Collobrator-03.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Collobrator-04.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="BBt-3.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Collobrator-06.png" alt="Partner logo"></div>
+          <div class="logo-box"><img src="Fronseye-Logo-BNI.jpg" alt="Fronseye logo"></div>
+          <div class="logo-box"><img src="Logo.webp" alt="Partner logo"></div>
+          <div class="logo-box"><img src="seaport-ai-logo.png" alt="Seaport AI logo"></div>
+        </div>
       </div>
-    
+    </div>
+
+
     <script>
       (function () {
         const reveals = document.querySelectorAll('.reveal-down');
@@ -935,7 +1038,7 @@
             </div>
 
             <!-- One single button (desktop + mobile unified) -->
-            <button type="submit" id="desktopSubmit" class="btn-contact btn-submit">Contact us</button>
+            <button type="submit" id="desktopSubmit" class="btn-contact btn-submit">Submit</button>
           </form>
         </div>
       </div>
@@ -1032,28 +1135,23 @@
   <!-- ================= Footer ================= -->
   <footer class="custom-footer">
     <div class="container-fluid">
-      <div class="row footer-main-row">
-        <!-- COLUMN 1: Logo + Intro + Social -->
-        <div class="col-lg-4 col-md-6 footer-col">
-          <div class="footer-left shifted-col">
-            <!-- Logo -->
-            <img src="artmount-logo-a.png" alt="ArtMount Academy" class="footer-logo">
+      <div class="row footer-main-row justify-content-between">
 
-            <!-- Intro text (replace line later, structure same) -->
+        <!-- COLUMN 1: Logo + Intro -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-left ">
+            <img src="artmount-logo-a.png" alt="ArtMount Academy" class="footer-logo">
             <p class="footer-text">
               From innovative marketing strategies to operational excellence, we provide expert
             </p>
-
-            <!-- Social Icons -->
-
           </div>
         </div>
 
-        <!-- COLUMN 2: Center Navigation -->
-        <div class="col-lg-4 col-md-6 footer-col">
-          <div class="shifted-col">
-            <h5 class="footer-menu-title">Menu</h5>
-            <nav class="footer-menu">
+        <!-- COLUMN 2: Quick Links -->
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="shifted-col ">
+            <h5 class="footer-menu-title text-center">Quick Links</h5>
+            <nav class="footer-menu ">
               <a href="Home.html" class="footer-link hover-pop underline-anim">Home</a>
               <a href="Our_Courses.html" class="footer-link hover-pop underline-anim">Our Courses</a>
               <a href="About_Us.html" class="footer-link hover-pop underline-anim">About Us</a>
@@ -1064,46 +1162,82 @@
         </div>
 
         <!-- COLUMN 3: Address -->
-        <div class="col-lg-4 col-md-12 footer-col">
+        <div class="col-lg-3 col-md-6 footer-col">
+          <div class="footer-contact shifted-col">
+            <h5>Contact</h5>
+            <p><strong>Phone:</strong> <br>+91 8778359643</p>
+            <p><strong>Email:</strong> <br>info@artmountacademy.com</p>
+          </div>
+        </div>
+
+
+
+        <!-- COLUMN 4: Contact Information -->
+        <div class="col-lg-3 col-md-6 footer-col">
           <div class="footer-address shifted-col">
             <h5>Office Address</h5>
-            <p>N0.4,Alamathi main road,New vellanur,</p>
-            <p>Avadi, Chennai-600062</p>
-
+            <p>No.4, Alamathi main road, New Vellanur, Avadi, Chennai-600062</p>
 
             <div style="margin-top: 20px;">
-              <p>c201a, 19th St, periar nagaar West,</p>
-              <p> Perambur, Chennai-600082</p>
-
+              <p>c201a, 19th St, Periyar nagar West, Perambur, Chennai-600082</p>
             </div>
           </div>
         </div>
+
       </div>
+
       <div class="footer-social">
-              <ul class="socials">
-                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
-                      alt="LinkedIn"></a></li>
+        <ul class="socials">
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+                alt="LinkedIn"></a></li>
 
-                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                      alt="Instagram"></a></li>
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                alt="Instagram"></a></li>
 
-                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-                      alt="WhatsApp"></a></li>
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                alt="WhatsApp"></a></li>
 
-                <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
-                      alt="Facebook"></a></li>
+          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+                alt="Facebook"></a></li>
 
-                <li><a href="mailto:info@artmountacademy.com"><img
-                      src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
-                      alt="gmail"></a></li>
-              </ul>
-            </div>
+          <li><a href="mailto:info@artmountacademy.com"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="gmail"></a>
+          </li>
+        </ul>
+      </div>
 
       <!-- BOTTOM BRANDING -->
-      <div class="footer-bottom">
-        <span>ArtMount Academy</span>
+      <!-- FOOTER BRAND -->
+      <div class="footer-bottom" id="footer">
+        <svg viewBox="0 0 1320 300">
+          <text x="50%" y="58%" dy=".35em" text-anchor="middle">
+            ARTMOUNT
+          </text>
+        </svg>
       </div>
-    </div>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const footer = document.querySelector("#footer");
+
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  footer.classList.add("footer-animate");
+                  observer.unobserve(footer); // runs animation only once
+                }
+              });
+            },
+            {
+              threshold: 0.4, // 40% of footer visible
+            }
+          );
+
+          observer.observe(footer);
+        });
+      </script>
+
+
   </footer>
 
   <!-- =============backend script code ============== -->

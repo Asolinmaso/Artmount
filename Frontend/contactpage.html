@@ -14,14 +14,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Sekuya&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Sekuya&display=swap" rel="stylesheet">
    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
 
-  <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="contactpage.css" rel="stylesheet">
@@ -95,7 +91,7 @@
                         <div class="row">
                             <div class="col-md-4 mb-4">
                                 <input type="text" id="name" class="form-control custom-input" placeholder="Your Name"
-                                    required>
+                                    required pattern="[A-Za-z\s\-\.']+" title="Letters only">
                             </div>
                             <div class="col-md-4 mb-4">
                                 <input type="email" id="email" class="form-control custom-input"
@@ -103,7 +99,7 @@
                             </div>
                             <div class="col-md-4 mb-4">
                                 <input type="tel" id="phone" class="form-control custom-input"
-                                    placeholder="Phone Number" required>
+                                    placeholder="Phone Number" required maxlength="10" inputmode="numeric" pattern="[0-9]*">
                             </div>
                         </div>
                         <div class="mb-4">
@@ -202,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <h3 class="contact-value">info@artmountacademy.com</h3>
                             <br>
                             <large class="contact-hours d-block">Assistance hours:</large>
-                            <h5 class="contact-hours1">Monday - Sunday 7 am to 9 pm IST</h5>
+                            <h5 class="contact-hours1">Monday - Sunday, 7 am - 9 pm IST</h5>
                     </div>
                 </div>
 
@@ -214,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <h3 class="contact-value1">+91 8778359643</h3>
                             <br>
                             <large class="contact-hours d-block">Assistance hours:</large>
-                            <h5 class="contact-hours2">Monday - Sunday 7 am to 9 pm IST</h5>
+                            <h5 class="contact-hours2">Monday - Sunday, 7 am - 9 pm IST</h5>
                     </div>
                 </div>
             </div>
@@ -277,16 +273,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-social">
         <ul class="socials">
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+          <li><a href="https://www.linkedin.com/company/artmount-academy" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
                 alt="LinkedIn"></a></li>
 
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+          <li><a href="https://www.instagram.com/artmountacademy" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
                 alt="Instagram"></a></li>
 
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          <li><a href="https://wa.me/918778359643" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                 alt="WhatsApp"></a></li>
 
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+          <li><a href="https://www.facebook.com/artmountacademy" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
                 alt="Facebook"></a></li>
 
           <li><a href="mailto:info@artmountacademy.com"><img
@@ -336,6 +332,18 @@ document.addEventListener("DOMContentLoaded", () => {
     <script>
         const API_URL = 'http://localhost:5001';
 
+        document.addEventListener('DOMContentLoaded', function() {
+            // Name: allow only letters; Phone: allow only digits
+            var nameEl = document.getElementById('name');
+            var phoneEl = document.getElementById('phone');
+            if (nameEl) nameEl.addEventListener('input', function() {
+                this.value = this.value.replace(/[0-9]/g, '');
+            });
+            if (phoneEl) phoneEl.addEventListener('input', function() {
+                this.value = this.value.replace(/\D/g, '').slice(0, 10);
+            });
+        });
+
         document.getElementById('contactForm').addEventListener('submit', async function (e) {
             e.preventDefault();
 
@@ -348,6 +356,17 @@ document.addEventListener("DOMContentLoaded", () => {
             const email = document.getElementById('email').value.trim();
             const phone = document.getElementById('phone').value.trim();
             const message = document.getElementById('message').value.trim();
+
+            // Validate name (letters only)
+            if (!/^[A-Za-z\s\-\.']+$/.test(name) || name.length < 2) {
+                showAlert('danger', 'Name should contain only letters (no numbers).');
+                return;
+            }
+            // Validate phone (numbers only, 10 digits)
+            if (!/^\d{10}$/.test(phone) || !/^[6-9]/.test(phone)) {
+                showAlert('danger', 'Please enter a valid 10-digit mobile number (digits only, starting with 6-9).');
+                return;
+            }
 
             // Disable button and show loading
             submitBtn.disabled = true;

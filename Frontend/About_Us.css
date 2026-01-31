@@ -218,15 +218,19 @@ ul.submenu{
 
 .about-section {
   text-align: center;
-  padding: 90px 0 0 0;
+  padding: 120px 24px 40px;
   background-color: white;
-  position:relative;
-  margin-top:0px; 
+  position: relative;
+  margin-top: 0;
 }
 
-.sub-heading{
-  margin-bottom:20px;
-   font-weight: 600;
+.sub-heading {
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 1.2;
+  word-break: keep-all;
+  padding-top: 0;
 }
 
 
@@ -242,16 +246,13 @@ ul.submenu{
 
 
 .console-container {
-  font-size: 48px;
+  font-size: 42px;
   font-weight: 600;
   text-align: center;
-
-  /* spacing fix */
-  margin:40px auto;
-
+  margin: 20px auto;
   position: relative;
-  
   line-height: 1.2;
+  word-break: keep-all;
 }
 
 .console-cursor {
@@ -281,13 +282,14 @@ ul.submenu{
 
 
 .description {
-  font-size: 24px;
+  font-size: 20px;
   color: #6c6c6cff;
-  line-height: 1.4;
+  line-height: 1.5;
   margin: auto;
-  margin-bottom:30px;
+  margin-bottom: 16px;
   font-weight: 400;
-  
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .description b{

@@ -191,7 +191,7 @@
                 <form class="enquiry-form" id="enquiryForm">
 
                   <div class="form-group">
-                    <input type="text" id="enquiryName" placeholder="Your Name" data-required="true" pattern="[A-Za-z\s\-\.]+" title="Letters only">
+                    <input type="text" id="enquiryName" placeholder="Your Name" data-required="true" minlength="2" title="Enter your name (letters only, no numbers)">
                     <div class="error-message" id="nameError"></div>
                   </div>
 
@@ -294,17 +294,20 @@
       // Form validation functions
       function showError(fieldId, message) {
         const errorDiv = document.getElementById(fieldId + 'Error');
-        const formGroup = errorDiv.closest('.form-group');
+        if (!errorDiv) return;
         errorDiv.textContent = message;
         errorDiv.classList.add('show');
-        formGroup.classList.add('error');
+        const formGroup = errorDiv.closest('.form-group');
+        if (formGroup) formGroup.classList.add('error');
       }
 
       function hideError(fieldId) {
         const errorDiv = document.getElementById(fieldId + 'Error');
-        const formGroup = errorDiv.closest('.form-group');
+        if (!errorDiv) return;
+        errorDiv.textContent = '';
         errorDiv.classList.remove('show');
-        formGroup.classList.remove('error');
+        const formGroup = errorDiv.closest('.form-group');
+        if (formGroup) formGroup.classList.remove('error');
       }
 
       function validateEmail(email) {
@@ -317,22 +320,27 @@
         return phoneRegex.test(phone);
       }
 
+      // Name: at least 2 chars, no digits (allows letters, spaces, hyphen, period, apostrophe, accented chars)
       function validateName(name) {
-        const nameRegex = /^[A-Za-z\s\-\.']+$/;
-        return nameRegex.test(name) && name.length >= 2;
+        if (!name || name.length < 2) return false;
+        return !/\d/.test(name) && /^[\p{L}\s\-.'\u2019]+$/u.test(name);
       }
 
       function validateForm() {
         let isValid = true;
-        const name = document.getElementById('enquiryName').value.trim();
-        const phone = document.getElementById('enquiryPhone').value.trim();
-        const email = document.getElementById('enquiryEmail').value.trim();
-        const course = document.getElementById('enquiryCourse').value;
+        const nameEl = document.getElementById('enquiryName');
+        const phoneEl = document.getElementById('enquiryPhone');
+        const emailEl = document.getElementById('enquiryEmail');
+        const courseEl = document.getElementById('enquiryCourse');
+        const name = nameEl ? nameEl.value.trim() : '';
+        const phone = phoneEl ? phoneEl.value.trim() : '';
+        const email = emailEl ? emailEl.value.trim() : '';
+        const course = courseEl ? courseEl.value.trim() : '';
 
         // Clear previous errors
         ['name', 'phone', 'email', 'course'].forEach(field => hideError(field));
 
-        // Validate name (letters only, no numbers)
+        // Validate name (no numbers; allows letters, spaces, hyphen, apostrophe, accented letters)
         if (!name) {
           showError('name', 'Please enter your name');
           isValid = false;
@@ -341,15 +349,15 @@
           isValid = false;
         }
 
-        // Validate phone (numbers only)
+        // Validate phone (exactly 10 digits, starting with 6-9)
         if (!phone) {
           showError('phone', 'Please enter your mobile number');
           isValid = false;
-        } else if (!/^\d+$/.test(phone)) {
-          showError('phone', 'Mobile number should contain only digits');
+        } else if (!/^\d{10}$/.test(phone)) {
+          showError('phone', 'Please enter a valid 10-digit mobile number');
           isValid = false;
         } else if (!validatePhone(phone)) {
-          showError('phone', 'Please enter a valid 10-digit mobile number starting with 6-9');
+          showError('phone', 'Mobile number must start with 6, 7, 8 or 9');
           isValid = false;
         }
 
@@ -362,7 +370,7 @@
           isValid = false;
         }
 
-        // Validate course
+        // Validate course (from hidden select; ensure it was set by dropdown)
         if (!course) {
           showError('course', 'Please select a course');
           isValid = false;

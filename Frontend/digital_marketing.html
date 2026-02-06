@@ -144,9 +144,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         <li class="nav-item">
                             <a class="nav-link" onclick="showTab(this, 'courses')">Courses</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" onclick="showTab(this, 'review')">Review</a>
-                        </li>
                     </ul>
 
                     <!-- Description Tab Content -->
@@ -309,16 +306,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                             exercises and projects.</p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review Tab Content -->
-                    <div id="review-content" class="tab-content" style="display: none;">
-                        <div class="description-container">
-                            <div class="text-center py-5">
-                                <h5>Student Reviews</h5>
-                                <p class="text-muted">Reviews and feedback from our students will be displayed here.</p>
                             </div>
                         </div>
                     </div>
@@ -620,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- =============backend script code ============== -->
     <script>
-        const API_URL = 'http://localhost:5001';
+        const API_URL = 'https://artmount-backend.onrender.com';
 
         // CTA Form Handler
         document.querySelector('#contactForm').addEventListener('submit', async function (e) {

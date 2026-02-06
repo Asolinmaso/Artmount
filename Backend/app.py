@@ -195,12 +195,13 @@ def health_check():
     }), 200
 
 if __name__ == '__main__':
+    port = int(os.getenv('PORT', 5001))
     print("🚀 Starting Contact Form Backend...")
     if EMAIL_CONFIGURED:
         print("📧 Email service configured and ready")
     else:
         print("⚠️  Email NOT configured (will accept forms but won't send emails)")
         print("   Update .env file to enable email sending")
-    print("🌐 Server running on http://localhost:5001")
+    print(f"🌐 Server running on port {port}")
     print("")
-    app.run(debug=True, port=5001)
+    app.run(debug=os.getenv('FLASK_DEBUG', 'false').lower() == 'true', host='0.0.0.0', port=port)

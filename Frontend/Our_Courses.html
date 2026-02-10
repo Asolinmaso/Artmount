@@ -18,6 +18,8 @@
    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
+  <!-- Common CSS (shared across all pages) -->
+  <link rel="stylesheet" href="common.css">
   <link rel="stylesheet" href="Our_Courses.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
@@ -106,69 +108,19 @@
       })();
     </script>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const part1 = "Learn the Art of ";
-        const part2 = "Branding, Design, and Digital Marketing";
-
-        const target = document.getElementById("text");
-        const cursor = document.getElementById("console");
-
-        let index = 0;
-        const fullText = part1 + part2;
-
-        const typingInterval = setInterval(() => {
-          if (index < fullText.length) {
-            const currentText = fullText.slice(0, index + 1);
-
-            if (index < part1.length) {
-              target.innerHTML = currentText;
-            } else {
-              const typedPart2 = currentText.slice(part1.length);
-
-              // Make "and" black
-              const styledText = typedPart2.replace(
-                /\band\b/g,
-                `<span class="and-black">and</span>`
-              );
-
-              target.innerHTML =
-                part1 +
-                `<span class="highlight">${styledText}</span>`;
-            }
-
-            index++;
-          } else {
-            clearInterval(typingInterval);
-
-            setTimeout(() => {
-              cursor.style.display = "none";
-            }, 800);
-          }
-        }, 80);
-
-        // Cursor blink
-        setInterval(() => {
-          cursor.classList.toggle("hidden");
-        }, 400);
-      });
-    </script>
+    
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-
-  const staticText = "Learn the Art of ";
-  const dynamicWords = [
-    "Branding",
-    "Design",
-    "Digital Marketing"
-  ];
-
   const staticEl = document.getElementById("static-text");
   const dynamicEl = document.getElementById("dynamic-text");
   const cursor = document.getElementById("cursor");
 
-  // 🔹 SHOW STATIC TEXT IMMEDIATELY (NO ANIMATION)
+  if (!staticEl || !dynamicEl || !cursor) return;
+
+  const staticText = "Learn the Art of ";
+  const dynamicWords = ["Branding", "Design", "Digital Marketing"];
+
   staticEl.textContent = staticText;
 
   let wordIndex = 0;
@@ -176,30 +128,22 @@ document.addEventListener("DOMContentLoaded", () => {
   let deleting = false;
   let isPaused = false;
 
-  /* ---- LOOPING DYNAMIC TEXT WITH PAUSE ---- */
   setInterval(() => {
     if (isPaused) return;
 
-    const currentWord = dynamicWords[wordIndex];
+    const word = dynamicWords[wordIndex];
 
-    // Typing
     if (!deleting) {
-      dynamicEl.textContent = currentWord.slice(0, letterIndex + 1);
-      letterIndex++;
-
-      if (letterIndex === currentWord.length) {
+      dynamicEl.textContent = word.slice(0, ++letterIndex);
+      if (letterIndex === word.length) {
         isPaused = true;
         setTimeout(() => {
           deleting = true;
           isPaused = false;
-        }, 1500); // ⏸ reading pause
+        }, 1500);
       }
-    }
-    // Deleting
-    else {
-      dynamicEl.textContent = currentWord.slice(0, letterIndex - 1);
-      letterIndex--;
-
+    } else {
+      dynamicEl.textContent = word.slice(0, --letterIndex);
       if (letterIndex === 0) {
         deleting = false;
         wordIndex = (wordIndex + 1) % dynamicWords.length;
@@ -207,12 +151,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 100);
 
-  /* ---- CURSOR BLINK ---- */
-  setInterval(() => {
-    cursor.classList.toggle("hidden");
-  }, 400);
-
+  setInterval(() => cursor.classList.toggle("hidden"), 400);
 });
+
 </script>
 
 
@@ -501,7 +442,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <div class="form-group">
-              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." />
+              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." inputmode="numeric"/>
               <small class="error" id="mobileError"></small>
             </div>
 
@@ -662,16 +603,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-social">
         <ul class="socials">
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+          <li><a href="https://www.linkedin.com/company/artmount-academy"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
                 alt="LinkedIn"></a></li>
 
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+          <li><a href="https://www.instagram.com/artmountacademy"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
                 alt="Instagram"></a></li>
 
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          <li><a href="https://wa.me/918778359643"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                 alt="WhatsApp"></a></li>
 
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+          <li><a href="https://www.facebook.com/artmountacademy"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
                 alt="Facebook"></a></li>
 
           <li><a href="mailto:info@artmountacademy.com"><img
@@ -717,73 +658,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <!-- =============backend script code ============== -->
   <script>
-    const API_URL = 'https://artmount-backend.onrender.com';
+  const API_URL = 'https://artmount-backend.onrender.com';
 
-    // CTA Form Handler
-    document.querySelector('#contactForm').addEventListener('submit', async function (e) {
-      e.preventDefault();
+  document.querySelector('#contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-      // 🔥 Prevent double submission
-      if (this.classList.contains("submitting")) return;
-      this.classList.add("submitting");
+    if (this.classList.contains("submitting")) return;
+    this.classList.add("submitting");
 
-      const submitBtn = this.querySelector('.btn-mobile');
-      const desktopBtn = document.getElementById('desktopSubmit');
-      const originalText = submitBtn.textContent;
+    const submitBtn = document.getElementById('desktopSubmit');
+    const originalText = submitBtn.textContent;
 
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const phone = document.getElementById('mobile').value.trim();
-      const message = document.getElementById('description').value.trim();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('mobile').value.trim();
+    const message = document.getElementById('description').value.trim();
 
-      if (!name || !email || !phone || !message) {
-        alert('Please fill in all fields');
-        this.classList.remove("submitting");
-        return;
+    if (!name || !email || !phone || !message) {
+      alert('Please fill in all fields');
+      this.classList.remove("submitting");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(`${API_URL}/contact/submit`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(data.message || 'Thank you! We got your inquiry.');
+        this.reset();
+      } else {
+        alert(data.message || 'Failed to submit. Try again.');
       }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
-      desktopBtn.style.pointerEvents = 'none';
-      desktopBtn.style.opacity = '0.6';
-
-      try {
-        const response = await fetch(`${API_URL}/contact/submit`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, phone, message })
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-          alert(data.message || 'Thank you! We got your inquiry.');
-          this.reset();
-        } else {
-          alert(data.message || 'Failed to submit. Try again.');
-        }
-      } catch (error) {
-        alert('Network error.');
-        console.error(error);
-      } finally {
-        // 🔥 Allow submission again
-        this.classList.remove("submitting");
-
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
-        desktopBtn.style.pointerEvents = 'auto';
-        desktopBtn.style.opacity = '1';
-      }
-    });
-
-    // Desktop button triggers form
-    document.getElementById('desktopSubmit').addEventListener('click', function (e) {
-      e.preventDefault();
-      document.getElementById('contactForm').requestSubmit();
-    });
-  </script>
-
-
+    } catch (error) {
+      alert('Network error.');
+      console.error(error);
+    } finally {
+      this.classList.remove("submitting");
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+</script>
 
 </body>
 

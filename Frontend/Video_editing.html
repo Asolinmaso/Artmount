@@ -21,6 +21,10 @@
 
   <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
 
+    <!-- Common CSS (shared across all pages) -->
+    <link href="common.css" rel="stylesheet" />
+    <!-- Course Common CSS (shared across course detail pages) -->
+    <link href="course-common.css" rel="stylesheet" />
     <link href="Video_editing.css" rel="stylesheet" />
 </head>
 
@@ -125,6 +129,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 400);
 });
 </script>
+<script>
+      window.addEventListener("scroll", function () {
+        const header = document.querySelector(".sticky-header");
+
+        const triggerPoint = 120;
+
+        if (window.scrollY > triggerPoint) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+    </script>
 
 
     </section>
@@ -141,6 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" onclick="showTab(this, 'courses')">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="showTab(this, 'review')">Review</a>
                         </li>
                     </ul>
 
@@ -308,6 +328,16 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </div>
 
+                    <!-- Review Tab Content -->
+                    <div id="review-content" class="tab-content" style="display: none;">
+                        <div class="description-container">
+                            <div class="text-center py-5">
+                                <h5>Student Reviews</h5>
+                                <p class="text-muted">Reviews and feedback from our students will be displayed here.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -367,7 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <div class="form-group">
-              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." />
+              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." inputmode="numeric" />
               <small class="error" id="mobileError"></small>
             </div>
 
@@ -528,16 +558,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-social">
         <ul class="socials">
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
+          <li><a href="https://www.linkedin.com/company/artmount-academy"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
                 alt="LinkedIn"></a></li>
 
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+          <li><a href="https://www.instagram.com/artmountacademy"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
                 alt="Instagram"></a></li>
 
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          <li><a href="https://wa.me/918778359643"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                 alt="WhatsApp"></a></li>
 
-          <li><a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
+          <li><a href="https://www.facebook.com/artmountacademy"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
                 alt="Facebook"></a></li>
 
           <li><a href="mailto:info@artmountacademy.com"><img
@@ -604,74 +634,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- =============backend script code ============== -->
     <script>
-        const API_URL = 'https://artmount-backend.onrender.com';
+  const API_URL = 'https://artmount-backend.onrender.com';
 
-        // CTA Form Handler
-        document.querySelector('#contactForm').addEventListener('submit', async function (e) {
-            e.preventDefault();
+  document.querySelector('#contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
 
-            // 🔥 Prevent double submission
-            if (this.classList.contains("submitting")) return;
-            this.classList.add("submitting");
+    if (this.classList.contains("submitting")) return;
+    this.classList.add("submitting");
 
-            const submitBtn = this.querySelector('.btn-mobile');
-            const desktopBtn = document.getElementById('desktopSubmit');
-            const originalText = submitBtn.textContent;
+    const submitBtn = document.getElementById('desktopSubmit');
+    const originalText = submitBtn.textContent;
 
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('mobile').value.trim();
-            const message = document.getElementById('description').value.trim();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('mobile').value.trim();
+    const message = document.getElementById('description').value.trim();
 
-            if (!name || !email || !phone || !message) {
-                alert('Please fill in all fields');
-                this.classList.remove("submitting");
-                return;
-            }
+    if (!name || !email || !phone || !message) {
+      alert('Please fill in all fields');
+      this.classList.remove("submitting");
+      return;
+    }
 
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            desktopBtn.style.pointerEvents = 'none';
-            desktopBtn.style.opacity = '0.6';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    
+    try {
+      const response = await fetch(`${API_URL}/contact/submit`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message })
+      });
 
-            try {
-                const response = await fetch(`${API_URL}/contact/submit`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, phone, message })
-                });
+      const data = await response.json();
 
-                const data = await response.json();
-
-                if (response.ok) {
-                    alert(data.message || 'Thank you! We got your inquiry.');
-                    this.reset();
-                } else {
-                    alert(data.message || 'Failed to submit. Try again.');
-                }
-            } catch (error) {
-                alert('Network error.');
-                console.error(error);
-            } finally {
-                // 🔥 Allow submission again
-                this.classList.remove("submitting");
-
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalText;
-                desktopBtn.style.pointerEvents = 'auto';
-                desktopBtn.style.opacity = '1';
-            }
-        });
-
-        // Desktop button triggers form
-        document.getElementById('desktopSubmit').addEventListener('click', function (e) {
-            e.preventDefault();
-            document.getElementById('contactForm').requestSubmit();
-        });
-    </script>
-
-
-
+      if (response.ok) {
+        alert(data.message || 'Thank you! We got your inquiry.');
+        this.reset();
+      } else {
+        alert(data.message || 'Failed to submit. Try again.');
+      }
+    } catch (error) {
+      alert('Network error.');
+      console.error(error);
+    } finally {
+      this.classList.remove("submitting");
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+</script>
 </body>
 
 </html>

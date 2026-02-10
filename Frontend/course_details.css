@@ -150,10 +150,6 @@ body:has(#menu-toggle:checked) {
   height: auto;
   transition: transform 0.3s ease;
 }
-.container-fluid{
-  margin:0px;
-  padding:0px;
-}
 
 
 /* Header Content */

@@ -472,7 +472,7 @@ body:has(#menu-toggle:checked) {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-top: 80px !important;
+  margin-top: 80px;
   margin-left:-40px;
 }
 
@@ -602,7 +602,19 @@ body:has(#menu-toggle:checked) {
 
 /* Mobile Landscape - 768px ↓ */
 @media (max-width: 768px) {
-  .description-container { padding: 20px; }
+  #courseTabs{
+    margin-left: 0;
+  }
+  #courseTabs .nav-link{
+    font-size: 20px;
+  }
+
+.sidebar-content-wrapper{
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+.description-container { padding: 20px; margin-left: 0; }
   .description-text { font-size: 14px; }
   .accordion-header, .accordion-content { padding: 15px !important; }
   .course-list li { font-size: 13px; }
@@ -685,6 +697,26 @@ font-size:30px;
   margin-top:20px;
   margin-left:10px;
 }
+.navbar-menu ul li a{
+    font-size: 24px;
+  }
+}
+
+@media (max-width:480px) {
+  .navbar-menu ul li a{
+  font-size: 22px;
+  }
+}
+@media (max-width:390px) {
+  .navbar-menu ul li a{
+  font-size: 20px;
+  }
+}
+@media (max-width: 320px)
+{  
+  .navbar-menu ul li a{
+    font-size: 18px;
+  }
 }
 
 
@@ -763,10 +795,11 @@ font-size:30px;
 
 
 .error {
-    color: rgb(255, 255, 255);
+    color: rgb(179, 45, 45);
     font-size: 0.85rem;
     display: block;
     margin-top: 4px;
+    font-weight: 500;
         }
 .form-control.invalid {
     border: 2px solid red;
@@ -876,7 +909,7 @@ font-size:30px;
   .btn-submit {
     width: 50%;
     font-size: 15px;
-    float:right;
+    float:left;
   }
 }
 

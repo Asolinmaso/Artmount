@@ -1,163 +1,3 @@
-body {
-   font-family: 'Inter';
-  background: #fff;
-  color: #000;
-}
-body:has(#menu-toggle:checked) {
-  overflow: hidden;
-  height: 100vh;
-}
-
-/* Hide checkbox */
-#menu-toggle {
-  display: none;
-}
-
-/* Hamburger Icon */
-.navbar-icon {
-  position: absolute;
-  top: 65px;
-  right: 60px;
-  width: 35px;
-  height: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  z-index: 1001;
-}
-
-.navbar-icon span {
-  display: block;
-  height: 4px;
-  width: 100%;
-  background: #000000ff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* Hover effect */
-.navbar-icon:hover span {
-  background: #2da9e0;
-  box-shadow: 0 0 0px ;
-}
-
-/* Transform hamburger to X */
-#menu-toggle:checked + .navbar-icon span:nth-child(1) {
-  transform: rotate(45deg) translate(9px, 6px);
-    background: #ffffffff;
-  height: 3px;
-}
-#menu-toggle:checked + .navbar-icon span:nth-child(2) {
-  opacity: 0;
-}
-#menu-toggle:checked + .navbar-icon span:nth-child(3) {
-  transform: rotate(-45deg) translate(9px, -6px);
-    background: #ffffffff;
-   height: 3px;
-}
-
-/* Navbar Drawer */
-.navbar-menu {
-  position: fixed;
-  top: 0;
-  right: -500px;   /* hidden off-screen */
-  width: 500px;
-  height: 100%;
-  background: #2da9e0;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-  transition: right 0.3s ease;
-  padding: 80px 20px; /* leave space for top */
-  z-index: 1000;
-}
-
-.navbar-menu ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 90px;
-  margin-Left:30px;
-  
-}
-
-.navbar-menu ul li {
-  margin: 20px 0;
-}
-
-.navbar-menu ul li a {
-  text-decoration: none;
-  color: #ffffffff;
-  font-weight: 400;
-  display: block;
-  transition: all 0.3s ease;
-  font-family: 'Inter' ;
-  font-size:40px;
-}
-
-.navbar-menu ul li a:hover {
-  color: #ffffffff;
-    transform: translateX(10px);
-
-}
-
-/* Parent item */
-.has-submenu {
-  position: relative;
-  margin:0px !important;
-}
-
-/* Submenu container */
-.submenu {
-  list-style: none;
-  padding-left: 20px;
-  margin-top: 10px;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: all 0.4s ease;
-  width:300px;
-}
-
-/* Show submenu on hover */
-.has-submenu:hover .submenu {
-  max-height: 500px;
-  opacity: 1;
-}
-
-.submenu a {
-  display: inline-block;
-  position: relative;
-  width: fit-content;
-}
-
-/* Submenu links */
-.submenu li {
-  margin: 10px 0;
-}
-
-ul.submenu{
-  margin-top:0px;
-  
-}
-
-.submenu li a {
-  font-size: 18px !important;           /* smaller than main menu */
-  font-weight: 300;
-  color: #ffffffcc;
-  transition: all 0.3s ease;
-}
-
-/* Hover effect for submenu */
-.submenu li a:hover {
-  color: #ffffff;
-  transform: translateX(10px);
-}
-
-
-/* Show drawer when checked */
-#menu-toggle:checked ~ .navbar-menu {
-  right: 0;
-}
-
 .colored-text{
   color: #88298e;
 }
@@ -167,50 +7,6 @@ ul.submenu{
   font-weight: 700;
 }
 
-.sticky-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2000;
-  background: transparent;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  transition: background 0.3s ease;
-}
-
-#logo {
-  width: 180px !important;
-  height: 64px;
-  object-fit: contain;
-}
-
-/* Top (no scroll) */
-#hamburger span {
-  background: #fff;
-}
-
-/* After scroll */
-.scrolled {
-  background: #fff;
-}
-
-.scrolled #hamburger span {
-  background: #000;
-}
-
-
-
-
-.hero-logo {
-  margin: 30px 0px 0px 55px; /* center and add space below */
-  max-width: 200px; /* adjust size as needed */
-  height: auto;
-  transition: transform 0.3s ease;
-  
-}
 .our-courses{
   position:relative;
    padding-top: 130px;
@@ -911,9 +707,27 @@ ul.submenu{
   .plus3{
      display:none;
   }
+  .navbar-menu ul li a{
+    font-size: 24px;
+  }
+}
+
+@media (max-width:480px) {
+  .navbar-menu ul li a{
+  font-size: 22px;
+  }
+}
+
+@media (max-width:390px) {
+  .navbar-menu ul li a{
+  font-size: 20px;
+  }
 }
 @media (max-width: 320px)
 {  
+  .navbar-menu ul li a{
+    font-size: 18px;
+  }
   .our.courses{
     margin-bottom:500px;
     height:740px;
@@ -1289,10 +1103,11 @@ button.section-btn-outline-info2{
 
 
 .error {
-    color: rgb(255, 255, 255);
+    color: rgb(179, 45, 45);
     font-size: 0.85rem;
     display: block;
     margin-top: 4px;
+    font-weight: 500;
         }
 .form-control.invalid {
     border: 2px solid red;
@@ -1403,7 +1218,7 @@ button.section-btn-outline-info2{
   .btn-submit {
     width: 50%;
     font-size: 15px;
-    float:right;
+    float:left;
   }
 }
 

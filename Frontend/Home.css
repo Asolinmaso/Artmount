@@ -532,6 +532,11 @@ button.section-btn-outline-info1{
 
 /* ========== Responsive (Tablet & Mobile) ========== */
 /* ================== Responsive ================== */
+@media (max-width:1380px) {
+  .console-container{
+    font-size:36px;
+  }
+}
 
 /* Large Devices (<=1200px) */
 @media (max-width: 1200px) {
@@ -1450,10 +1455,10 @@ button.section-btn-outline-info2{
   line-height: 1.6;
   color: #696868ff;
   font-size:17px;
-  flex-grow: 1;
   margin-bottom: 0px;
   font-weight: 400;
    text-align:justify;
+   flex-grow: 1;
 
 }
 

@@ -1656,3 +1656,14 @@ svg text {
   }
 
 }
+@media (max-width:362px) {
+  .course-label{
+    font-size: 12px;
+  }
+  .graphic{
+    left: 13%;
+  }
+  .uiux{
+    left: 13%;
+  }
+}

@@ -1138,3 +1138,15 @@ svg text {
   }
 
 }
+@media (max-width:380px) {
+  #courseTabs .nav-link{
+    font-size: 16px;
+  }
+  
+}
+@media (max-width:370px) {
+  .footer-social{
+    margin-left: 20px;
+  }
+  
+}

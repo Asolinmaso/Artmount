@@ -870,6 +870,13 @@ svg text {
   }
 }
 
+@media (max-width:370px) {
+  .footer-social{
+    margin-left: 20px;
+  }
+  
+}
+
 /* ========= 320px and below ========= */
 @media (max-width: 320px) {
   .navbar-menu ul li a {

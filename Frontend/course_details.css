@@ -1254,3 +1254,9 @@ svg text {
   }
 
 }
+@media (max-width:370px) {
+  .footer-social{
+    margin-left: 20px;
+  }
+  
+}

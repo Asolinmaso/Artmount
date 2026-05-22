@@ -1667,3 +1667,146 @@ svg text {
     left: 13%;
   }
 }
+
+/* =========cta section========= */
+
+/* cta section */
+.cta-section {
+  font-family: 'Inter';
+  margin: 40px 80px;
+  background: #2da9e0;
+  padding: 40px 30px 40px 30px;
+  color: #fff;
+  border-radius: 20px;
+  height: auto;
+}
+
+.cta-heading {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 15px 0;
+  margin-top:30px;
+}
+
+.cta-text {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-bottom: 0;
+  width:90%;
+}
+
+/* Inputs */
+.form-control {
+  margin-top: 20px;
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 0px;
+  padding: 15px 20px;
+  font-size: 16px;
+  color: #333;
+  font-weight:500;
+}
+
+.form-control::placeholder {
+  color: #9ad5f0;
+  font-weight: 400;
+}
+
+/* Contact Button */
+.btn-submit {
+  background: white;
+  width: fit-content;
+  padding: 12px 28px;
+  color: #2da9e0;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.btn-submit:hover {
+  background: #f5f5f5;
+  color: #2298cf;
+}
+
+
+.error {
+    color: rgb(179, 45, 45);
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 4px;
+    font-weight: 500;
+}
+.form-control.invalid {
+    border: 2px solid red;
+}
+.form-control.valid {
+    border: 2px solid rgb(10, 233, 10);
+}
+
+/* Floating Shapes */
+.cta-shape {
+  position: absolute;
+  z-index: 1;
+}
+
+.cta-circle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #a67bc4;
+  border-radius: 50%;
+}
+
+.cta-cross {
+  color: #e68e51;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.cta-circle-top {
+  top: 5%;
+  left: 65%;
+}
+
+.cta-cross-right {
+  top: 35%;
+  left: 70%;
+}
+
+.cta-circle-bottom {
+  bottom: 25%;
+  left: 5%;
+}
+
+/* responsive */
+@media (max-width: 992px) {
+  .cta-section {
+    margin: 20px;
+    padding: 30px 20px;
+  }
+  .cta-heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 500px) {
+  .cta-section {
+    margin: 10px;
+    padding: 20px 15px;
+  }
+  .cta-heading {
+    font-size: 28px;
+  }
+}

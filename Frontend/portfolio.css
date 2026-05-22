@@ -43,6 +43,8 @@
   margin: 0px auto 80px;  /* TOP & BOTTOM SPACE */
   color: #000;              /* BLACK TEXT */
   position: relative;       /* prevents overlap issues */
+  word-break: keep-all;     /* Prevents breaking mid-word like I-tself */
+  overflow-wrap: normal;
 }
 
 .console-underscore {
@@ -176,6 +178,9 @@
   .subtitle {
     font-size: 15px;
   }
+  .console-container {
+    font-size: 40px;
+  }
   .floating-images {
     height: 320px;
   }
@@ -186,7 +191,7 @@
 }
 
 /* Tablets <= 768px */
-@media (min-width:700px) and (max-width: 768px) {
+@media (max-width: 768px) {
   .navbar-icon {
     top: 30px;
     right: 30px;
@@ -205,6 +210,9 @@
   .subtitle {
     font-size: 14px;
   }
+  .console-container {
+    font-size: 32px;
+  }
   .floating-images {
     height: 280px;
   }
@@ -220,8 +228,6 @@
   .text3{
     display:none;
   }
-
- 
 
 }
 
@@ -254,11 +260,11 @@
 
   }
   .console-container {
-    font-size:32px;
+    font-size: 26px;
     line-height:1.2;
   }
   .subtitle{
-    font-size:24px;
+    font-size:20px;
   }
   .floating-images {
     position: relative;
@@ -758,7 +764,7 @@
 }
 
 .form-control::placeholder {
-  color: #2da9e0;
+  color: #9ad5f0;
   font-weight: 400;
 }
 
@@ -775,7 +781,7 @@
   display: block;
   text-align: center;
   margin-left: auto;       /* pushes button to the RIGHT */
-  margin-top: 25px;
+  margin-top: 30px;
   transition: all 0.3s ease;
   font-size: 18px;
 }

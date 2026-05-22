@@ -540,7 +540,7 @@ svg text {
 }
 
 .form-control::placeholder {
-  color: #2da9e0;
+  color: #9ad5f0;
   font-weight: 400;
 }
 
@@ -557,7 +557,7 @@ svg text {
   display: block;
   text-align: center;
   margin-left: auto;
-  margin-top: 25px;
+  margin-top: 30px;
   transition: all 0.3s ease;
   font-size: 18px;
 }
@@ -579,6 +579,41 @@ svg text {
 }
 .form-control.valid {
   border: 2px solid rgb(10, 233, 10);
+}
+
+/* Floating Shapes */
+.cta-shape {
+  position: absolute;
+  z-index: 1;
+}
+
+.cta-circle {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #a67bc4;
+  border-radius: 50%;
+}
+
+.cta-cross {
+  color: #e68e51;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.cta-circle-top {
+  top: 5%;
+  left: 65%;
+}
+
+.cta-cross-right {
+  top: 35%;
+  left: 70%;
+}
+
+.cta-circle-bottom {
+  bottom: 25%;
+  left: 5%;
 }
 
 /* ==================================================================

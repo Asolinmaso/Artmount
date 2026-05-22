@@ -458,12 +458,17 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="container">
       <div class="row">
         <!-- Left content -->
-        <div class="col-lg-6">
-          <h2 class="cta-heading cta-reveal-left underline-anim">Ready to Grow<br>with Artmount?</h2>
-          <p class="cta-text cta-reveal-left">
+        <div class="col-lg-6" style="position: relative;">
+          <!-- Floating Shapes -->
+          <span class="cta-shape cta-circle cta-circle-top"></span>
+          <span class="cta-shape cta-circle cta-circle-bottom"></span>
+
+          <h2 class="cta-heading cta-reveal-left underline-anim" style="position: relative; z-index: 2;">Ready to Grow<br>with Artmount?</h2>
+          <p class="cta-text cta-reveal-left" style="position: relative; z-index: 2;">
             Let's kickstart your UI/UX or Graphic Design journey at
             Artmount. Contact us now for a free demo or batch info!
           </p>
+          <button type="submit" form="contactForm" id="desktopSubmit" class="btn-contact btn-submit" style="margin-left: 0; position: relative; z-index: 2;">Contact us</button>
         </div>
 
         <!-- Right form -->
@@ -488,9 +493,6 @@ document.addEventListener("DOMContentLoaded", () => {
               <input type="text" id="description" class="form-control" placeholder="Description" />
               <small class="error" id="descriptionError"></small>
             </div>
-
-            <!-- One single button (desktop + mobile unified) -->
-            <button type="submit" id="desktopSubmit" class="btn-contact btn-submit">Submit</button>
           </form>
         </div>
       </div>
@@ -717,7 +719,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <!-- =============backend script code ============== -->
     <script>
-  const API_URL = 'https://artmount-backend.onrender.com';
+  const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://127.0.0.1:5000' : 'https://artmount-backend.onrender.com';
 
   document.querySelector('#contactForm').addEventListener('submit', async function (e) {
     e.preventDefault();
@@ -771,3 +773,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 </html>
+
+
+

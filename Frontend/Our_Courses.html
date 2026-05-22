@@ -15,9 +15,9 @@
   <link href="https://fonts.googleapis.com/css2?family=BBH+Bartle&family=Sekuya&display=swap" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
-   <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
   <!-- Common CSS (shared across all pages) -->
   <link rel="stylesheet" href="common.css">
   <link rel="stylesheet" href="Our_Courses.css">
@@ -29,7 +29,7 @@
   <!-- Hero Section -->
   <header class="sticky-header">
     <a href="Home.html">
-    <img src="artmount-logo-black.png" alt="Artmount Logo" class="hero-logo reveal reveal-zoom" id="logo">
+      <img src="artmount-logo-black.png" alt="Artmount Logo" class="hero-logo reveal reveal-zoom" id="logo">
     </a>
     <input type="checkbox" id="menu-toggle" title="Toggle navigation menu" />
     <label for="menu-toggle" class="navbar-icon" aria-label="Toggle navigation menu">
@@ -38,38 +38,38 @@
       <span></span>
     </label>
     <!-- Side Navigation Menu -->
-   <nav class="navbar-menu">
-            <ul>
-              <li><a href="Home.html" class="nav-link hover-pop">
-                  <span class="underline-animate">Home</span>
-                </a></li>
+    <nav class="navbar-menu">
+      <ul>
+        <li><a href="Home.html" class="nav-link hover-pop">
+            <span class="underline-animate">Home</span>
+          </a></li>
 
-              <li class="has-submenu">
-                <a href="Our_Courses.html" class="nav-link hover-pop">
-                  <span class="underline-animate">Our Courses</span>
-                </a>
+        <li class="has-submenu">
+          <a href="Our_Courses.html" class="nav-link hover-pop">
+            <span class="underline-animate">Our Courses</span>
+          </a>
 
-                <ul class="submenu">
-                  <li><a href="graphic_design.html" class="hover-pop underline-anim">Graphic designing</a></li>
-                  <li><a href="digital_marketing.html" class="hover-pop underline-anim">Digital Marketing</a></li>
-                  <li><a href="uiux_design.html" class="hover-pop underline-anim">UI/UX Design</a></li>
-                  <li><a href="Video_editing.html" class="hover-pop underline-anim">Video Editing</a></li>
-                </ul>
-              </li>
+          <ul class="submenu">
+            <li><a href="graphic_design.html" class="hover-pop underline-anim">Graphic designing</a></li>
+            <li><a href="digital_marketing.html" class="hover-pop underline-anim">Digital Marketing</a></li>
+            <li><a href="uiux_design.html" class="hover-pop underline-anim">UI/UX Design</a></li>
+            <li><a href="Video_editing.html" class="hover-pop underline-anim">Video Editing</a></li>
+          </ul>
+        </li>
 
-              <li><a href="About_Us.html" class="nav-link hover-pop">
-                  <span class="underline-animate">About Us</span>
-                </a></li>
+        <li><a href="About_Us.html" class="nav-link hover-pop">
+            <span class="underline-animate">About Us</span>
+          </a></li>
 
-              <li><a href="portfolio.html" class="nav-link hover-pop">
-                  <span class="underline-animate">Portfolio</span>
-                </a></li>
+        <li><a href="portfolio.html" class="nav-link hover-pop">
+            <span class="underline-animate">Portfolio</span>
+          </a></li>
 
-              <li><a href="contactpage.html" class="nav-link hover-pop">
-                  <span class="underline-animate">Contact Us</span>
-                </a></li>
-            </ul>
-          </nav>
+        <li><a href="contactpage.html" class="nav-link hover-pop">
+            <span class="underline-animate">Contact Us</span>
+          </a></li>
+      </ul>
+    </nav>
 
   </header>
   <section class="our-courses">
@@ -110,53 +110,53 @@
       })();
     </script>
 
-    
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const staticEl = document.getElementById("static-text");
-  const dynamicEl = document.getElementById("dynamic-text");
-  const cursor = document.getElementById("cursor");
 
-  if (!staticEl || !dynamicEl || !cursor) return;
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const staticEl = document.getElementById("static-text");
+        const dynamicEl = document.getElementById("dynamic-text");
+        const cursor = document.getElementById("cursor");
 
-  const staticText = "Learn the Art of ";
-  const dynamicWords = ["Branding", "Design", "Digital Marketing"];
+        if (!staticEl || !dynamicEl || !cursor) return;
 
-  staticEl.textContent = staticText;
+        const staticText = "Learn the Art of ";
+        const dynamicWords = ["Branding", "Design", "Digital Marketing"];
 
-  let wordIndex = 0;
-  let letterIndex = 0;
-  let deleting = false;
-  let isPaused = false;
+        staticEl.textContent = staticText;
 
-  setInterval(() => {
-    if (isPaused) return;
+        let wordIndex = 0;
+        let letterIndex = 0;
+        let deleting = false;
+        let isPaused = false;
 
-    const word = dynamicWords[wordIndex];
+        setInterval(() => {
+          if (isPaused) return;
 
-    if (!deleting) {
-      dynamicEl.textContent = word.slice(0, ++letterIndex);
-      if (letterIndex === word.length) {
-        isPaused = true;
-        setTimeout(() => {
-          deleting = true;
-          isPaused = false;
-        }, 1500);
-      }
-    } else {
-      dynamicEl.textContent = word.slice(0, --letterIndex);
-      if (letterIndex === 0) {
-        deleting = false;
-        wordIndex = (wordIndex + 1) % dynamicWords.length;
-      }
-    }
-  }, 100);
+          const word = dynamicWords[wordIndex];
 
-  setInterval(() => cursor.classList.toggle("hidden"), 400);
-});
+          if (!deleting) {
+            dynamicEl.textContent = word.slice(0, ++letterIndex);
+            if (letterIndex === word.length) {
+              isPaused = true;
+              setTimeout(() => {
+                deleting = true;
+                isPaused = false;
+              }, 1500);
+            }
+          } else {
+            dynamicEl.textContent = word.slice(0, --letterIndex);
+            if (letterIndex === 0) {
+              deleting = false;
+              wordIndex = (wordIndex + 1) % dynamicWords.length;
+            }
+          }
+        }, 100);
 
-</script>
+        setInterval(() => cursor.classList.toggle("hidden"), 400);
+      });
+
+    </script>
 
 
 
@@ -182,14 +182,14 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="course-label plus5 reveal reveal-zoom"><img src="plus.png" alt="circle"></div>
           <div class="course-label motion reveal reveal-right">
             Video Editing
-            <button onclick="window.location.href='Video_editing.html'">Explore Now</button>
+            <button onclick="window.location.href='Video_editing.html'">Enroll Now</button>
           </div>
           <div class="course-label digital reveal reveal-right">Digital Marketing<button
-              onclick="window.location.href='digital_marketing.html'">Explore Now</button></div>
+              onclick="window.location.href='digital_marketing.html'">Enroll Now</button></div>
           <div class="course-label graphic reveal reveal-left">Graphic designing<button
-              onclick="window.location.href='graphic_design.html'">Explore Now</button></div>
+              onclick="window.location.href='graphic_design.html'">Enroll Now</button></div>
           <div class="course-label uiux reveal reveal-left">UI/UX Design<button
-              onclick="window.location.href='uiux_design.html'">Explore
+              onclick="window.location.href='uiux_design.html'">Enroll
               Now</button></div>
         </div>
       </div>
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", () => {
   <!-- ================= COURSES SECTION  ================= -->
   <section class="courses-section scroll-animate fade-trigger">
     <div class="container">
-      
+
 
       <div class="row gy-4">
         <!-- Course 1 -->
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 Unlock your creative potential with Artmount’s industry-leading Graphic Design and Video Editing courses
                 in Chennai. Learn essential tools like Adobe Photoshop, Illustrator, InDesign, Premiere Pro, and After
                 Effects—preparing you to design brand identities, digital ads, layouts, and professional video content.
-              <br/>Build a strong portfolio through practical, hands-on learning designed to
+                <br />Build a strong portfolio through practical, hands-on learning designed to
                 make you job-ready. Whether
                 you’re a beginner or looking to upskill, our programs help you elevate your creative capabilities.
               </p>
@@ -255,10 +255,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 Figma mastery.Perfect for freshers, career switchers, and aspiring
                 designers aiming for
                 roles in top
-                Chennai agencies and startups.<br/> Get industry-ready with projects, case studies, and portfolio
+                Chennai agencies and startups.<br /> Get industry-ready with projects, case studies, and portfolio
                 guidance.
               </p>
-             <button type="button" class="magic-btn section-btn-outline-info2"
+              <button type="button" class="magic-btn section-btn-outline-info2"
                 onclick="window.location.href='uiux_design.html'">
                 Explore Now
               </button>
@@ -284,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 agency jobs, or
                 corporate
                 careers.
-              <br/> Practical, career-focused, and beginner-friendly – no prior
+                <br /> Practical, career-focused, and beginner-friendly – no prior
                 experience
                 needed.
               </p>
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 agency jobs, or
                 corporate
                 careers.
-              <br/> Practical, career-focused, and beginner-friendly – no prior
+                <br /> Practical, career-focused, and beginner-friendly – no prior
                 experience
                 needed.
               </p>
@@ -342,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 agency jobs, or
                 corporate
                 careers.
-              <br/> Practical, career-focused, and beginner-friendly – no prior
+                <br /> Practical, career-focused, and beginner-friendly – no prior
                 experience
                 needed.
               </p>
@@ -371,7 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 agency jobs, or
                 corporate
                 careers.
-              <br/> Practical, career-focused, and beginner-friendly – no prior
+                <br /> Practical, career-focused, and beginner-friendly – no prior
                 experience
                 needed.
               </p>
@@ -416,12 +416,17 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="container">
       <div class="row">
         <!-- Left content -->
-        <div class="col-lg-6">
-          <h2 class="cta-heading cta-reveal-left underline-anim">Ready to Grow<br>with Artmount?</h2>
-          <p class="cta-text cta-reveal-left">
+        <div class="col-lg-6" style="position: relative;">
+          <!-- Floating Shapes -->
+          <span class="cta-shape cta-circle cta-circle-top"></span>
+          <span class="cta-shape cta-circle cta-circle-bottom"></span>
+
+          <h2 class="cta-heading cta-reveal-left underline-anim" style="position: relative; z-index: 2;">Ready to Grow<br>with Artmount?</h2>
+          <p class="cta-text cta-reveal-left" style="position: relative; z-index: 2;">
             Let's kickstart your UI/UX or Graphic Design journey at
             Artmount. Contact us now for a free demo or batch info!
           </p>
+          <button type="submit" form="contactForm" id="desktopSubmit" class="btn-contact btn-submit" style="margin-left: 0; position: relative; z-index: 2;">Contact us</button>
         </div>
 
         <!-- Right form -->
@@ -438,7 +443,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
 
             <div class="form-group">
-              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." inputmode="numeric"/>
+              <input type="tel" id="mobile" class="form-control" placeholder="Mobile No." inputmode="numeric" />
               <small class="error" id="mobileError"></small>
             </div>
 
@@ -446,9 +451,6 @@ document.addEventListener("DOMContentLoaded", () => {
               <input type="text" id="description" class="form-control" placeholder="Description" />
               <small class="error" id="descriptionError"></small>
             </div>
-
-            <!-- One single button (desktop + mobile unified) -->
-            <button type="submit" id="desktopSubmit" class="btn-contact btn-submit">Submit</button>
           </form>
         </div>
       </div>
@@ -599,17 +601,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="footer-social">
         <ul class="socials">
-          <li><a href="https://www.linkedin.com/company/artmount-academy"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg"
-                alt="LinkedIn"></a></li>
+          <li><a href="https://www.linkedin.com/company/artmount-academy"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Linkedin.svg" alt="LinkedIn"></a></li>
 
-          <li><a href="https://www.instagram.com/artmountacademy"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
-                alt="Instagram"></a></li>
+          <li><a href="https://www.instagram.com/artmountacademy"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a></li>
 
-          <li><a href="https://wa.me/918778359643"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-                alt="WhatsApp"></a></li>
+          <li><a href="https://wa.me/918778359643"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a></li>
 
-          <li><a href="https://www.facebook.com/artmountacademy"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"
-                alt="Facebook"></a></li>
+          <li><a href="https://www.facebook.com/artmountacademy"><img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook"></a>
+          </li>
 
           <li><a href="mailto:info@artmountacademy.com"><img
                 src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="gmail"></a>
@@ -654,57 +657,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
   <!-- =============backend script code ============== -->
   <script>
-  const API_URL = 'https://artmount-backend.onrender.com';
+    const API_URL = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? 'http://127.0.0.1:5000' : 'https://artmount-backend.onrender.com';
 
-  document.querySelector('#contactForm').addEventListener('submit', async function (e) {
-    e.preventDefault();
+    document.querySelector('#contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-    if (this.classList.contains("submitting")) return;
-    this.classList.add("submitting");
+      if (this.classList.contains("submitting")) return;
+      this.classList.add("submitting");
 
-    const submitBtn = document.getElementById('desktopSubmit');
-    const originalText = submitBtn.textContent;
+      const submitBtn = document.getElementById('desktopSubmit');
+      const originalText = submitBtn.textContent;
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('mobile').value.trim();
-    const message = document.getElementById('description').value.trim();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('mobile').value.trim();
+      const message = document.getElementById('description').value.trim();
 
-    if (!name || !email || !phone || !message) {
-      alert('Please fill in all fields');
-      this.classList.remove("submitting");
-      return;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-
-    try {
-      const response = await fetch(`${API_URL}/contact/submit`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, message })
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert(data.message || 'Thank you! We got your inquiry.');
-        this.reset();
-      } else {
-        alert(data.message || 'Failed to submit. Try again.');
+      if (!name || !email || !phone || !message) {
+        alert('Please fill in all fields');
+        this.classList.remove("submitting");
+        return;
       }
-    } catch (error) {
-      alert('Network error.');
-      console.error(error);
-    } finally {
-      this.classList.remove("submitting");
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    }
-  });
-</script>
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      try {
+        const response = await fetch(`${API_URL}/contact/submit`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, phone, message })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert(data.message || 'Thank you! We got your inquiry.');
+          this.reset();
+        } else {
+          alert(data.message || 'Failed to submit. Try again.');
+        }
+      } catch (error) {
+        alert('Network error.');
+        console.error(error);
+      } finally {
+        this.classList.remove("submitting");
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  </script>
 
 </body>
 
 </html>
+
+
